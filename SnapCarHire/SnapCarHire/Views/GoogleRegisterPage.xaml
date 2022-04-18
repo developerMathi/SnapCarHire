@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:renders="clr-namespace:SnapCarHire.Renders"
+             mc:Ignorable="d"
+             x:Class="SnapCarHire.Views.GoogleRegisterPage"
+              BackgroundColor="{StaticResource BackGroundColor}">
+    <ContentPage.Content>
+        <StackLayout>
+        <ScrollView>
+            <StackLayout Margin="0,30,0,0" VerticalOptions="CenterAndExpand">
+                <Label Text="Register Here..."
+                        VerticalOptions="Start" 
+                        HorizontalOptions="CenterAndExpand"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource BlackColor}"/>
+
+
+                <StackLayout Margin="20,5,20,30" VerticalOptions="CenterAndExpand">
+
+                    <Frame HeightRequest="150"
+                           WidthRequest="150"
+                           CornerRadius="150"
+                           Padding="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           IsClippedToBounds="True"
+                           BorderColor="{StaticResource GrayColor}">
+                        <Image HeightRequest="150"
+                               Aspect="AspectFill"
+                               x:Name="profileImage"></Image>
+                    </Frame>
+                    <Label x:Name="EmailLabel"
+                               FontSize="Body"
+                               FontAttributes="Bold"
+                               Margin="0,10,0,0"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="Center"></Label>
+
+
+                    <Grid RowSpacing="10" Margin="0,20,0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="4"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="5"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="6"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="7"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="8"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="9"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+
+                        <Frame BackgroundColor="{StaticResource popUpBackground}"
+                                   BorderColor="Transparent"
+                                   Grid.Row="10"
+                                   Grid.Column="0"
+                                   Padding="0,0,0,0"
+                                   CornerRadius="10"></Frame>
+
+
+
+                        <renders:CustomEntry Grid.Row="0"
+                                                 Grid.Column="0"
+                                                 Placeholder="First Name"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="FirstNameEntry">
+                        </renders:CustomEntry>
+
+                        <renders:CustomEntry Grid.Row="1"
+                                                 Grid.Column="0"
+                                                 Placeholder="Last Name"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Keyboard="Email"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="LastNameEntry"></renders:CustomEntry>
+
+                        <renders:BorderlessDatePicker Grid.Row="2"
+                                                          Grid.Column="0"
+                                                          TextColor="{StaticResource GrayColor}"
+                                                          FontSize="Small"
+                                                          Margin="10,0,0,0"
+                                                          Placeholder="Date Of Birth"
+                                                              x:Name="DateOfBithEntry"
+                                                              Focused="DateOfBithEntry_Focused"></renders:BorderlessDatePicker>
+
+                        <renders:CustomEntry Grid.Row="3"
+                                                 Grid.Column="0"
+                                                 Placeholder="Address"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="AddressEntry"></renders:CustomEntry>
+
+                        <renders:CustomEntry Grid.Row="4"
+                                                 Grid.Column="0"
+                                                 Placeholder="City"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="CityEntry"></renders:CustomEntry>
+
+
+                        <renders:BorderlessPicker Grid.Row="5"
+                                                      Grid.Column="0"
+                                                      Title="Country"
+                                                      TitleColor="{StaticResource GrayColor}"
+                                                      FontSize="Small"
+                                                      Margin="10,0,0,0"
+                                                      TextColor="{StaticResource GrayColor}"
+                                                          x:Name="countryPicker"
+                                                          Unfocused="countryPicker_Unfocused"></renders:BorderlessPicker>
+
+                        <renders:BorderlessPicker Grid.Row="6"
+                                                      Grid.Column="0"
+                                                      Title="State"
+                                                      TitleColor="{StaticResource GrayColor}"
+                                                      FontSize="Small"
+                                                      Margin="10,0,0,0"
+                                                      TextColor="{StaticResource GrayColor}"
+                                                          x:Name="statePicker"></renders:BorderlessPicker>
+
+
+                        <renders:CustomEntry Grid.Row="7"
+                                                 Grid.Column="0"
+                                                 Placeholder="Postal Code"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="PostalCodeEntry"></renders:CustomEntry>
+
+
+                        <renders:CustomEntry Grid.Row="8"
+                                                     Keyboard="Telephone"
+                                                 Grid.Column="0"
+                                                 Placeholder="Contact Number"
+                                                 PlaceholderColor="{StaticResource GrayColor}"
+                                                 FontSize="Small"
+                                                 Margin="10,0,0,0"
+                                                 TextColor="{StaticResource GrayColor}"
+                                                     x:Name="ContactNoEntry"></renders:CustomEntry>
+
+                        <renders:CustomEntry Grid.Row="9"
+                                         Grid.Column="0"
+                                         Placeholder="Password"
+                                         PlaceholderColor="{StaticResource GrayColor}"
+                                         FontSize="Small"
+                                         IsPassword="True"
+                                         Margin="10,0,0,0"
+                                                 x:Name="PasswordEntry"></renders:CustomEntry>
+
+                        <renders:CustomEntry Grid.Row="10"
+                                         Grid.Column="0"
+                                         Placeholder="Confirm password"
+                                         PlaceholderColor="{StaticResource GrayColor}"
+                                         FontSize="Small"
+                                         IsPassword="True"
+                                         Margin="10,0,0,0"
+                                                 x:Name="ConfirmPasswordEntry"></renders:CustomEntry>
+                    </Grid>
+
+
+
+
+                    <Button BackgroundColor="{StaticResource PrimaryColor}"
+                            Text="Next"
+                            TextColor="{StaticResource BackGroundColor}"
+                            BorderWidth="0"
+                            CornerRadius="45"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            x:Name="regiseterNxtBtn"
+                            HeightRequest="45"
+                            Margin="0,30,0,40"
+                            Clicked="regiseterNxtBtn_Clicked"></Button>
+
+                    <Frame BackgroundColor="{StaticResource PrimaryColor}"
+                               Padding="0"
+                            CornerRadius="45"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            x:Name="NextSpinnerFrame"
+                            HeightRequest="45"
+                            Margin="0,30,0,40"
+                               IsVisible="False">
+                        <ActivityIndicator Color="{StaticResource BackGroundColor}"
+                                               IsRunning="False"
+                                               HeightRequest="30"
+                                               VerticalOptions="Center"
+                                               x:Name="nextSpinner"></ActivityIndicator>
+                    </Frame>
+
+
+                    <!--<Image x:Name="registerPageImage"
+                           Aspect="AspectFit"
+                           Margin="10,0,10,30"
+                           BackgroundColor="Transparent"></Image>-->
+
+
+
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

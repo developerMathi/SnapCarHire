@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:views="clr-namespace:SnapCarHire.Views" 
+            xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+            mc:Ignorable="d"
+            x:Class="SnapCarHire.Views.HomeTabbedPage"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="False"
+            BackgroundColor="Transparent"
+            BarBackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource LightGrayColor}}"
+            NavigationPage.HasNavigationBar="False">
+    <!--Pages can be added as references or inline-->
+    <views:HomePageDetail
+        x:Name="Dashboard"
+        Title=""
+        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedDashboard.png}" />
+    <views:BookNow
+        x:Name="bookingPage"
+        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedSearch.png}" 
+        Title=""/>
+
+    <views:MyProfile
+        x:Name="MembershipScreen"
+        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedUser.png}" 
+        Title=""/>
+    <!--<views:HelpFunnelPage
+        x:Name="AcountPage"
+        Title="Contact Us"
+        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedHelp.png}" />-->
+</TabbedPage>

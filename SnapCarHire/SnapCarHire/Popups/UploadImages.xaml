@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+                  mc:Ignorable="d"
+             x:Class="SnapCarHire.Popups.UploadImages">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SpringIn"
+            EasingOut="SpringOut"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame
+        Margin="10,20,10,-10"
+        Padding="0,10"
+        BackgroundColor="{StaticResource BackGroundColor}"
+        CornerRadius="0"
+        HorizontalOptions="Fill"
+        VerticalOptions="CenterAndExpand">
+        <ScrollView>
+            <Grid BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0"
+                    Margin="10,10,10,0"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Large"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Images"
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Image
+                        Grid.Column="2"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedClose.png}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="btnClose"
+                                NumberOfTapsRequired="1"
+                                Tapped="btnClose_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Grid x:Name="grdMain" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="0,0,0,5"
+                        HeightRequest="1"
+                        VerticalOptions="StartAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Button
+                        Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Clicked="GaleryBtn_Clicked"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Select from gallery"
+                        TextColor="{StaticResource BlackColor}"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="0,5,0,0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Label
+                        Grid.Row="2"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Take a photo"
+                        TextColor="{StaticResource BlackColor}"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="cameraBtn"
+                                NumberOfTapsRequired="1"
+                                Tapped="CameraBtn_Clicked" />
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="2"
+                        Margin="0,0,0,0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+                </Grid>
+                <Grid
+                    x:Name="PhotoFrame"
+                    Grid.Row="1"
+                    IsVisible="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image
+                        x:Name="selectedImage"
+                        Grid.Row="0"
+                        Aspect="AspectFit"
+                        HeightRequest="200" />
+
+
+                    <Grid
+                        Grid.Row="1"
+                        Margin="15,0,15,0"
+                        ColumnSpacing="10"
+                        HorizontalOptions="Fill">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            x:Name="cancelBtn"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="{StaticResource GrayColor}"
+                            BorderWidth="0"
+                            Clicked="CancelBtn_Clicked"
+                            CornerRadius="10"
+                            HeightRequest="45"
+                            Text="Cancel"
+                            TextColor="{StaticResource BackGroundColor}" />
+
+                        <Button
+                            x:Name="SaveBtn"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="{StaticResource GreenColor}"
+                            BorderWidth="0"
+                            Clicked="SaveBtn_Clicked"
+                            CornerRadius="10"
+                            HeightRequest="45"
+                            Text="Save"
+                            TextColor="{StaticResource BackGroundColor}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Frame>
+</pages:PopupPage>

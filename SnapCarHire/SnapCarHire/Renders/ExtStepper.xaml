@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SnapCarHire.Renders.ExtStepper"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <StackLayout x:Name="StkStepper">
+            <Frame
+                x:Name="FrmStepper"
+                Padding="0"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Frame
+                    x:Name="FrmSubStepper"
+                    Margin="2"
+                    Padding="0"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="100">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            x:Name="btnDecrease"
+                            Grid.Column="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            Clicked="BtnDecrease_Clicked"
+                            FontSize="18"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="–"
+                            TextColor="{StaticResource BackGroundColor}"
+                            VerticalOptions="CenterAndExpand" />
+
+                        <BoxView
+                            x:Name="bx1"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="2" />
+
+                        <Label
+                            x:Name="lblCounter"
+                            Grid.Column="1"
+                            Margin="-5,0,0,0"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="1"
+                            TextColor="Black"
+                            VerticalOptions="FillAndExpand"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            x:Name="bx2"
+                            Grid.Column="1"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="2" />
+
+                        <Button
+                            x:Name="btnincrease"
+                            Grid.Column="2"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            Clicked="Btnincrease_Clicked"
+                            FontSize="18"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="+"
+                            TextColor="{StaticResource BackGroundColor}"
+                            VerticalOptions="CenterAndExpand" />
+                    </Grid>
+
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

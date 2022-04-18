@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="SnapCarHire.Popups.AskForLogin"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+    xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+    mc:Ignorable="d">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame
+      
+        BackgroundColor="{StaticResource popUpBackground}"
+        BorderColor="Transparent"
+        CornerRadius="0"
+        HorizontalOptions="Fill"
+        VerticalOptions="CenterAndExpand">
+        <Frame.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS">
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="20,20,20,20"
+                        Tablet="40,1,40,50" />
+                </On>
+                <On Platform="Android,Windows">
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="20,20,20,20"
+                        Tablet="40,1,40,50" />
+                </On>
+            </OnPlatform>
+        </Frame.Margin>
+        <Frame.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS">
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="15,5,15,15"
+                        Tablet="20,5,20,20" />
+                </On>
+                <On Platform="Android,Windows">
+                    <OnIdiom
+                        x:TypeArguments="Thickness"
+                        Phone="15,5,15,15"
+                        Tablet="20,1,20,20" />
+                </On>
+            </OnPlatform>
+        </Frame.Padding>
+        <ScrollView>
+            <StackLayout BackgroundColor="Transparent">
+                <Grid Margin="0,10,0,0" HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="LOG-IN"
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="30"
+                                        Tablet="32" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="30"
+                                        Tablet="32" />
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+
+                    <Image
+                        Grid.Column="2"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedClose.png}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="btnClose"
+                                NumberOfTapsRequired="1"
+                                Tapped="btnClose_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+
+                <Label
+                    x:Name="contentText"
+                    Grid.Row="1"
+                    FontFamily="SourceSansPro-Regular"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{StaticResource BlackColor}"
+                    VerticalOptions="CenterAndExpand">
+                    You want to log-in before go to Home page.
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="18"
+                                    Tablet="22" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="20,25,20,20"
+                                    Tablet="35,25,35,20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="20,25,20,20"
+                                    Tablet="35,25,35,20" />
+                            </On>
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+
+                <Grid
+                    Margin="10,10,10,10"
+                    ColumnSpacing="10"
+                    HorizontalOptions="Fill">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Button
+                        x:Name="cancelBtn"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="0"
+                        BackgroundColor="{StaticResource GrayColor}"
+                        BorderWidth="0"
+                        Clicked="CancelBtn_Clicked"
+                        CornerRadius="10"
+                        FontFamily="SourceSansPro-Bold"
+                        Text="Cancel"
+                        TextColor="{StaticResource BackGroundColor}">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                            </OnPlatform>
+                        </Button.HeightRequest>
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="18"
+                                        Tablet="22" />
+                                </On>
+                            </OnPlatform>
+                        </Button.FontSize>
+                    </Button>
+
+                    <Button
+                        x:Name="loginBtn"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="0"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BorderWidth="0"
+                        Clicked="LoginBtn_Clicked"
+                        CornerRadius="10"
+                        FontFamily="SourceSansPro-Bold"
+                        Text="Log-in"
+                        TextColor="{StaticResource BackGroundColor}">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                            </OnPlatform>
+                        </Button.HeightRequest>
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="18"
+                                        Tablet="22" />
+                                </On>
+                            </OnPlatform>
+                        </Button.FontSize>
+                    </Button>
+
+                    <Button
+                        x:Name="signUpBtn"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Padding="0"
+                        BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                        Clicked="signUpBtn_Clicked"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        Text="Sign up"
+                        TextColor="{StaticResource BackGroundColor}">
+                        <Button.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="40"
+                                        Tablet="50" />
+                                </On>
+                            </OnPlatform>
+                        </Button.HeightRequest>
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="18"
+                                        Tablet="22" />
+                                </On>
+                            </OnPlatform>
+                        </Button.FontSize>
+                    </Button>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+</pages:PopupPage>

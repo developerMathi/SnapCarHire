@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions" xmlns:renders="clr-namespace:SnapCarHire.Renders"
+             x:Class="SnapCarHire.Views.enterConfirmationCodePage"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,10,20,0">
+                <StackLayout
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand">
+                    <ImageButton
+                        x:Name="titleBackBtn"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        Clicked="titleBackBtn_Clicked" 
+                        HorizontalOptions="StartAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconBack.png}">
+                        <ImageButton.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="30" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="30"
+                                        Tablet="40" />
+                                </On>
+                            </OnPlatform>
+                        </ImageButton.WidthRequest>
+                    </ImageButton>
+                </StackLayout>
+                <Image
+                    HorizontalOptions="CenterAndExpand"
+                    x:Name="illuImage"
+                    Margin="10,0,10,10"
+                    Aspect="AspectFit"
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.Illustrations.EnterCofirmCode.png}">
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="220"
+                                    Tablet="260" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="220"
+                                    Tablet="260" />
+                            </On>
+                        </OnPlatform>
+                    </Image.HeightRequest>
+                </Image>
+
+                <Label
+                        Margin="0,30,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="CONFIRM EMAIL ADDRESS"
+                        TextColor="{StaticResource PrimaryColor}"
+                        VerticalOptions="CenterAndExpand">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+                <Label
+                        Margin="0,10,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Regular"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Enter the confirmation code sent to "
+                                      TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"></Span>
+                                <Span Text="Someone@example.com"
+                                      TextColor="{StaticResource GrayColor}"
+                                      x:Name="emailAddressLabel"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="18" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+
+                <Frame
+                            Padding="0,0,0,0"
+                            Margin="0,30,0,0"
+                            BackgroundColor="Transparent"
+                            BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                    x:Name="codeFrame">
+                    <renders:CustomEntry
+                        Focused="ContactNoEntry_Focused"
+                                    x:Name="ContactNoEntry"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                                    Margin="0,0,0,0"
+                                    FontFamily="SourceSansPro-Regular"
+                                    FontSize="Medium"
+                                    PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                        Keyboard="Numeric">
+                        <renders:CustomEntry.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS">
+                                    <OnIdiom x:TypeArguments="Color"
+                                                     Phone="Transparent"
+                                                     Tablet="Transparent"></OnIdiom>
+                                </On>
+                            </OnPlatform>
+                        </renders:CustomEntry.BackgroundColor>
+
+                        <Entry.Behaviors>
+                            <renders:MaskedBehavior Mask="X X X X X X" />
+                        </Entry.Behaviors>
+                    </renders:CustomEntry>
+                </Frame>
+
+
+
+
+                <Label
+                        Margin="0,5,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Regular"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Someone@example.com"
+                        VerticalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Don't receive a confirmation code? "
+                                      TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"></Span>
+                                <Span Text="Resend"
+                                      TextColor="{StaticResource PrimaryColor}">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              x:Name="resendLable"
+                                                              Tapped="resendLable_Tapped">
+                                        </TapGestureRecognizer>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="18" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+
+                <Button
+                        x:Name="ConfirmBtn"
+                        Margin="10,40,10,20"
+                         BackgroundColor="{StaticResource PrimaryColor}"
+                            BorderColor="{StaticResource PrimaryColor}"
+                        BorderWidth="0"
+                        Clicked="ConfirmBtn_Clicked"
+                        FontFamily="SourceSansPro-Regular"
+                        HorizontalOptions="FillAndExpand"
+                        StyleClass="bouncy"
+                        Text="VERIFY PROCEED"
+                        TextColor="{StaticResource BlackColor}"
+                    CornerRadius="5"
+                        VerticalOptions="CenterAndExpand">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                    <Button.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="14"
+                                        Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Button.FontSize>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

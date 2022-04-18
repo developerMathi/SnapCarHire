@@ -1,0 +1,1962 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SnapCarHire.Views.VechicleInspectionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+    xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:renders="clr-namespace:SnapCarHire.Renders"
+    mc:Ignorable="d">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label
+                Margin="-60,0,0,0"
+                FontFamily="SourceSansPro-Bold"
+                FontSize="20"
+                HorizontalOptions="CenterAndExpand"
+                Text="Damage CheckList-Pick up"
+                TextColor="{StaticResource PrimaryColorDuplicate}"
+                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Grid.Row="0"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Rim/Tire/Wheel Cover Damage
+                    </Label>
+
+                    <Image
+                        x:Name="imgWheel"
+                        Grid.Column="1"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="btnWheel"
+                            NumberOfTapsRequired="1"
+                            Tapped="btnWheel_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdWheelCover"
+                    Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="true"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnTireYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnTireYes_Clicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnTireNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnTireNo_Clicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdWheel1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="btnWheelUpload"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="btnWheelUpload_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="2"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Mirror Damage
+                    </Label>
+
+                    <Image
+                        x:Name="imgMirror"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="btnMirror"
+                            NumberOfTapsRequired="1"
+                            Tapped="btnMirror_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdMirrorDamage"
+                    Grid.Row="3"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnMirrorYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnMirrorYes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnMirrorNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnMirrorNo_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdMirrorDamage1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkMirrorFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkMirrorBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkMirrorDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkMirrorPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="4"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Windshield Damage
+                    </Label>
+
+                    <Image
+                        x:Name="imgWind"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="btnWind"
+                            NumberOfTapsRequired="1"
+                            Tapped="btnWind_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdWindshieldDamage"
+                    Grid.Row="5"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnWindshieldYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnWindshieldYes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnWindshieldNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnWindshieldNo_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdWindshieldDamage1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkWindShieldFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkWindShieldBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkWindShieldDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkWindShieldPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+
+                <Grid
+                    Grid.Row="6"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Antenna Damage
+                    </Label>
+
+                    <Image
+                        x:Name="imgAntenna"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="btnAntenna"
+                            NumberOfTapsRequired="1"
+                            Tapped="btnAntenna_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdAntenna"
+                    Grid.Row="7"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnAntennaYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnAntennaYes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnAntennaNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnAntennaNo_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdAntenna1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkAntennaFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkAntennaBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkAntennaDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkAntennaPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="8"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Snowbrush
+                    </Label>
+                    <Image
+                        x:Name="imgExample1"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnExample1_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid
+                    x:Name="grdEx1"
+                    Grid.Row="9"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnEx1Yes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnEx1Yes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnEx1No"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnEx1No_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdExp11"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkEx1Front"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkEx1Back"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkEx1DriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkEx1PassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="10"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Carpet Stains/Seat Stains
+                    </Label>
+                    <Image
+                        x:Name="imgStains"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnStains_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdStains"
+                    Grid.Row="11"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnStainsYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnStainsYes_tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnStainsNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnStainsNo_tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdStains1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkStainsFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkStainsBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkStainsDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkStainsPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="12"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Example 2
+                    </Label>
+                    <Image
+                        x:Name="imgExample2"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnExample2_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid
+                    x:Name="grdExample2"
+                    Grid.Row="13"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnEx2Yes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnEx2Yes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnEx2No"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnEx2No_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdExample21"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkEx2Front"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkEx2Back"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkEx2DriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkEx2PassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Grid.Row="14"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="15,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        TextColor="{StaticResource BackGroundColor}"
+                        VerticalOptions="CenterAndExpand">
+                        Spaire Tire
+                    </Label>
+
+                    <Image
+                        x:Name="imgSpaire"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="30"
+                        HorizontalOptions="CenterAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteDown.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnSpaire_Tapped" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <Grid
+                    x:Name="grdSpareTire"
+                    Grid.Row="15"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Margin="15,0" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnSpareTireYes"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnSpareTireYes_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                Yes
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                x:Name="btnSpareTireNo"
+                                BackgroundColor="Transparent"
+                                HeightRequest="15"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCircleUnselect.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="btnSpareTireNo_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{StaticResource BlackColor}"
+                                VerticalOptions="CenterAndExpand">
+                                No
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <BoxView
+                        Grid.Row="0"
+                        HeightRequest="1"
+                        VerticalOptions="EndAndExpand"
+                        Color="{StaticResource GrayColor}" />
+
+                    <Grid
+                        x:Name="grdSpareTire1"
+                        Grid.Row="1"
+                        Margin="15,0"
+                        IsVisible="False"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <input:CheckBox
+                            x:Name="chkSpareTierFront"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Front"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkSpareTierBack"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Back"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <input:CheckBox
+                            x:Name="chkSpareTierDriverSide"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Driver Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+                        <input:CheckBox
+                            x:Name="chkSpareTierPassengerSide"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Passenger Side"
+                            TextColor="{StaticResource BlackColor}"
+                            TextFontSize="18"
+                            Type="Material"
+                            Color="{StaticResource PrimaryColorDuplicate}" />
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <ImageButton
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="30"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconWhiteCamera.png}"
+                                    VerticalOptions="CenterAndExpand" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Bold"
+                                    FontSize="Medium"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    VerticalOptions="CenterAndExpand">
+                                    Upload Picture
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,10,0,10"
+                            ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ImageButton
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+
+                            <ImageButton
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                            <ImageButton
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconPicture.png}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Frame
+                    Grid.Row="16"
+                    Margin="15,0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource Black}"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    HeightRequest="50">
+                    <Grid>
+                        <renders:CustomEntry
+                            x:Name="txtOther"
+                            Margin="10,0,0,0"
+                            FontFamily="SourceSansPro-Regular"
+                            FontSize="Medium"
+                            Placeholder="Other Damage"
+                            PlaceholderColor="{StaticResource Black}" />
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    Grid.Row="17"
+                    Margin="15,0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource Black}"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    HeightRequest="50">
+                    <Grid>
+                        <renders:CustomEntry
+                            x:Name="txtComments"
+                            Margin="10,0,0,0"
+                            FontFamily="SourceSansPro-Regular"
+                            FontSize="Medium"
+                            Placeholder="Comments"
+                            PlaceholderColor="{StaticResource Black}" />
+                    </Grid>
+                </Frame>
+                <Frame
+                    x:Name="frmSign"
+                    Grid.Row="18"
+                    Margin="15,0"
+                    BorderColor="{StaticResource BlackColor}"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    HeightRequest="150"
+                    VerticalOptions="FillAndExpand">
+                    <controls:SignaturePadView
+                        x:Name="signatureView"
+                        Margin="10,0"
+                        BackgroundColor="White"
+                        CaptionTextColor="{StaticResource BlackColor}"
+                        HorizontalOptions="FillAndExpand"
+                        StrokeColor="Black"
+                        StrokeWidth="3" />
+                </Frame>
+
+                <Grid
+                    x:Name="grdSign"
+                    Grid.Row="19"
+                    Margin="15,10,15,20"
+                    ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        x:Name="btnClear"
+                        BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Vechicle"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Button
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Back"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" />
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

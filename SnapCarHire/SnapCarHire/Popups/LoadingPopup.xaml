@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    mc:Ignorable="d"
+             x:Class="SnapCarHire.Popups.LoadingPopup"
+    CloseWhenBackgroundIsClicked="False">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+           PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+
+    <Frame  VerticalOptions="Fill"
+           HorizontalOptions="Fill"
+           BorderColor="Transparent"
+           CornerRadius="0"
+           Padding="0"
+           Margin="0"
+           BackgroundColor="Black"
+           Opacity="0.5">
+        <ScrollView>
+            <StackLayout BackgroundColor="Transparent"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="Please wait..."
+                        VerticalOptions="End" 
+                        HorizontalOptions="CenterAndExpand"
+                       FontSize="Subtitle"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource BlackColor}"
+                       Margin="0,20,0,0"
+                       IsVisible="false"/>
+                <BoxView BackgroundColor="{StaticResource Black}"
+                         HeightRequest="1"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Start"
+                         IsVisible="false"></BoxView>
+
+
+                <Grid Margin="0,40,0,30"
+                      ColumnSpacing="10"
+                      IsVisible="false">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="contentText"
+                       FontSize="Small"
+                       TextColor="White"
+                       HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="20,0,0,0"></Label>
+                    <ActivityIndicator Color="{StaticResource PrimaryColor}"
+                                       IsRunning="True"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="35"></ActivityIndicator>
+
+                </Grid>
+                <ActivityIndicator Color="{StaticResource PrimaryColor}"
+                                       IsRunning="True"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="60"></ActivityIndicator>
+
+            </StackLayout>
+            
+        </ScrollView>
+
+    </Frame>
+        
+</pages:PopupPage>

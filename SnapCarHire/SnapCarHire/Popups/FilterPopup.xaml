@@ -1,0 +1,1038 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="SnapCarHire.Popups.FilterPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:renders="clr-namespace:SnapCarHire.Renders"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+    mc:Ignorable="d">
+    <!--BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
+    Opacity="0.5">-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame  BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" CornerRadius="10" VerticalOptions="EndAndExpand" BorderColor="{StaticResource PrimaryColor}"
+                    Margin="-1,0,-1,-5">
+            <StackLayout >
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="-1,15,-1,0"
+                                Tablet="-1,15,-1,0" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="-1,15,-1,0"
+                                Tablet="-1,15,-1,0" />
+                        </On>
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <Grid Margin="0,10,0,0">
+                    <Grid.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Grid.HeightRequest>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Filters"
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+
+                    <Image
+                        Grid.Column="2"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedClose.png}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="btnClose"
+                                NumberOfTapsRequired="1"
+                                Tapped="btnClose_Tapped" />
+                        </Image.GestureRecognizers>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                            </OnPlatform>
+                        </Image.HeightRequest>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="10"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="10"
+                                    Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Grid.Margin>
+                    <Grid.RowSpacing>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="10"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="10"
+                                    Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Grid.RowSpacing>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--<Frame
+                        Grid.Row="0"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <renders:CustomEntry
+                                x:Name="txtPrice"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                Keyboard="Numeric"
+                                Placeholder="Price"
+                                PlaceholderColor="{StaticResource Black}"
+                                />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="1"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <renders:CustomEntry
+                                x:Name="minPriceEntry"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                Keyboard="Numeric"
+                                Placeholder="Minimum price"
+                                PlaceholderColor="{StaticResource Black}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="2"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <renders:CustomEntry
+                                x:Name="seatEntry"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                Keyboard="Numeric"
+                                Placeholder="Number of Seats"
+                                PlaceholderColor="{StaticResource Black}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="3"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <renders:CustomEntry
+                                x:Name="bagEntry"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                Keyboard="Numeric"
+                                Placeholder="Number of Baggages"
+                                PlaceholderColor="{StaticResource Black}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="4"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <renders:CustomEntry
+                                x:Name="doorEntry"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                Keyboard="Numeric"
+                                Placeholder="Number of Doors"
+                                PlaceholderColor="{StaticResource Black}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="5"
+                        Padding="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{StaticResource Black}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <renders:BorderlessPicker
+                                x:Name="orderPicker"
+                                Title="Price Sorting"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TitleColor="{StaticResource Black}">
+                                <renders:BorderlessPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Low to High</x:String>
+                                        <x:String>High to Low</x:String>
+
+                                    </x:Array>
+                                </renders:BorderlessPicker.ItemsSource>
+                            </renders:BorderlessPicker>
+
+                            <ImageButton
+                                Grid.Column="1"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" />
+                        </Grid>
+                    </Frame>-->
+
+                    <Frame
+                        Grid.Row="1"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Type"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehtypePicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehtypePicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" 
+                                x:Name="vehiTypeArrow"
+                                Clicked="vehtypePicker_Tapped"/>
+                            <ListView x:Name="vehicleTypeList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BackGroundColor}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="SourceSansPro-Bold"
+                                                        TextColor="{AppThemeBinding Light= {StaticResource BlackColor},Dark={StaticResource BackGroundColor}}"
+                                                        Type="Material"
+                                                        Color="{StaticResource PrimaryColorDuplicate}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        IsVisible="false"
+                        Grid.Row="2"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Make"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehMakePicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehMakePicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" 
+                                x:Name="vehiMakeArrow"
+                                Clicked="vehMakePicker_Tapped"
+                                />
+                            <ListView x:Name="vehicleMakeList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                       BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BackGroundColor}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="SourceSansPro-Bold"
+                                                        TextColor="{AppThemeBinding Light= {StaticResource BlackColor},Dark={StaticResource BackGroundColor}}"
+                                                        Type="Material"
+                                                        Color="{StaticResource PrimaryColorDuplicate}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+
+
+                    <Frame
+                        Grid.Row="3"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Model"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehModelPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehModelPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" 
+                                x:Name="vehiModelArrow"
+                                Clicked="vehModelPicker_Tapped"
+                                />
+                            <ListView x:Name="vehicleModelList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                      BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BackGroundColor}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="SourceSansPro-Bold"
+                                                        TextColor="{AppThemeBinding Light= {StaticResource BlackColor},Dark={StaticResource BackGroundColor}}"
+                                                        Type="Material"
+                                                        Color="{StaticResource PrimaryColorDuplicate}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="4"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        IsVisible="false">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Year"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehYearPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehYearPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" 
+                                x:Name="vehiYearArrow"
+                                Clicked="vehYearPicker_Tapped"/>
+                            <ListView x:Name="vehicleYearList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                       BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BackGroundColor}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="SourceSansPro-Bold"
+                                                        TextColor="{AppThemeBinding Light= {StaticResource BlackColor},Dark={StaticResource BackGroundColor}}"
+                                                        Type="Material"
+                                                        Color="{StaticResource PrimaryColorDuplicate}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="5"
+                        Padding="10,10,10,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        IsVisible="false">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                VerticalOptions="Center"
+                                Text="Vehicle Color"
+                                Margin="10,0,0,0"
+                                FontFamily="SourceSansPro-Regular"
+                                FontSize="Medium"
+                                TextColor="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        x:Name="vehColorPicker"
+                                        NumberOfTapsRequired="1"
+                                        Tapped="vehColorPicker_Tapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <ImageButton
+                                Grid.Column="2"
+                                Margin="0,0,10,0"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                HeightRequest="30"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}" 
+                                x:Name="vehiColorArrow"
+                                Clicked="vehColorPicker_Tapped"/>
+                            <ListView x:Name="vehicleColorList"
+                                      Grid.Row="2"
+                                      SeparatorVisibility="None"
+                                      VerticalScrollBarVisibility="Never"
+                                      HasUnevenRows="False"
+                                      IsVisible="false"
+                                      RowHeight="35"
+                                       BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BackGroundColor}">
+                                            <input:CheckBox
+                                                Text="{Binding title}"
+                                                        x:Name="TCcheckBox"
+                                                        FontFamily="SourceSansPro-Bold"
+                                                        TextColor="{AppThemeBinding Light= {StaticResource BlackColor},Dark={StaticResource BackGroundColor}}"
+                                                        Type="Material"
+                                                        Color="{StaticResource PrimaryColorDuplicate}"
+                                                IsChecked="{Binding isSelected}"
+                                                VerticalOptions="Start">
+                                                <input:CheckBox.TextFontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="14" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.TextFontSize>
+                                                <input:CheckBox.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                    x:TypeArguments="Thickness"
+                                                    Phone="5,0,5,0"
+                                                    Tablet="10,0,10,0" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </input:CheckBox.Margin>
+                                            </input:CheckBox>
+
+                                        </renders:ExtendedViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Frame>
+
+
+
+
+
+
+
+                    <Grid Grid.Row="7" Margin="0,20,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            x:Name="cancelBtn"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="{StaticResource BackGroundColor}"
+                                BorderWidth="2"
+                            Clicked="cancelBtn_Clicked"
+                            FontAttributes="Bold"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Cancel"
+                            TextColor="{StaticResource BackGroundColor}">
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.HeightRequest>
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.FontSize>
+                        </Button>
+
+                        <Button
+                            x:Name="applyBtn"
+                            Grid.Column="1"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="{StaticResource BackGroundColor}"
+                                BorderWidth="2"
+                            Clicked="applyBtn_Clicked"
+                            FontAttributes="Bold"
+                            FontFamily="SourceSansPro-Bold"
+                            Text="Apply"
+                            TextColor="{StaticResource BackGroundColor}">
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.HeightRequest>
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.FontSize>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+            </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</pages:PopupPage>

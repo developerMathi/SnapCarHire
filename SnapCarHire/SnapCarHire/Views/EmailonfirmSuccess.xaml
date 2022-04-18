@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+             x:Class="SnapCarHire.Views.EmailonfirmSuccess"
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}">
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                     Margin="20">
+            <Image
+                    HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                    x:Name="illuImage"
+                    Margin="10,0,10,10"
+                    Aspect="AspectFit"
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.Illustrations.confirmed.png}">
+                <Image.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="300"
+                                    Tablet="330" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="300"
+                                    Tablet="330" />
+                        </On>
+                    </OnPlatform>
+                </Image.HeightRequest>
+            </Image>
+
+            <Label
+                        Margin="0,0,0,20"
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Email confirmed successfully. "
+                        TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                        VerticalOptions="End">
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                        </On>
+                    </OnPlatform>
+                </Label.FontSize>
+            </Label>
+
+            <Button
+                Margin="10,0,10,30"
+                        x:Name="doneBtn"
+                         BackgroundColor="{StaticResource PrimaryColor}"
+                            BorderColor="{StaticResource PrimaryColor}"
+                        BorderWidth="0"
+                        Clicked="doneBtn_Clicked"
+                        CornerRadius="5"
+                        FontFamily="SourceSansPro-Regular"
+                        HorizontalOptions="FillAndExpand"
+                        StyleClass="bouncy"
+                        Text="DONE"
+                        TextColor="{StaticResource BlackColor}"
+                        VerticalOptions="End">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
+                        </On>
+                    </OnPlatform>
+                </Button.HeightRequest>
+                <Button.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="14"
+                                        Tablet="18" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                        </On>
+                    </OnPlatform>
+                </Button.FontSize>
+            </Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

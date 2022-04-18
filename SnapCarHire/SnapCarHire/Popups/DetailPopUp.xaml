@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+             xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions" 
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SnapCarHire.Popups.DetailPopUp">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            ScaleIn="0.5"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="End">
+            <StackLayout BackgroundColor="White" VerticalOptions="EndAndExpand">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="0,50,0,0"
+                                Tablet="0,1,0,0" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="Thickness"
+                                Phone="0,50,0,0"
+                                Tablet="0,1,0,0" />
+                        </On>
+                    </OnPlatform>
+                </StackLayout.Margin>
+                <Grid  Margin="15,10,15,0">
+                    <Grid.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="50"
+                                    Tablet="60" />
+                            </On>
+                        </OnPlatform>
+                    </Grid.HeightRequest>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Column="0"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Description"
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="CenterAndExpand"
+                        x:Name="titleLabel"
+                        Margin="10,0,0,0">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                                </On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+
+                    <Image
+                        Grid.Column="1"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=MaxVonGrafKftMobile.Assets.iconRedClose.png}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                x:Name="btnClose"
+                                NumberOfTapsRequired="1"
+                                Tapped="btnClose_Tapped" />
+                        </Image.GestureRecognizers>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                            </OnPlatform>
+                        </Image.HeightRequest>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="60"
+                                        Tablet="80" />
+                                </On>
+                            </OnPlatform>
+                        </Image.WidthRequest>
+                    </Image>
+                </Grid>
+
+                <BoxView BackgroundColor="{StaticResource GrayColor}"
+                         HeightRequest="1"
+                         HorizontalOptions="Fill"
+                         VerticalOptions="Start"></BoxView>
+                <Label x:Name="descriptionText"
+                       Text="descrition"
+                       FontFamily="Roboto-Regular"
+                        Margin="15,10,15,40"
+                       HorizontalOptions="StartAndExpand"
+                       TextColor="Black">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="20" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+                <Button
+                     Margin="10"
+                     IsVisible="false"
+                    x:Name="reseendPassEmail"
+                    BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                    BorderWidth="0"
+                    Clicked="reseendPassEmail_Clicked"
+                    CornerRadius="10"
+                    FontFamily="SourceSansPro-Regular"
+                    HorizontalOptions="EndAndExpand"
+                    StyleClass="bouncy"
+                    Text="Resend Email"
+                     Padding="10"
+                    TextColor="{StaticResource BackGroundColor}"
+                    VerticalOptions="CenterAndExpand">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="35"
+                                    Tablet="40" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="40"
+                                    Tablet="45" />
+                            </On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                    <Button.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="14"
+                                    Tablet="18" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="14"
+                                    Tablet="18" />
+                            </On>
+                        </OnPlatform>
+                    </Button.FontSize>
+                </Button>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    </pages:PopupPage>

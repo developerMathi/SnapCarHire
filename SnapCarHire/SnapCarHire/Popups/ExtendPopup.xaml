@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="SnapCarHire.Popups.ExtendPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:renders="clr-namespace:SnapCarHire.Renders"
+    mc:Ignorable="d">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <Frame   Margin="-5,50,-5,-15"
+            Padding="10"
+           BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
+                 CornerRadius="20"
+                 BorderColor="{StaticResource PrimaryColor}"
+            VerticalOptions="EndAndExpand">
+            <StackLayout>
+                <Grid Margin="0,10,0,0" HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                    Grid.Column="1"
+                    FontFamily="SourceSansPro-Bold"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="EXTEND RENTAL"
+                    TextColor="{StaticResource PrimaryColor}"
+                    VerticalOptions="CenterAndExpand" />
+
+                    <Image
+                    Grid.Column="2"
+                    Margin="0,0,15,0"
+                    HorizontalOptions="EndAndExpand"
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedClose.png}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                            x:Name="btnClose"
+                            NumberOfTapsRequired="1"
+                            Tapped="btnClose_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+
+                <Grid ColumnSpacing="10" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="55" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Margin="15,0,15,0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    IsVisible="false">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <renders:BorderlessDatePicker
+                            Margin="10,0,0,0"
+                            FontFamily="SourceSansPro-Regular"
+                            FontSize="Medium"
+                            Placeholder="Extend Date"
+                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                            x:Name="extendedDate"/>
+
+                            <ImageButton
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconResDt.png}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="15,0,15,0"
+                    Padding="0,0,0,0"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource Black}"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    IsVisible="false">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <renders:BorderlessTimePicker
+                            Margin="10,0,0,0"
+                            FontFamily="SourceSansPro-Regular"
+                            FontSize="Medium"
+                            Placeholder="Extend Time"
+                            TextColor="{StaticResource BlackColor}"
+                            x:Name="extendedTime"/>
+
+                            <ImageButton
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconTimer.png}" />
+                        </Grid>
+                    </Frame>
+
+
+
+                    <Frame
+                                x:Name="pickUpdateGrid"
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                VerticalOptions="CenterAndExpand"
+                     Margin="15,0,15,0">
+                        <Frame.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                </On>
+                            </OnPlatform>
+                        </Frame.HeightRequest>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="9*" />
+                                <ColumnDefinition Width="30" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <renders:BorderlessPicker
+                                        x:Name="NumberOfDays"
+                                        Title="Number of Days"
+                                        Grid.Column="0"
+                                        Margin="10,0,0,0"
+                                        FontFamily="SourceSansPro-Regular"
+                                        FontSize="Medium"
+                                        TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                                        TitleColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}">
+                                <renders:BorderlessPicker.ItemsSource>
+                                    <x:Array Type="{x:Type x:Int32}">
+                                        <x:Int32>1</x:Int32>
+                                        <x:Int32>2</x:Int32>
+                                        <x:Int32>3</x:Int32>
+                                        <x:Int32>4</x:Int32>
+                                        <x:Int32>5</x:Int32>
+                                        <x:Int32>6</x:Int32>
+                                        <x:Int32>7</x:Int32>
+                                        <x:Int32>8</x:Int32>
+                                        <x:Int32>9</x:Int32>
+                                        <x:Int32>10</x:Int32>
+                                        <x:Int32>11</x:Int32>
+                                        <x:Int32>12</x:Int32>
+                                        <x:Int32>13</x:Int32>
+                                        <x:Int32>14</x:Int32>
+                                        <x:Int32>15</x:Int32>
+                                        <x:Int32>16</x:Int32>
+                                        <x:Int32>17</x:Int32>
+                                        <x:Int32>18</x:Int32>
+                                        <x:Int32>19</x:Int32>
+                                        <x:Int32>20</x:Int32>
+                                    </x:Array>
+                                </renders:BorderlessPicker.ItemsSource>
+                            </renders:BorderlessPicker>
+                            <ImageButton
+                                        Grid.Column="1"
+                                        Margin="0,0,10,0"
+                                        BackgroundColor="Transparent"
+                                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconDown.png}"
+                                        x:Name="NumberOfDaysArrow"
+                                        Clicked="NumberOfDaysArrow_Clicked"/>
+
+                        </Grid>
+                    </Frame>
+
+
+                    <!--<BoxView
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HeightRequest="1"
+                    VerticalOptions="StartAndExpand"
+                    Color="{StaticResource GrayColor}" />
+                <StackLayout
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    IsVisible="false">
+                    <Label
+                        Margin="10,0,0,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        Text="Total Amount: "
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="0,0,10,0"
+                        FontFamily="SourceSansPro-Bold"
+                        FontSize="Medium"
+                        Text="$ 1,024.00"
+                        TextColor="{StaticResource PrimaryColorDuplicate}"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <BoxView
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HeightRequest="1"
+                    VerticalOptions="EndAndExpand"
+                    Color="{StaticResource GrayColor}" />-->
+
+                    <Grid
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="15,0"
+                    ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                        Padding="10,0"
+                         BackgroundColor="{StaticResource PrimaryColor}"
+                    BorderColor="{StaticResource PrimaryColor}"
+                    CornerRadius="5"
+                        HeightRequest="50"
+                        Text="CANCEL"
+                        TextColor="{StaticResource BlackColor}"
+                        x:Name="canelBtn"
+                        Clicked="canelBtn_Clicked"/>
+
+
+                        <Button
+                        Grid.Column="1"
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                    BorderColor="{StaticResource PrimaryColor}"
+                    CornerRadius="5"
+                        HeightRequest="50"
+                        Text="CONFIRM"
+                        TextColor="{StaticResource BlackColor}"
+                        x:Name="confirmBtn"
+                        Clicked="confirmBtn_Clicked"/>
+                    </Grid>
+
+                </Grid>
+            </StackLayout>
+        </Frame>
+       
+    </ContentPage.Content>
+</pages:PopupPage>

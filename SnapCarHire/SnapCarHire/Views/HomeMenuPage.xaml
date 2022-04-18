@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions" 
+             xmlns:renders="clr-namespace:SnapCarHire.Renders"
+             mc:Ignorable="d"
+             x:Class="SnapCarHire.Views.HomeMenuPage"
+             Title="Master">
+    <Frame
+        Padding="0"
+        BorderColor="Transparent"
+        CornerRadius="10"
+        HasShadow="False">
+        <Grid>
+            <Image
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Aspect="Fill"
+                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconBgMenu.png}"
+                VerticalOptions="FillAndExpand" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Spacing="5">
+
+                <Image
+                    x:Name="logoImage"
+                    Aspect="AspectFit"
+                    HeightRequest="80"
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconMenuLogo.png}"
+                    VerticalOptions="CenterAndExpand" />
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="80"
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconProfile.png}" />
+
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontFamily="SourceSansPro-Bold"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Welcome Alex"
+                    TextColor="{StaticResource BackGroundColor}"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" BackgroundColor="Transparent">
+                <ListView
+                    x:Name="MenuItemsListView"
+                    Margin="0,20,0,0"
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="true"
+                    ItemTapped="MenuItemsListView_ItemTapped"
+                    SeparatorVisibility="None"
+                    VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <renders:ExtendedViewCell SelectedBackgroundColor="{StaticResource BlackColor}">
+                                <StackLayout
+                                    Padding="15,10"
+                                    BackgroundColor="{Binding BgColor, Mode=TwoWay}"
+                                    HorizontalOptions="FillAndExpand">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Aspect="AspectFit"
+                                            HeightRequest="30"
+                                            Source="{Binding IconSource1, Mode=TwoWay}"
+                                            WidthRequest="30" />
+                                        <Label
+                                            Grid.Column="1"
+                                            d:Text="{Binding .}"
+                                            FontAttributes="Bold"
+                                            FontFamily="SourceSansPro-Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding Title}"
+                                            TextColor="{Binding txtColor, Mode=TwoWay}"
+                                            VerticalOptions="FillAndExpand"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </StackLayout>
+                            </renders:ExtendedViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </Frame>
+</ContentPage>

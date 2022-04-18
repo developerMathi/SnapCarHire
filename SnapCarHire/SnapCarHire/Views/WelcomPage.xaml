@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SnapCarHire.Views.WelcomPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="{StaticResource BlackColor}"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <!--<Grid >
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand"
+                         Margin="20,0,20,50"
+                             VerticalOptions="Fill">
+                    <Frame Padding="0"
+                   BorderColor="{StaticResource PrimaryColor}"
+                   WidthRequest="35"
+                   HeightRequest="35"
+                   CornerRadius="35"
+                   HorizontalOptions="End"
+                    VerticalOptions="Start"
+                   Margin="0,20,0,0"
+                   x:Name="loginBtnFrame"
+                           BackgroundColor="{StaticResource PrimaryColor}">
+                        <Image VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                         x:Name="HomeBtn"
+                         BackgroundColor="Transparent"
+                         HeightRequest="25"
+                         WidthRequest="25"
+                         Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.home.png}"></Image>
+                    </Frame>
+
+
+                    <Image x:Name="logoImage"
+                       Aspect="AspectFit"
+                       HeightRequest="100"
+                       Margin="30,40,10,50"
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="FillAndExpand"  ></Image>
+
+
+
+
+                    <Button Text="BOOK NOW"
+                        BorderWidth="0"
+                        x:Name="BooknowBtn"
+                        Clicked= "BooknowBtn_Clicked"
+                        HeightRequest="45"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        TextColor="{StaticResource BackGroundColor}"
+                            VerticalOptions="End"
+                            Margin="0,0,0,0"
+                        StyleClass="bouncy"
+                            CornerRadius="45"></Button>
+
+                    <Frame x:Name="bookNowLoader"
+                        HeightRequest="45"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                            VerticalOptions="End"
+                            Margin="0,0,0,0"
+                           IsVisible="False"
+                           Padding="0"
+                           CornerRadius="45">
+                        <ActivityIndicator VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           Color="{StaticResource BackGroundColor}"
+                                           IsRunning="False"
+                                           x:Name="bookNowSpinner"
+                                           HeightRequest="30"></ActivityIndicator>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </Grid>-->
+
+        <Grid>
+            <Image
+                Aspect="Fill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                x:TypeArguments="ImageSource"
+                                Phone="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.BgHomeScreen.png}"
+                                Tablet="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.bgHomeTablet.png}" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                x:TypeArguments="ImageSource"
+                                Phone="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.BgHomeScreen.png}"
+                                Tablet="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.bgHomeTablet.png}" />
+                        </On>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+            <ScrollView>
+                <Grid
+                    Margin="20,0,20,20"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill">
+
+                    <Image
+                        x:Name="logoImage"
+                        Margin="30,50,10,30"
+                        Aspect="AspectFit"
+                        HeightRequest="120"
+                        HorizontalOptions="FillAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconLogo.png}"
+                        VerticalOptions="StartAndExpand" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Button
+                            x:Name="BooknowBtn"
+                            Grid.Row="1"
+                            Margin="0,0,0,0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            BorderWidth="0"
+                            Clicked="BooknowBtn_Clicked"
+                            CornerRadius="10"
+                            FontFamily="SourceSansPro-Regular"
+                            HeightRequest="50"
+                            HorizontalOptions="FillAndExpand"
+                            StyleClass="bouncy"
+                            Text="BOOK NOW"
+                            TextColor="{StaticResource BackGroundColor}"
+                            VerticalOptions="End">
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.FontSize>
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.HeightRequest>
+                        </Button>
+
+                        <Frame
+                            x:Name="bookNowLoader"
+                            Grid.Row="1"
+                            Margin="0,0,0,0"
+                            Padding="0"
+                            BackgroundColor="{StaticResource PrimaryColorDuplicate}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            IsVisible="False"
+                            VerticalOptions="End">
+                            <ActivityIndicator
+                                x:Name="bookNowSpinner"
+                                HeightRequest="30"
+                                HorizontalOptions="Center"
+                                IsRunning="False"
+                                VerticalOptions="Center"
+                                Color="{StaticResource BackGroundColor}" />
+                            <Frame.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                </OnPlatform>
+                            </Frame.HeightRequest>
+                        </Frame>
+
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Button
+                                x:Name="btnSignup"
+                                Grid.Column="0"
+                                Margin="0,10,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource BackGroundColor}"
+                                BorderWidth="2"
+                                Clicked="btnSignup_Clicked"
+                                CornerRadius="10"
+                                FontFamily="SourceSansPro-Regular"
+                                StyleClass="bouncy"
+                                Text="Signup"
+                                TextColor="{StaticResource BackGroundColor}"
+                                VerticalOptions="End">
+                                <Button.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="14"
+                                                Tablet="18" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="16"
+                                                Tablet="20" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.FontSize>
+                                <Button.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.HeightRequest>
+                            </Button>
+
+                            <Button
+                                x:Name="HomeBtn"
+                                Grid.Column="1"
+                                Margin="0,10,0,0"
+                                BackgroundColor="Transparent"
+                                BorderColor="{StaticResource BackGroundColor}"
+                                BorderWidth="2"
+                                Clicked="HomeBtn_Clicked"
+                                CornerRadius="10"
+                                FontFamily="SourceSansPro-Regular"
+                                StyleClass="bouncy"
+                                Text="Login"
+                                TextColor="{StaticResource BackGroundColor}"
+                                VerticalOptions="End">
+                                <Button.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="14"
+                                                Tablet="18" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="16"
+                                                Tablet="20" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.FontSize>
+                                <Button.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                                x:TypeArguments="x:Double"
+                                                Phone="50"
+                                                Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Button.HeightRequest>
+                            </Button>
+
+                        </Grid>
+
+                        <Button
+                            x:Name="forgetPasswordBtn"
+                            Grid.Row="3"
+                            Margin="0,10,0,0"
+                            BackgroundColor="Transparent"
+                            BorderColor="{StaticResource BackGroundColor}"
+                            BorderWidth="2"
+                            Clicked="forgetPasswordBtn_Clicked"
+                            CornerRadius="10"
+                            FontFamily="SourceSansPro-Regular"
+                            HorizontalOptions="FillAndExpand"
+                            StyleClass="bouncy"
+                            Text="Forgot Password"
+                            TextColor="{StaticResource BackGroundColor}"
+                            VerticalOptions="End">
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.FontSize>
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                    </On>
+                                </OnPlatform>
+                            </Button.HeightRequest>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

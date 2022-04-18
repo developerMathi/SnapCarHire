@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:SnapCarHire.Converters"
+             x:Class="SnapCarHire.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <converters:statustoColourConverter x:Key="ReservationStatusToColor"
+                                                New="DarkGreen"
+                                                Open="Green"
+                                                CheckOut="Gray"
+                                                NoShow="Yellow"
+                                                Canceled="Red"
+                                                Quote="Orange"
+                                                noStatus="OrangeRed"></converters:statustoColourConverter>
+
+
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="PrimaryColor">#242F60</Color>
+            <Color x:Key="AccentColor">#FECD0D</Color>
+            <Color x:Key="PrimaryColorDuplicate">#000000</Color>
+            <Color x:Key="GrayColor">#9C9D9E</Color>
+            <Color x:Key="LightGrayColor">#EAEAEA</Color>
+            <Color x:Key="GreenColor">#219653</Color>
+            <Color x:Key="DanderRed">#DD0803</Color>
+            <Color x:Key="homeBtnFrame">#101944</Color>
+            <Color x:Key="frmGreen">#42C16F</Color>
+
+
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="LightBlue">#7CAAF8</Color>
+            <Color x:Key="LightBlue2X">#568ff0</Color>
+
+
+            <!--<Color x:Key="BlackColor">#232628</Color>-->
+            <Color x:Key="BackGroundColor">#FFFFFF</Color>
+            <!--<Color x:Key="PrimaryColor">#7d2c24</Color>-->
+            <Color x:Key="PrimaryColorLight">#ffdcd9</Color>
+
+
+
+            <Color x:Key="popUpBackground">#eff6f7</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource BackGroundColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+            <!--<Style TargetType="Entry">
+                <Setter Property="Keyboard"  Value="Chat"></Setter>
+            </Style>-->
+
+            <!--<Style TargetType="Entry">
+                <Setter Property="FontFamily">
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Black Vosten Personal Use.ttf#Black Vosten" />
+                        <On Platform="iOS" Value="Black Vosten Personal Use" />
+                    </OnPlatform>
+                </Setter>
+            </Style>-->
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

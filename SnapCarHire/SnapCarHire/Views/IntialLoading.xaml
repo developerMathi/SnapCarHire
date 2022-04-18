@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+             x:Class="SnapCarHire.Views.IntialLoading"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Transparent">
+    <StackLayout>
+        <Grid>
+
+            
+            <CarouselView
+            x:Name="TheCarousel"
+            IndicatorView="indicatorview"
+            BackgroundColor="Transparent"
+            IsScrollAnimated="True"
+            VerticalOptions="Fill"
+            >
+            <CarouselView.ItemTemplate>
+                <DataTemplate >
+                    <Grid BackgroundColor="{ AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor} }">
+                        <!--<Image
+                Aspect="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                            Source="{Binding imageTap}">
+                            --><!--<Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                x:TypeArguments="ImageSource"
+                                Phone="{Binding imageMobile}"
+                                Tablet="{Binding imageMobile}"/>
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                x:TypeArguments="ImageSource"
+                                Phone="{Binding imageMobile}"
+                                Tablet="{Binding imageMobile}"/>
+                                    </On>
+                                </OnPlatform>
+                            </Image.Source>--><!--
+                        </Image>-->
+
+                        <!--<MediaElement Source="{Binding imageMobile}" Aspect="AspectFill" AutoPlay="True" Volume="0" IsLooping="True" />-->
+                            <StackLayout
+                            HorizontalOptions="Center"
+                                VerticalOptions="FillAndExpand">
+                            <StackLayout.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="{StaticResource AccentColor}" Offset="0.7"/>
+                                        <GradientStop Color="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource BackGroundColor}}" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </StackLayout.Background>
+                            <Grid RowDefinitions="Auto,*,Auto,Auto"   Padding="20,0,20,20"
+                                  BackgroundColor="Transparent"
+                                  VerticalOptions="FillAndExpand"
+                                  Margin='0,20'>
+                                <!-- Here add the code that is being explained in this block-->
+                                <!-- Back button-->
+                                <!--<Button Grid.Row="0" Grid.Column="0" ImageSource="ArrowLeft" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#fee489" CornerRadius="15"/>-->
+                                <!--Skip label-->
+                                    <Button Grid.Row="0" Grid.Column="0" Text="{Binding Skiplabel}"  TextColor="{ AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource AccentColor} }" FontFamily="SourceSansPro-Regular"
+                                            TextTransform="Uppercase"
+                                       HorizontalOptions="End"
+                                       Margin="0,10,-10,0"
+                                        CornerRadius="10"
+                                        Padding="1"
+                                        HeightRequest="30"
+                                        BackgroundColor="{StaticResource PrimaryColor}"
+                                       
+                                            BorderWidth="1"
+                                            Clicked="skipLabelTap_Tapped">
+                                        <Button.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="22" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="17"
+                                        Tablet="24" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Button.FontSize>
+                                        <!--<Button.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            x:Name="skipLabelTap"
+                                            NumberOfTapsRequired="1"
+                                            Tapped="skipLabelTap_Tapped"></TapGestureRecognizer>
+                                        </Button.GestureRecognizers>-->
+                                </Button>
+
+                                    <Image Grid.Row="0" Grid.Column="0"  Source="{AppThemeBinding Dark=SnapLogoWhite.png, Light=SnapLogo.png}" Aspect="AspectFit" HeightRequest="40"  HorizontalOptions="StartAndExpand" VerticalOptions="Center" 
+                                       Margin="10,10,0,0"/>
+                                
+                                    <!--Main imagen with background-->
+                                    <Image Grid.Row="1" Grid.Column="0"  Source="{Binding imageTap}" Aspect="AspectFit"   HorizontalOptions="Center" VerticalOptions="Center" 
+                                       Margin="10,100,10,0" IsAnimationPlaying="True"/>
+                                <!-- Title-->
+                                    <Label Grid.Row="2" Grid.Column="0"  HorizontalTextAlignment="Center" FontSize="12" Margin="0,30,0,40"   Text="{Binding label}" TextColor="{ AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor} }"   FontFamily="SourceSansPro-Regular" VerticalOptions="End">
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="22" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="15"
+                                        Tablet="22" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                    
+                                </Label>
+
+                                    <Image  Grid.Row="3" Grid.Column="0" Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.BackDesigns.city6.png}" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+                                       Margin="-40,0,-40,-50"/>
+
+                                    <!-- Description-->
+                                <!--<Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding .}" Padding="0,20" HorizontalTextAlignment="Center" FontSize="20"/>-->
+                                <!-- Rounded button-->
+                                <!--<Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ImageSource="WriteArrow"  HorizontalOptions="Center" BackgroundColor="#fdc912" HeightRequest="110" WidthRequest="110" CornerRadius="55" Margin="0,60,0,0"/>-->
+                            </Grid>
+                        </StackLayout>
+                           
+                        </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView 
+            x:Name="indicatorview"
+            Margin="15"
+            VerticalOptions="End"
+            HorizontalOptions="Center"
+            IndicatorColor="{ AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource AccentColor} }"
+            IndicatorSize="10"
+            SelectedIndicatorColor="{ AppThemeBinding Dark={StaticResource PrimaryColor}, Light={StaticResource PrimaryColor} }" >
+           
+        </IndicatorView>
+        <!--<Label
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutBounds="1,1,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BackgroundColor="AliceBlue"
+            Text="skip"/>-->
+        <Label VerticalOptions="Center"
+               IsVisible="false"
+            AbsoluteLayout.LayoutBounds="1,1,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"  Text="Skip" HorizontalTextAlignment="End" FontAttributes="Bold" TextColor="{ AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor} }" FontFamily="SourceSansPro-Regular" Margin="0,0,15,0"
+               BackgroundColor="Transparent">
+            <Label.FontSize>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">
+                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="16"
+                                        Tablet="22" />
+                    </On>
+                    <On Platform="Android,Windows">
+                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="17"
+                                        Tablet="24" />
+                    </On>
+                </OnPlatform>
+            </Label.FontSize>
+        </Label>
+
+           
+
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

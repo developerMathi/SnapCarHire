@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+             xmlns:renders="clr-namespace:SnapCarHire.Renders"
+             mc:Ignorable="d"
+             x:Class="SnapCarHire.Views.MyRentals"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
+              NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Margin="15,5,15,0" VerticalOptions="FillAndExpand">
+            <StackLayout
+                    Margin="20,10,20,0"
+                    HorizontalOptions="FillAndExpand">
+                <Image
+                        Aspect="AspectFit"
+                        HorizontalOptions="StartAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconBack.png}"
+                                        Margin="-10,0">
+
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="30" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="30"
+                                        Tablet="40" />
+                            </On>
+                        </OnPlatform>
+                    </Image.WidthRequest>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                x:Name="btnBack"
+                                NumberOfTapsRequired="1"
+                                Tapped="btnBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </StackLayout>
+
+            <Label
+                        FontAttributes="Bold"
+                        FontFamily="SourceSansPro-Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="MY RENTALS"
+                        TextColor="{StaticResource PrimaryColor}"
+                        VerticalOptions="Start"
+                  Margin="10">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="Thickness"
+                                        Phone="0,0,0,0"
+                                        Tablet="0,0,0,0" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="Thickness"
+                                        Phone="0,0,0,0"
+                                        Tablet="0,0,0,0" />
+                        </On>
+                    </OnPlatform>
+                </Label.Margin>
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                        </On>
+                        <On Platform="Android,Windows">
+                            <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                        </On>
+                    </OnPlatform>
+                </Label.FontSize>
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Frame 
+                       CornerRadius="5"
+                       BackgroundColor="Transparent"
+                       BorderColor="{StaticResource PrimaryColor}"></Frame>
+
+                <SearchBar Placeholder="Agreement number..." TextChanged="SearchBar_TextChanged" FontSize="Small" CancelButtonColor="{StaticResource PrimaryColor}" 
+                            PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                           HeightRequest="35"
+                           Margin="0,5,0,0"
+                           x:Name="numberSearchBar"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                    <SearchBar.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="18"
+                                    Tablet="22" />
+                            </On>
+                        </OnPlatform>
+                    </SearchBar.FontSize>
+                </SearchBar>
+                <SearchBar Placeholder="Check-Out Location..." TextChanged="SearchBar_TextChanged_1" FontSize="Small" CancelButtonColor="{StaticResource PrimaryColor}"
+                            PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                           HeightRequest="35"
+                           Margin="0,5,0,0"
+                           x:Name="checkoutLocationSearchBar"
+                           IsVisible="False"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                    <SearchBar.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="18"
+                                    Tablet="22" />
+                            </On>
+                        </OnPlatform>
+                    </SearchBar.FontSize>
+                </SearchBar>
+                <SearchBar Placeholder="Check-In Location..." TextChanged="SearchBar_TextChanged_2" FontSize="Small" CancelButtonColor="{StaticResource PrimaryColor}" 
+                           PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                           HeightRequest="35"
+                           Margin="0,5,0,0"
+                           x:Name="checkinLocationSearchBar"
+                           IsVisible="False"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                    <SearchBar.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="18"
+                                    Tablet="22" />
+                            </On>
+                        </OnPlatform>
+                    </SearchBar.FontSize>
+                </SearchBar>
+                <SearchBar Placeholder="Status..." TextChanged="SearchBar_TextChanged_3" FontSize="Small" CancelButtonColor="{StaticResource PrimaryColor}"
+                            PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                           Margin="0,5,0,0"
+                           x:Name="statusSearchBar"
+                           IsVisible="False"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                    <SearchBar.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="16"
+                                    Tablet="20" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="18"
+                                    Tablet="22" />
+                            </On>
+                        </OnPlatform>
+                    </SearchBar.FontSize>
+                </SearchBar>
+                <Frame BackgroundColor="Transparent"
+                       BorderColor="{StaticResource PrimaryColor}"
+                       Padding="5,0,5,0"
+                       CornerRadius="10"
+                       HeightRequest="30"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       x:Name="filterFrame"
+                       IsVisible="false"></Frame>
+                <renders:BorderlessPicker Title="Filter" 
+                                      FontSize="Micro"
+                                      TitleColor="{StaticResource GrayColor}"
+                                      TextColor="{StaticResource GrayColor}"
+                                      HorizontalOptions="Center"
+                                      VerticalOptions="Center"
+                                      x:Name="filterPicker"
+                                      Grid.Column="1"
+                                      Grid.Row="0"
+                                      Unfocused="filterPicker_Unfocused"
+                                          IsVisible="false"></renders:BorderlessPicker>
+
+                <ImageButton BackgroundColor='Transparent' 
+                             Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedCircleFilter.png}"
+                             HeightRequest="40" 
+                             WidthRequest="40"
+                             VerticalOptions="Center"
+                             Aspect="AspectFit"
+                              Grid.Column="1"
+                       Grid.Row="0"
+                             x:Name="filterButton"
+                             Clicked="filterButton_Clicked"></ImageButton>
+
+            </Grid>
+
+            <ScrollView Margin="0,0,0,0" VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="Fill">
+                   
+                    <ListView x:Name="myRentalsList" 
+                                              ItemSelected="MyRentalsList_ItemSelected" 
+                              ItemTapped="myRentalsList_ItemTapped"
+                                              RowHeight="275" 
+                                              Margin="0,10,0,10" 
+                                              SeparatorColor="{StaticResource PrimaryColor}"
+                                              SeparatorVisibility="Default"
+                              RefreshControlColor="{StaticResource PrimaryColor}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+                                    <Frame Padding="5"
+                                                           CornerRadius="5"
+                                                           
+                                                            Margin="0,10,0,10"
+                                           BorderColor="{AppThemeBinding Dark={StaticResource GrayColor}, Light={StaticResource GrayColor}}">
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="Transparent" Offset="0.05"/>
+                                                <GradientStop Color="{AppThemeBinding Dark={StaticResource GrayColor},Light={StaticResource GrayColor}}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <Grid Padding="5,5,5,5"
+                                               RowSpacing="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="7*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Grid.Row="0">
+                                                <Label Text="# "  TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" FontFamily="SourceSansPro-Bold">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="16"
+                                                            Tablet="20" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="18"
+                                                            Tablet="22" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+
+                                                <Label Text="{Binding AgreementNumber}" TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" FontFamily="SourceSansPro-Bold">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="16"
+                                                            Tablet="20" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="18"
+                                                            Tablet="22" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+
+                                                <Button
+                                            Margin="0"
+                                            Padding="10,0"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="{Binding StatusId, Converter={StaticResource ReservationStatusToColor}}"
+                                            BorderWidth="2"
+                                            CornerRadius="10"
+                                            FontFamily="SourceSansPro-Regular"
+                                            HeightRequest="30"
+                                            Text="{Binding Status}"
+                                            TextColor="{Binding StatusId, Converter={StaticResource ReservationStatusToColor}}"
+                                            VerticalOptions="StartAndExpand"
+                                                    HorizontalOptions="EndAndExpand">
+                                                    <Button.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="13"
+                                                            Tablet="16" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="14"
+                                                            Tablet="18" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Button.FontSize>
+                                                </Button>
+
+                                            </StackLayout>
+                                            <BoxView
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2"
+                                        HeightRequest="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="EndAndExpand"
+                                        Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"/>
+
+
+
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Grid.Row="1"
+                                                         HorizontalOptions="Fill"
+                                                         Margin="0,5,0,5">
+                                                <ImageButton BackgroundColor='Transparent' Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedCar.png}" HeightRequest="20" VerticalOptions="Center" Margin="0,0,10,0"></ImageButton>
+
+
+                                                <Label Text="{Binding VehicleModel}"  TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" FontFamily="SourceSansPro-Bold">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="16"
+                                                            Tablet="20" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="18"
+                                                            Tablet="22" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+
+
+                                            </StackLayout>
+
+                                            <BoxView
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        HeightRequest="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="EndAndExpand"
+                                        Color="{StaticResource GrayColor}" />
+
+
+                                            <Label Text="Check-out : " 
+                                                           FontSize="Small" 
+                                                   FontFamily="SourceSansPro-Regular"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                                                           Grid.Row="2"
+                                                           Grid.Column="0"
+                                                   VerticalOptions="Center">
+                                                <Label.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </Label.FontSize>
+                                            </Label>
+
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.Column="1"
+                                                                 Grid.Row="2"
+                                                                         Padding="0">
+                                                <ImageButton BackgroundColor='Transparent' Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCalendar.png}" HeightRequest="20" VerticalOptions="Center"></ImageButton>
+                                                <Label Text="{Binding CheckoutDate}" FontSize="Small" TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.Column="1"
+                                                                 Grid.Row="3"
+                                                                         Padding="0">
+                                                <ImageButton BackgroundColor='Transparent' Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconState.png}" HeightRequest="20" VerticalOptions="Center"></ImageButton>
+                                                <Label Text="{Binding CheckoutLocation}" FontSize="Small" TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </StackLayout>
+
+
+                                            <Label Text="Check-in : " 
+                                                           FontSize="Small" 
+                                                   FontFamily="SourceSansPro-Regular"
+                                                           TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                                                           Grid.Row="4"
+                                                           Grid.Column="0"
+                                                   VerticalOptions="Center">
+                                                <Label.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">
+                                                            <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                        </On>
+                                                        <On Platform="Android,Windows">
+                                                            <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                        </On>
+                                                    </OnPlatform>
+                                                </Label.FontSize>
+                                            </Label>
+
+
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.Column="1"
+                                                                 Grid.Row="4"
+                                                                         Padding="0">
+                                                <ImageButton BackgroundColor='Transparent' Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCalendar.png}" HeightRequest="20" VerticalOptions="Center"></ImageButton>
+                                                <Label Text="{Binding CheckinDate}" FontSize="Small" TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal"
+                                                                 Grid.Column="1"
+                                                                 Grid.Row="5"
+                                                                         Padding="0">
+                                                <ImageButton BackgroundColor='Transparent' Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconState.png}" HeightRequest="20" VerticalOptions="Center"></ImageButton>
+                                                <Label Text="{Binding CheckinLocation}" FontSize="Small" TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="13"
+                                                                Tablet="16" />
+                                                            </On>
+                                                            <On Platform="Android,Windows">
+                                                                <OnIdiom
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="14"
+                                                                Tablet="18" />
+                                                            </On>
+                                                        </OnPlatform>
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </StackLayout>
+
+
+                                            
+                                        </Grid>
+                                    </Frame>
+                                </renders:ExtendedViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Frame Padding="5"
+                                            CornerRadius="3"
+                                            Margin="0,20,0,20"
+                                            x:Name="emptyMyrentals"
+                                            IsVisible="False"
+                           BorderColor="{AppThemeBinding Dark={StaticResource GrayColor}, Light={StaticResource GrayColor}}">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="Transparent" Offset="0.05"/>
+                                <GradientStop Color="{AppThemeBinding Dark={StaticResource GrayColor},Light={StaticResource GrayColor}}" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Grid Padding="5,15,5,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="No my rentals " 
+                                                   FontSize="Small" 
+                                                   TextColor="{StaticResource GrayColor}"
+                                                   Grid.Row="2"
+                                                   Grid.ColumnSpan="2"
+                                                   HorizontalOptions="Center"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Button Text="Back to Homepage"
+                                 BackgroundColor="{StaticResource PrimaryColor}"
+                            BorderColor="{StaticResource PrimaryColor}"
+                                BorderWidth="2"
+                                TextColor="{StaticResource BlackColor}"
+                            HeightRequest="45"
+                                x:Name="homeBtn"
+                                Margin="0,10,0,30"
+                                Clicked="HomeBtn_Clicked"
+                             VerticalOptions="EndAndExpand"
+                            CornerRadius="5"></Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

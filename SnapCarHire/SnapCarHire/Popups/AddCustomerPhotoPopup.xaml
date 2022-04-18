@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    mc:Ignorable="d"
+             x:Class="SnapCarHire.Popups.AddCustomerPhotoPopup"
+    CloseWhenBackgroundIsClicked="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+           PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SpringIn"
+            EasingOut="SpringOut"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--<StackLayout Margin="10,0,10,0">-->
+    <Frame BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}"
+           VerticalOptions="EndAndExpand"
+           HorizontalOptions="Fill"
+           Padding="15"
+           Margin="-1,20,-1,-10"
+           CornerRadius="15"
+           BorderColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
+        <ScrollView>
+            <StackLayout BackgroundColor="Transparent">
+                <Label Text="Customer Photograph"
+                        VerticalOptions="Start" 
+                        HorizontalOptions="CenterAndExpand"
+                       FontSize="Subtitle"
+                       FontFamily="SourceSansPro-Bold"
+                       TextColor="{StaticResource PrimaryColor}"
+                       Margin="0,10,0,15"
+                       x:Name="title">
+                   
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="20"
+                                        Tablet="24" />
+                            </On>
+                            <On Platform="Android,Windows">
+                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="22"
+                                        Tablet="26" />
+                            </On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                </Label>
+
+                <Button BackgroundColor="{StaticResource PrimaryColor}"
+                        Text="Select from gallery"
+                        TextColor="{StaticResource BackGroundColor}"
+                        BorderWidth="0"
+                        CornerRadius="10"
+                        x:Name="GaleryBtn"
+                        HeightRequest="45"
+                        Margin="0,20,0,0"
+                        Clicked="GaleryBtn_Clicked"
+                        FontFamily="SourceSansPro-Bold">
+                </Button>
+
+
+                <Button BackgroundColor="{StaticResource PrimaryColor}"
+                        Text="Take a photo"
+                        TextColor="{StaticResource BackGroundColor}"
+                        BorderWidth="0"
+                        CornerRadius="10"
+                        x:Name="cameraBtn"
+                        HeightRequest="45"
+                        Margin="0,10,0,20"
+                        Clicked="CameraBtn_Clicked"
+                        FontFamily="SourceSansPro-Bold"></Button>
+
+                <Frame Padding="10"
+                       BorderColor="{StaticResource PrimaryColor}"
+                       BackgroundColor="Transparent"
+                       CornerRadius="10"
+                       IsVisible="False"
+                       x:Name="PhotoFrame"
+                       Margin="0,0,0,20">
+                    <Image Aspect="AspectFit"
+                           x:Name="selectedImage"
+                       HeightRequest="200"></Image>
+                </Frame>
+
+                <Grid HorizontalOptions="Fill"
+                              Margin="0,0,0,20"
+                              ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button BackgroundColor="{StaticResource GrayColor}"
+                                    Text="Cancel"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    BorderWidth="0"
+                                    CornerRadius="10"
+                                    x:Name="cancelBtn"
+                                    HeightRequest="45"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                            IsVisible="False"
+                            FontFamily="SourceSansPro-Bold"
+                             Clicked="CancelBtn_Clicked"></Button>
+
+                    <Button BackgroundColor="{StaticResource GreenColor}"
+                                    Text="Save"
+                                    TextColor="{StaticResource BackGroundColor}"
+                                    BorderWidth="0"
+                                    CornerRadius="10"
+                                    x:Name="SaveBtn"
+                                    HeightRequest="45"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                            IsVisible="False"
+                            FontFamily="SourceSansPro-Bold"
+                            Clicked="SaveBtn_Clicked"></Button>
+                </Grid>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+    <!--</StackLayout>-->
+</pages:PopupPage>
