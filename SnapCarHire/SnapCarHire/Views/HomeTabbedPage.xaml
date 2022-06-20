@@ -11,16 +11,20 @@
             ios:Page.UseSafeArea="False"
             BackgroundColor="Transparent"
             BarBackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource LightGrayColor}}"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasNavigationBar="False"
+            >
     <!--Pages can be added as references or inline-->
+    
+    <views:BookNow
+        x:Name="bookingPage"
+        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedSearch.png}" 
+        Title=""
+        />
+
     <views:HomePageDetail
         x:Name="Dashboard"
         Title=""
         Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedDashboard.png}" />
-    <views:BookNow
-        x:Name="bookingPage"
-        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedSearch.png}" 
-        Title=""/>
 
     <views:MyProfile
         x:Name="MembershipScreen"

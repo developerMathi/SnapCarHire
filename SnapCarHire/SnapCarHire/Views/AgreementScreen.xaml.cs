@@ -38,7 +38,6 @@ namespace SnapCarHire.Views
         public AgreementScreen(int agreementId, int vehicleId)
         {
             InitializeComponent();
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
             this.agreementId = agreementId;
             token = App.Current.Properties["currentToken"].ToString();
             AgreementByAgreementIdMobileRequest = new GetAgreementByAgreementIdMobileRequest();
@@ -138,19 +137,29 @@ namespace SnapCarHire.Views
                             string statusString = Enum.GetName(typeof(AgreementStatusConst), agreement.AgreementDetail.Status);
                             statusLabel.Text = statusString;
                             CheckInLocation.Text = agreement.AgreementDetail.CheckoutLocationName;
-                            CheckInDate.Text = agreement.AgreementDetail.CheckoutDate.ToString("MM/dd/yyyy hh:mm tt");
+                            //CheckInDate.Text = agreement.AgreementDetail.CheckoutDate.ToString("MM/dd/yyyy hh:mm tt");
                             CheckOutLocation.Text = agreement.AgreementDetail.CheckinLocationName;
-                            CheckOutDate.Text = agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt");
+                            //CheckOutDate.Text = agreement.AgreementDetail.CheckinDate.ToString("MM/dd/yyyy hh:mm tt");
                             CreateDate.Text = ((DateTime)agreement.AgreementDetail.CreatedDate).ToString("dddd, MM/dd/yyyy");
                             vehicleEntry.Text = agreement.AgreementDetail.VehicleMakeName + " " + agreement.AgreementDetail.ModelName + " " + agreement.AgreementDetail.Year;
                             VehicleType.Text = agreement.AgreementDetail.VehicleType;
-                            licenceNoEntry.Text = agreement.AgreementDetail.LicenseNo;
+
+                            pickUpDates.Text = String.Format("{0: dd MMMM yyyy}", agreement.AgreementDetail.CheckoutDate);
+                            pickUpTime.Text = String.Format("{0: hh:mm tt}", agreement.AgreementDetail.CheckoutDate);
+                            pickUpDay.Text = String.Format("{0: dddd}", agreement.AgreementDetail.CheckoutDate);
+
+                            returnDates.Text = String.Format("{0: dd MMMM yyyy}", agreement.AgreementDetail.CheckinDate);
+                            returnTime.Text = String.Format("{0: hh:mm tt}", agreement.AgreementDetail.CheckinDate);
+                            returnDay.Text = String.Format("{0: dddd}", agreement.AgreementDetail.CheckinDate);
+
+                            //licenceNoEntry.Text = agreement.AgreementDetail.LicenseNo;
                             if (AgreementByAgreementIdMobileResponse.agreementVehicle != null)
                             {
                                 seatConut.Text = AgreementByAgreementIdMobileResponse.agreementVehicle.Seats;
                                 bagCount.Text = AgreementByAgreementIdMobileResponse.agreementVehicle.Baggages.ToString();
-                                tranType.Text = AgreementByAgreementIdMobileResponse.agreementVehicle.Transmission;
+                                //tranType.Text = AgreementByAgreementIdMobileResponse.agreementVehicle.Transmission;
                                 vehicleImage.Source = ImageSource.FromUri(new Uri(AgreementByAgreementIdMobileResponse.agreementVehicle.ImageUrl));
+                                carBackImage.Source = ImageSource.FromUri(new Uri(AgreementByAgreementIdMobileResponse.agreementVehicle.ImageUrl));
                             }
 
 

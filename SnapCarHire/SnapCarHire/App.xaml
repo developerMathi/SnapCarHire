@@ -22,6 +22,7 @@
             <Color x:Key="PrimaryColorDuplicate">#000000</Color>
             <Color x:Key="GrayColor">#9C9D9E</Color>
             <Color x:Key="LightGrayColor">#EAEAEA</Color>
+            <Color x:Key="VeryLightGrayColor">#fafafa</Color>
             <Color x:Key="GreenColor">#219653</Color>
             <Color x:Key="DanderRed">#DD0803</Color>
             <Color x:Key="homeBtnFrame">#101944</Color>
@@ -31,6 +32,9 @@
             <Color x:Key="Black">#000000</Color>
             <Color x:Key="LightBlue">#7CAAF8</Color>
             <Color x:Key="LightBlue2X">#568ff0</Color>
+
+            <Color x:Key="frameBoarderLight">#f0f0f0</Color>
+            <Color x:Key="frameBoarderDark">#121212</Color>
 
 
             <!--<Color x:Key="BlackColor">#232628</Color>-->

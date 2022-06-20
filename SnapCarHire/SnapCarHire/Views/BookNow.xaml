@@ -105,39 +105,68 @@
 
 
 
-                    <StackLayout Margin="0" Padding="0">
-                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow1.png}">
+                    <StackLayout Margin="0" Padding="0" VerticalOptions="CenterAndExpand" >
+                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow1.png}"
+                               Aspect="AspectFit">
                             <Image.WidthRequest>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
                                         <OnIdiom
                                         x:TypeArguments="x:Double"
-                                        Phone="50"
-                                        Tablet="60" />
+                                        Phone="65"
+                                        Tablet="75" />
                                     </On>
                                     <On Platform="Android,Windows">
                                         <OnIdiom
                                         x:TypeArguments="x:Double"
-                                        Phone="50"
-                                        Tablet="60" />
+                                       Phone="65"
+                                        Tablet="75" />
                                     </On>
                                 </OnPlatform>
                             </Image.WidthRequest>
+                            <Image.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                       Phone="65"
+                                        Tablet="75" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="65"
+                                        Tablet="75" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.HeightRequest>
                         </Image>
                     </StackLayout>
 
-                    <BoxView
-                    Grid.Column="1"
-                    HeightRequest="1"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    Color="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" />
+                    <StackLayout  
+                        Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                    </StackLayout>
+
 
                     <StackLayout
                     Grid.Column="2"
                     Margin="0"
-                    Padding="0">
-                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow2.png}">
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
+                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow2.png}">
                             <Image.WidthRequest>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -156,18 +185,28 @@
                             </Image.WidthRequest>
                         </Image>
                     </StackLayout>
-                    <BoxView
-                    Grid.Column="3"
-                    HeightRequest="1"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    Color="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}" />
-
+                    <StackLayout  
+                        Grid.Column="3"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                    </StackLayout>
                     <StackLayout
                     Grid.Column="4"
                     Margin="0"
-                    Padding="0">
-                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow3.png}">
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
+                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow3.png}">
                             <Image.WidthRequest>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -187,18 +226,28 @@
                         </Image>
                     </StackLayout>
 
-                    <BoxView
-                    Grid.Column="5"
-                    HeightRequest="1"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    Color="{AppThemeBinding Light={StaticResource BlackColor}, Dark={StaticResource BackGroundColor}}"/>
-
+                    <StackLayout  
+                        Grid.Column="5"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                        <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                    </StackLayout>
                     <StackLayout
                     Grid.Column="6"
                     Margin="0"
-                    Padding="0">
-                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow4.png}">
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
+                        <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow4.png}">
                             <Image.WidthRequest>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">
@@ -311,8 +360,8 @@
                     FontAttributes="Bold"
                     FontFamily="SourceSansPro-Bold"
                     HorizontalOptions="CenterAndExpand"
-                    Text="Book Now - Rental Details"
-                    TextColor="{StaticResource PrimaryColor}"
+                    Text="BOOK NOW - RENTAL DETAILS"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}"
                     VerticalOptions="Start">
                         <Label.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -436,7 +485,6 @@
                                         Grid.Column="1"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
-                                        HeightRequest="30"
                                         Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCalendar.png}">
                                             <Image.HeightRequest>
                                                 <OnPlatform x:TypeArguments="x:Double">
@@ -825,7 +873,6 @@
                                         Grid.Column="1"
                                         Margin="0,0,10,0"
                                         BackgroundColor="Transparent"
-                                        HeightRequest="30"
                                         Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconCalendar.png}">
                                             <Image.HeightRequest>
                                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1277,15 +1324,14 @@
                         x:Name="bookNowNxtBtn"
                         Grid.Row="1"
                         Margin="0,0,0,20"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                            BorderColor="{StaticResource PrimaryColor}"
-                        BorderWidth="2"
+                         BackgroundColor="{StaticResource AccentColor}"
+                        BorderWidth="0"
                         Clicked="BookNowNxtBtn_Clicked"
                         FontFamily="SourceSansPro-Regular"
                         HorizontalOptions="FillAndExpand"
                         StyleClass="bouncy"
                         Text="NEXT"
-                        TextColor="{StaticResource BlackColor}" 
+                        TextColor="{StaticResource PrimaryColor}" 
                              CornerRadius="5"
                         VerticalOptions="EndAndExpand">
                             <Button.HeightRequest>

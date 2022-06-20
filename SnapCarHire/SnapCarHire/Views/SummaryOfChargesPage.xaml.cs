@@ -61,8 +61,8 @@ namespace SnapCarHire.Views
             termsandConditionByTypeRequest.typeId = 3;
             termsandConditionByTypeResponse = null;
             this.selectedVehicle = selectedVehicle;
-            startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("ddd MM/dd/yyyy");
-            endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("ddd MM/dd/yyyy");
+            startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("MM/dd/yyyy");
+            endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("MM/dd/yyyy");
             startTimeLabel.Text = ((DateTime)reservationView.StartDate).ToString("hh:mm tt");
             endTimeLabel.Text = ((DateTime)reservationView.EndDate).ToString("hh:mm tt");
             if (selectedVehicle.VehicleImageUrl != null)
@@ -105,6 +105,33 @@ namespace SnapCarHire.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            if (reservationView != null)
+            {
+                startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("MM/dd/yyyy");
+                endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("MM/dd/yyyy");
+                startTimeLabel.Text = ((DateTime)reservationView.StartDate).ToString("hh:mm tt");
+                endTimeLabel.Text = ((DateTime)reservationView.EndDate).ToString("hh:mm tt");
+                startLoc.Text = reservationView.StartLocationName;
+                endLoc.Text = reservationView.EndLocationName;
+                if (selectedVehicle.VehicleImageUrl != null)
+                {
+                    vehilcleTypeImage.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleImageUrl));
+                    VehImageFill.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleImageUrl));
+                }
+                else if (selectedVehicle.VehicleTypeImageUrl != null)
+                {
+                    vehilcleTypeImage.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleTypeImageUrl));
+                    VehImageFill.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleTypeImageUrl));
+                }
+                vehicleSampleLabel.Text = selectedVehicle.vehicleName;
+                vehilcleTypeLabel.Text = selectedVehicle.VehicleType;
+                priceLabel.Text = "Days: " + selectedVehicle.RateDetail.TotalDays.ToString();
+
+
+            }
+
+
             if (PopupNavigation.Instance.PopupStack.Count > 0)
             {
                 if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ErrorWithClosePagePopup))
@@ -118,6 +145,7 @@ namespace SnapCarHire.Views
                 }
 
             }
+           
 
             //if (Constants.IsRegisteredandNotLogin)
             //{

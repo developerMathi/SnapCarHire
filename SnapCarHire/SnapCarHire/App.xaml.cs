@@ -5,7 +5,6 @@ using SnapCarHireModel;
 using SnapCarHireModel.AccessModels;
 using Rg.Plugins.Popup.Services;
 using System;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
@@ -20,10 +19,10 @@ namespace SnapCarHire
         public App()
         {
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
-            Xamarin.Forms.Device.SetFlags(new string[] { "MediaElement_Experimental", "Brush_Experimental" });
+            Xamarin.Forms.Device.SetFlags(new string[] { "MediaElement_Experimental", "Brush_Experimental", "SwipeView_Experimental" });
             InitializeComponent();
 
-            var currentVersion = VersionTracking.CurrentVersion;
+            //var currentVersion = VersionTracking.CurrentVersion;
 
             if (!App.Current.Properties.ContainsKey("IsOnborded"))
             {

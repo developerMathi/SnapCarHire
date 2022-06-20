@@ -62,8 +62,8 @@ namespace SnapCarHire.Views
             reservationController = new ReservationController();
             token = App.Current.Properties["currentToken"].ToString();
             this.selectedVehicle = selectedVehicle;
-            startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("ddd MM/dd/yyyy");
-            endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("ddd MM/dd/yyyy");
+            startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("MM/dd/yyyy");
+            endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("MM/dd/yyyy");
             startTimeLabel.Text = ((DateTime)reservationView.StartDate).ToString("hh:mm tt");
             endTimeLabel.Text = ((DateTime)reservationView.EndDate).ToString("hh:mm tt");
             if (selectedVehicle.VehicleImageUrl != null)
@@ -96,6 +96,33 @@ namespace SnapCarHire.Views
             //{
             // loginIcon.IconImageSource = ImageSource.FromResource("MaxVonGrafKftMobile.Assets.logOutTool.png", assembly);
             //}
+
+            if (reservationView != null)
+            {
+                startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("MM/dd/yyyy");
+                endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("MM/dd/yyyy");
+                startTimeLabel.Text = ((DateTime)reservationView.StartDate).ToString("hh:mm tt");
+                endTimeLabel.Text = ((DateTime)reservationView.EndDate).ToString("hh:mm tt");
+                startLoc.Text = reservationView.StartLocationName;
+                endLoc.Text = reservationView.EndLocationName;
+                if (selectedVehicle.VehicleImageUrl != null)
+                {
+                    vehilcleTypeImage.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleImageUrl));
+                    VehImageFill.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleImageUrl));
+                }
+                else if (selectedVehicle.VehicleTypeImageUrl != null)
+                {
+                    vehilcleTypeImage.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleTypeImageUrl));
+                    VehImageFill.Source = ImageSource.FromUri(new Uri(selectedVehicle.VehicleTypeImageUrl));
+                }
+                vehicleSampleLabel.Text = selectedVehicle.vehicleName;
+                vehilcleTypeLabel.Text = selectedVehicle.VehicleType;
+                priceLabel.Text = "Days: " + selectedVehicle.RateDetail.TotalDays.ToString();
+
+                dailyRateDetailLabel.Text = "( " + selectedVehicle.RateDetail.DailyQty + " x $ " + ((decimal)selectedVehicle.RateDetail.DailyRate).ToString("0.00") + " )";
+                DailyRateTotal.Text = "$ " + ((decimal)selectedVehicle.RateDetail.DailyQty * (decimal)selectedVehicle.RateDetail.DailyRate).ToString("0.00");
+
+            }
 
             if (PopupNavigation.Instance.PopupStack.Count > 0)
             {

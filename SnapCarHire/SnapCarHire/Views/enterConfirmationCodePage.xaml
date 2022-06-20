@@ -64,7 +64,7 @@
                         FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="CenterAndExpand"
                         Text="CONFIRM EMAIL ADDRESS"
-                        TextColor="{StaticResource PrimaryColor}"
+                        TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" 
                         VerticalOptions="CenterAndExpand">
                     <Label.FontSize>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -173,7 +173,7 @@
                                 <Span Text="Don't receive a confirmation code? "
                                       TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"></Span>
                                 <Span Text="Resend"
-                                      TextColor="{StaticResource PrimaryColor}">
+                                      TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" >
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1"
                                                               x:Name="resendLable"
@@ -206,15 +206,14 @@
                 <Button
                         x:Name="ConfirmBtn"
                         Margin="10,40,10,20"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                            BorderColor="{StaticResource PrimaryColor}"
+                         BackgroundColor="{StaticResource AccentColor}"
                         BorderWidth="0"
                         Clicked="ConfirmBtn_Clicked"
-                        FontFamily="SourceSansPro-Regular"
+                        FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="FillAndExpand"
                         StyleClass="bouncy"
                         Text="VERIFY PROCEED"
-                        TextColor="{StaticResource BlackColor}"
+                        TextColor="{StaticResource PrimaryColor}"
                     CornerRadius="5"
                         VerticalOptions="CenterAndExpand">
                     <Button.HeightRequest>

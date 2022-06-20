@@ -83,7 +83,7 @@
                         FontSize="Large"
                         HorizontalOptions="CenterAndExpand"
                         Text="CUSTOMER PHOTOGRAPH"
-                        TextColor="{StaticResource PrimaryColor}"
+                        TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" 
                         VerticalOptions="CenterAndExpand" />
 
                     <Image

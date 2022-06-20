@@ -9,8 +9,8 @@
     xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
     xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:renders="clr-namespace:SnapCarHire.Renders"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
+    xmlns:renders="clr-namespace:SnapCarHire.Renders" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}"
     mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout Margin="10,0,10,0" VerticalOptions="CenterAndExpand">
@@ -58,7 +58,7 @@
                     FontFamily="SourceSansPro-Bold"
                     HorizontalOptions="CenterAndExpand"
                      Text="DAMAGE CHECKLIST - CHECKOUT"
-                    TextColor="{StaticResource PrimaryColor}"
+                        TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" 
                     VerticalOptions="CenterAndExpand" >
                 <Label.FontSize>
                     <OnPlatform x:TypeArguments="x:Double">
@@ -114,7 +114,7 @@
 
                                         <Grid
                                             Grid.Row="0"
-                                            BackgroundColor="{StaticResource PrimaryColor}"
+                                            BackgroundColor="{StaticResource AccentColor}"
                                             HeightRequest="50">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
@@ -125,7 +125,7 @@
                                                 FontFamily="SourceSansPro-Bold"
                                                 FontSize="16"
                                                 Text="{Binding Description}"
-                                                TextColor="{StaticResource BlackColor}"
+                                                TextColor="{StaticResource PrimaryColor}"
                                                 VerticalOptions="CenterAndExpand" />
 
                                             <Image
@@ -326,7 +326,6 @@
                                                     x:Name="chkFront"
                                                     Grid.Row="0"
                                                     Grid.Column="0"
-                                                    FontFamily="SourceSansPro-Bold"
                                                     Text="Front"
                                                     TextColor="{StaticResource BlackColor}"
                                                     Type="Material"
@@ -352,7 +351,6 @@
                                                     x:Name="chkBack"
                                                     Grid.Row="0"
                                                     Grid.Column="1"
-                                                    FontFamily="SourceSansPro-Bold"
                                                     Text="Back"
                                                     TextColor="{StaticResource BlackColor}"
                                                     Type="Material"
@@ -379,7 +377,6 @@
                                                     x:Name="chkDriverSide"
                                                     Grid.Row="1"
                                                     Grid.Column="0"
-                                                    FontFamily="SourceSansPro-Bold"
                                                     Text="Driver Side"
                                                     TextColor="{StaticResource BlackColor}"
                                                     Type="Material"
@@ -405,7 +402,6 @@
                                                     x:Name="chkPassengerSide"
                                                     Grid.Row="1"
                                                     Grid.Column="1"
-                                                    FontFamily="SourceSansPro-Bold"
                                                     Text="Passenger Side"
                                                     TextColor="{StaticResource BlackColor}"
                                                     Type="Material"
@@ -592,17 +588,17 @@
                         Margin="0,10,0,0"
                         HasUnevenRows="True"
                         SeparatorVisibility="None"
-                        VerticalScrollBarVisibility="Never">
+                        VerticalScrollBarVisibility="Never"
+                        >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
-                                    <Frame
-                                        Margin="15,0"
-                                        Padding="5"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                                    <pancake:PancakeView
+                                        Margin="15,5"
+                                        Padding="15,5"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                         Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                         CornerRadius="10"
-                                        HasShadow="False"
                                         VerticalOptions="FillAndExpand">
                                         <Grid>
                                             <Grid.RowDefinitions>
@@ -610,19 +606,13 @@
                                                 <RowDefinition Height="Auto" />
                                             </Grid.RowDefinitions>
                                             <Label
-                                                FontFamily="SourceSansPro-Regular"
+                                                FontFamily="SourceSansPro-Bold"
                                                 FontSize="Medium"
                                                 Text="{Binding Description}"
                                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
                                                 VerticalOptions="CenterAndExpand" />
 
-                                            <BoxView
-                                                Grid.Row="0"
-                                                Margin="0,10,0,0"
-                                                BackgroundColor="{StaticResource GrayColor}"
-                                                HeightRequest="1"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="EndAndExpand" />
+                                           
 
                                             <renders:CustomEntry
                                                 x:Name="txtOther"
@@ -637,7 +627,7 @@
                                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
                                                 Text="{Binding Area}" />
                                         </Grid>
-                                    </Frame>
+                                    </pancake:PancakeView>
 
 
                                     <!--<Grid>
@@ -691,13 +681,12 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
-                                    <Frame
-                                        Margin="15,0"
-                                        Padding="5"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+                                    <pancake:PancakeView
+                                        Margin="15,5"
+                                        Padding="15,5"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                         Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                         CornerRadius="10"
-                                        HasShadow="False"
                                         VerticalOptions="FillAndExpand">
                                         <Grid>
                                             <Grid.RowDefinitions>
@@ -705,49 +694,28 @@
                                                 <RowDefinition Height="Auto" />
                                             </Grid.RowDefinitions>
                                             <Label
-                                                FontFamily="SourceSansPro-Regular"
+                                                FontFamily="SourceSansPro-Bold"
                                                 FontSize="Medium"
                                                 Text="{Binding Description}"
                                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
                                                 VerticalOptions="CenterAndExpand" />
 
-                                            <BoxView
-                                                Grid.Row="0"
-                                                Margin="0,10,0,0"
-                                                BackgroundColor="{StaticResource GrayColor}"
-                                                HeightRequest="1"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="EndAndExpand" />
+
 
                                             <renders:CustomEntry
                                                 x:Name="txtOther"
                                                 Grid.Row="1"
                                                 Margin="10,0,0,0"
                                                 FontFamily="SourceSansPro-Regular"
+                                                FontSize="Medium"
                                                 IsEnabled="True"
                                                 IsReadOnly="True"
                                                 PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
+
                                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor},Light={StaticResource BlackColor}}"
-                                                Text="{Binding calendarstr}">
-                                                <renders:CustomEntry.FontSize>
-                                                    <OnPlatform x:TypeArguments="x:Double">
-                                                        <On Platform="iOS">
-                                                            <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="16"
-                                                                Tablet="20" />
-                                                        </On>
-                                                        <On Platform="Android,Windows">
-                                                            <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="18"
-                                                                Tablet="22" />
-                                                        </On>
-                                                    </OnPlatform>
-                                                </renders:CustomEntry.FontSize>
-                                            </renders:CustomEntry>
+                                                Text="{Binding calendarstr}" />
                                         </Grid>
-                                    </Frame>
+                                    </pancake:PancakeView>
                                     <!--<Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
@@ -915,15 +883,17 @@
                     </Grid>-->
 
 
-                    <Frame
+                    <pancake:PancakeView
                         x:Name="signaturePadFrame"
                         Grid.Row="4"
                         Margin="5,20,5,10"
                         Padding="3"
-                        BackgroundColor="Transparent"
-                        BorderColor="{StaticResource PrimaryColor}"
-                        CornerRadius="5"
-                        HasShadow="False">
+                         Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <pancake:PancakeView.Shadow>
+                            <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                        </pancake:PancakeView.Shadow>
                         <controls:SignaturePadView
                             x:Name="signatureView"
                             Margin="5,5,5,5"
@@ -932,7 +902,8 @@
                             HeightRequest="120"
                             StrokeColor="{StaticResource Black}"
                             StrokeWidth="1" />
-                    </Frame>
+                    </pancake:PancakeView>
+                    
                     <Grid
                         x:Name="signaturePadGrid"
                         Grid.Row="5"
@@ -970,15 +941,18 @@
 
                     </Grid>
 
-                    <Frame
+                    <pancake:PancakeView
                         x:Name="imageFrame"
                         Grid.Row="6"
                         Margin="5,20,5,10"
                         Padding="3"
-                        BackgroundColor="Transparent"
-                        BorderColor="{StaticResource PrimaryColor}"
-                        CornerRadius="5"
-                        HasShadow="False">
+                        BackgroundColor="White"
+                            Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
+                            CornerRadius="5"
+                            IsVisible="False">
+                        <pancake:PancakeView.Shadow>
+                            <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                        </pancake:PancakeView.Shadow>
                         <Image
                             x:Name="signatureImage"
                             Margin="5,5,5,5"
@@ -986,19 +960,22 @@
                             HeightRequest="120"
                             IsVisible="True" />
 
-                    </Frame>
+                    </pancake:PancakeView>
 
 
-                    <Frame
+                    <pancake:PancakeView
                         x:Name="noSignatureFrame"
                         Grid.Row="7"
                         Margin="5,20,5,10"
                         Padding="3"
-                        BackgroundColor="Transparent"
-                        BorderColor="{StaticResource PrimaryColor}"
-                        CornerRadius="5"
-                        HasShadow="False"
-                        HeightRequest="120">
+                        BackgroundColor="White"
+                            Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
+                            CornerRadius="10"
+                            HeightRequest="120"
+                            IsVisible="False">
+                        <pancake:PancakeView.Shadow>
+                            <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                        </pancake:PancakeView.Shadow>
                         <Label
                             FontAttributes="Bold"
                             FontFamily="SourceSansPro-Bold"
@@ -1007,7 +984,7 @@
                             VerticalOptions="Center">
                             No signature images.
                         </Label>
-                    </Frame>
+                    </pancake:PancakeView>
 
 
                     <Button
@@ -1031,8 +1008,8 @@
                         Grid.Row="9"
                         Margin="5,5,5,5"
                         Padding="0"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                    BorderColor="{StaticResource PrimaryColor}"
+                         BackgroundColor="{StaticResource AccentColor}"
+                    BorderColor="{StaticResource AccentColor}"
                     CornerRadius="5"
                         HasShadow="False"
                         HeightRequest="45"
@@ -1052,7 +1029,7 @@
                             <Label
                                 FontAttributes="Bold"
                                 FontFamily="SourceSansPro-Bold"
-                                TextColor="{StaticResource BlackColor}"
+                                TextColor="{StaticResource PrimaryColor}"
                                 VerticalOptions="CenterAndExpand">
                                 UPLOAD PICTURE
                                 <Label.FontSize>
@@ -1109,15 +1086,15 @@
                         x:Name="backBtn"
                         Grid.Row="10"
                         Margin="5,5,5,25"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                    BorderColor="{StaticResource PrimaryColor}"
+                         BackgroundColor="{StaticResource BackGroundColor}"
+                    BorderColor="{StaticResource AccentColor}"
                     CornerRadius="5"
                                 BorderWidth="2"
                         Clicked="BackBtn_Clicked"
                         FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="Fill"
                         Text="BACK"
-                        TextColor="{StaticResource BlackColor}">
+                        TextColor="{StaticResource PrimaryColor}">
                         <Button.FontSize>
                             <OnPlatform x:TypeArguments="x:Double">
                                 <On Platform="iOS">

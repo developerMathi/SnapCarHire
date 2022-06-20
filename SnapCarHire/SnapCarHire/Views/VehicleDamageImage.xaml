@@ -4,10 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
-             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.VehicleDamageImage"
-             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}">
+             BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}">
     <ContentPage.Content>
         <StackLayout Margin="10,5,10,0" VerticalOptions="CenterAndExpand">
             <Label Text="VEHICLE IMAGES"
@@ -16,7 +16,7 @@
                 FontFamily="SourceSansPro-Bold"
                 FontSize="Medium"
                 HorizontalOptions="CenterAndExpand"
-                TextColor="{StaticResource PrimaryColor}" />
+                                       TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" />
             <!--<ContentView HeightRequest="40" HorizontalOptions="FillAndExpand">
                 <controls:TabsControl
                 StripeColor="Gold"
@@ -105,38 +105,54 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Frame Grid.Row="0"
+                        <pancake:PancakeView Grid.Row="0"
                                Grid.RowSpan="2"
                                Grid.Column="0"
-                               BackgroundColor="Transparent"
-                               BorderColor="{StaticResource PrimaryColor}"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                CornerRadius="10"
                                VerticalOptions="FillAndExpand"
-                               x:Name="FrontImageFrame"></Frame>
-                        <Frame Grid.Row="0"
+                               x:Name="FrontImageFrame">
+                            <pancake:PancakeView.Shadow>
+                                <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                            </pancake:PancakeView.Shadow>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView Grid.Row="0"
                                Grid.RowSpan="2"
                                Grid.Column="1"
-                               BackgroundColor="Transparent"
-                               BorderColor="{StaticResource PrimaryColor}"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                CornerRadius="10"
                                VerticalOptions="FillAndExpand"
-                               x:Name="RearImageFrame"></Frame>
-                        <Frame Grid.Row="2"
+                               x:Name="RearImageFrame">
+                            <pancake:PancakeView.Shadow>
+                                <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                            </pancake:PancakeView.Shadow>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView Grid.Row="2"
                                Grid.RowSpan="2"
                                Grid.Column="0"
-                               BackgroundColor="Transparent"
-                               BorderColor="{StaticResource PrimaryColor}"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                CornerRadius="10"
                                VerticalOptions="FillAndExpand"
-                               x:Name="LeftImageFrame"></Frame>
-                        <Frame Grid.Row="2"
+                               x:Name="LeftImageFrame">
+                            <pancake:PancakeView.Shadow>
+                                <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                            </pancake:PancakeView.Shadow>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView Grid.Row="2"
                                Grid.RowSpan="2"
                                Grid.Column="1"
-                               BackgroundColor="Transparent"
-                               BorderColor="{StaticResource PrimaryColor}"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource VeryLightGrayColor}}"
+                                Border="{pancake:BorderMarkup Color={StaticResource LightGrayColor}, Thickness=1}"
                                CornerRadius="10"
                                VerticalOptions="FillAndExpand"
-                               x:Name="RightImageFrame"></Frame>
+                               x:Name="RightImageFrame">
+                            <pancake:PancakeView.Shadow>
+                                <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                            </pancake:PancakeView.Shadow>
+                        </pancake:PancakeView>
                         
                         <Label FontSize="Subtitle"
                                HorizontalOptions="Center"
@@ -199,15 +215,15 @@
 
                     </Grid>
 
-                    <Button  BackgroundColor="{StaticResource PrimaryColor}"
-                    BorderColor="{StaticResource PrimaryColor}"
+                    <Button  BackgroundColor="{StaticResource AccentColor}"
+                    BorderColor="{StaticResource AccentColor}"
                     CornerRadius="5"
                                 BorderWidth="2"
                                     Text="Continue"
-                                    TextColor="{StaticResource BlackColor}"
+                                    TextColor="{StaticResource PrimaryColor}"
                                     x:Name="continueBtn"
                                     HeightRequest="45"
-                            FontFamily="SourceSansPro-Bold"
+                            FontFamily="SourceSansPro-Regular"
                                 Clicked="continueBtn_Clicked"></Button>
                 </StackLayout>
                

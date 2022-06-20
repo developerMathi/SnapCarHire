@@ -62,16 +62,15 @@
             <Button
                 Margin="10,0,10,30"
                         x:Name="doneBtn"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                            BorderColor="{StaticResource PrimaryColor}"
+                         BackgroundColor="{StaticResource AccentColor}"
                         BorderWidth="0"
                         Clicked="doneBtn_Clicked"
                         CornerRadius="5"
-                        FontFamily="SourceSansPro-Regular"
+                        FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="FillAndExpand"
                         StyleClass="bouncy"
                         Text="DONE"
-                        TextColor="{StaticResource BlackColor}"
+                        TextColor="{StaticResource PrimaryColor}"
                         VerticalOptions="End">
                 <Button.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double">

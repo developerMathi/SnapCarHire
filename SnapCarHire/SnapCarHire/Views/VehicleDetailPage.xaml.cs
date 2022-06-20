@@ -134,6 +134,16 @@ namespace SnapCarHire.Views
 
             });
 
+            if(reservationView!= null)
+            {
+                startDateLabel.Text = ((DateTime)reservationView.StartDate).ToString("MM/dd/yyyy");
+                endDateLabel.Text = ((DateTime)reservationView.EndDate).ToString("MM/dd/yyyy");
+                startTimeLabel.Text = ((DateTime)reservationView.StartDate).ToString("hh:mm tt");
+                endTimeLabel.Text = ((DateTime)reservationView.EndDate).ToString("hh:mm tt");
+                startLoc.Text = reservationView.StartLocationName;
+                endLoc.Text=reservationView.EndLocationName;
+            }
+
 
 
 

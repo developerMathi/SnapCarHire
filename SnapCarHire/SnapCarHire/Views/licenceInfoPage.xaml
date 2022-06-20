@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
+             x:Class="SnapCarHire.Views.licenceInfoPage"
+              BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.BackDesigns.city6.png}" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+                                       Margin="0" Opacity="0.2"/>
+            <ScrollView>
+                <StackLayout Spacing="0">
+                    <StackLayout
+                    Margin="20,10,20,0"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand">
+                        <Image
+                        x:Name="titleBAck"
+                        Aspect="AspectFit"
+                        HorizontalOptions="StartAndExpand"
+                        Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconBack.png}">
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="25"
+                                        Tablet="30" />
+                                    </On>
+                                    <On Platform="Android,Windows">
+                                        <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="30"
+                                        Tablet="40" />
+                                    </On>
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                            </Image.GestureRecognizers>
+
+                        </Image>
+                    </StackLayout>
+
+                    <Image
+                    x:Name="logoImage"
+                    Margin="10,0,10,20"
+                    Aspect="AspectFit"
+                        Source="{AppThemeBinding Dark=SnapLogoWhite.png, Light=SnapLogo.png}">
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="60"
+                                    Tablet="120" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                    x:TypeArguments="x:Double"
+                                    Phone="60"
+                                    Tablet="120" />
+                                </On>
+                            </OnPlatform>
+                        </Image.HeightRequest>
+                    </Image>
+
+                    <Grid ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
+                        <Grid.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS">
+                                    <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="50"
+                                    Tablet="80" />
+                                </On>
+                                <On Platform="Android,Windows">
+                                    <OnIdiom
+                                    x:TypeArguments="Thickness"
+                                    Phone="20,1,20,10"
+                                    Tablet="60,1,60,0" />
+                                </On>
+                            </OnPlatform>
+                        </Grid.Margin>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Margin="0" Padding="0">
+                            <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectReg.png}">
+                                <Image.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.WidthRequest>
+                                <Image.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.HeightRequest>
+                            </Image>
+                        </StackLayout>
+
+                        <BoxView
+                        Grid.Column="1"
+                        Margin="5,10,5,0"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" />
+
+                        <StackLayout
+                        Grid.Column="2"
+                        Margin="0"
+                        Padding="0">
+                            <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnselectPerInfo.png}">
+                                <Image.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.WidthRequest>
+                                <Image.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.HeightRequest>
+                            </Image>
+                        </StackLayout>
+                        <BoxView
+                        Grid.Column="3"
+                        Margin="5,10,5,0"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"/>
+
+                        <StackLayout
+                        Grid.Column="4"
+                        Margin="0"
+                        Padding="0">
+                            <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectOtherInfo.png}">
+                                <Image.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.WidthRequest>
+                                <Image.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="80" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.HeightRequest>
+                            </Image>
+                        </StackLayout>
+                    </Grid>
+
+                </StackLayout>
+
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -16,6 +16,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.IO;
 
 namespace SnapCarHire.Views
 {
@@ -56,6 +60,13 @@ namespace SnapCarHire.Views
         private OverDueBalanceViewModel overDueBalanceViewModel;
 
 
+        public ListView ListView;
+        GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest;
+        GetCustomerPortalDetailsMobileResponse PortalDetailsMobileResponse;
+        string token;
+        CustomerController customoerController;
+
+
         public HomePageDetail()
         {
             InitializeComponent();
@@ -92,13 +103,37 @@ namespace SnapCarHire.Views
             });
             refreshView.Command = refreshCommand;
 
+
+            customoerController = new CustomerController();
+            token = Application.Current.Properties["currentToken"].ToString();
+            portalDetailsMobileRequest = new GetCustomerPortalDetailsMobileRequest();
+            portalDetailsMobileRequest.customerId = customerId;
+            PortalDetailsMobileResponse = null;
+
+           
+            if (Constants.cutomerAuthContext != null)
+            {
+                welcomeText.Text = "Hi, " + Constants.cutomerAuthContext.FirstName;
+            }
+            ListView = MenuItemsListView;
+
+
+            var homeTab = new TapGestureRecognizer();
+            homeTab.Tapped += (s, e) =>
+            {
+                Navigation.PushAsync(new HomePageDetail());
+            };
+
+            // Get Metrics
+
+
             // BooknowBtn.BackgroundColor = (Color)App.Current.Properties["PrimaryColor"];
         }
 
         public void unSelectedTab()
         {
-            btnMyRentals.BackgroundColor = Color.FromHex("#EAEAEA");
-            btnPastRental.BackgroundColor = Color.FromHex("#EAEAEA");
+            btnMyRentals.BackgroundColor = Color.Transparent;
+            btnPastRental.BackgroundColor = Color.Transparent;
 
             btnMyRentals.TextColor = Color.Black;
             btnPastRental.TextColor = Color.Black;
@@ -112,6 +147,29 @@ namespace SnapCarHire.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            BindingContext = new HomePageMasterViewModel();
+
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+            // Orientation (Landscape, Portrait, Square, Unknown)
+            var orientation = mainDisplayInfo.Orientation;
+
+            // Rotation (0, 90, 180, 270)
+            var rotation = mainDisplayInfo.Rotation;
+
+            // Width (in pixels)
+            var width = mainDisplayInfo.Width;
+
+            // Height (in pixels)
+            var height = mainDisplayInfo.Height;
+
+            // Screen density
+            var density = mainDisplayInfo.Density;
+
+            swStack.WidthRequest = width/ density;
+
+            CloseAnimation();
+            MainSwipeView.Close();
 
             Constants.IsHomeDetail = true;
             DateTime timeUtc = DateTime.UtcNow;
@@ -120,12 +178,42 @@ namespace SnapCarHire.Views
             dateDiff = DateTime.Now - estTime;
 
             unSelectedTab();
-            btnMyRentals.BackgroundColor = Color.FromHex("#74fa8e");
+            btnMyRentals.BackgroundColor = Color.FromHex("#242F60");
             btnMyRentals.TextColor = Color.White;
             grdRentals.IsVisible = true;
             //lastAgreementStack.IsVisible = false;
             Constants.IsHome = true;
             bool canRun = true;
+
+
+            // for swip view master page
+            if (Constants.customerDetails != null)
+            {
+                welcomeText.Text = "Hi, " + Constants.customerDetails.FirstName;
+
+                if (Constants.customerDetails.CustomerId != (int)Application.Current.Properties["CustomerId"])
+                {
+                    getCustomerRevieAndUpdateImage();
+                }
+                else
+                {
+                    if (Constants.customerDetails.CustomerImages.Count > 0)
+                    {
+                        if (Constants.customerDetails.CustomerImages[Constants.customerDetails.CustomerImages.Count - 1].Base64 != null)
+                        {
+                            byte[] Base64Stream = Convert.FromBase64String(Constants.customerDetails.CustomerImages[Constants.customerDetails.CustomerImages.Count - 1].Base64);
+                            profileImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                        }
+                    }
+                }
+            }
+            else
+            {
+                getCustomerRevieAndUpdateImage();
+            }
+
+
+
 
             if (PopupNavigation.Instance.PopupStack.Count > 0)
             {
@@ -648,7 +736,7 @@ namespace SnapCarHire.Views
         private void btnMyRentals_Clicked(object sender, EventArgs e)
         {
             unSelectedTab();
-            btnMyRentals.BackgroundColor = Color.FromHex("#74fa8e");
+            btnMyRentals.BackgroundColor = Color.FromHex("#242F60");
             btnMyRentals.TextColor = Color.White;
             //if (isreservation)
             //{
@@ -671,15 +759,18 @@ namespace SnapCarHire.Views
         {
             unSelectedTab();
             //BooknowBtn.IsVisible = false;
-            btnPastRental.BackgroundColor = Color.FromHex("#74fa8e");
+            btnPastRental.BackgroundColor = Color.FromHex("#242F60");
             btnPastRental.TextColor = Color.White;
             grdPastRentals.IsVisible = true;
         }
 
         private void btnMenu_Clicked(object sender, EventArgs e)
         {
-            Common.mMasterPage.Master = new HomePageMaster();
-            Common.mMasterPage.IsPresented = true;
+            //Common.mMasterPage.Master = new HomePageMaster();
+            //Common.mMasterPage.IsPresented = true;
+            MainSwipeView.Open(OpenSwipeItem.LeftItems);
+
+            OpenAnimation();
 
         }
 
@@ -770,9 +861,9 @@ namespace SnapCarHire.Views
             //        {
             //            var timespan = DateTime.Now - dateDiff - evt.Date;
             //            evt.Timespan = timespan;
-            //            evt.BgColor = "#74fa8e";
+            //            evt.BgColor = "#242F60";
             //            timerLabel.Text = "Due time : ";
-            //            timerLabel.TextColor = Color.FromHex("#74fa8e");
+            //            timerLabel.TextColor = Color.FromHex("#242F60");
             //        }
 
 
@@ -801,9 +892,9 @@ namespace SnapCarHire.Views
             //        {
             //            var timespan = DateTime.Now - dateDiff - evt.Date;
             //            evt.Timespan = timespan;
-            //            evt.BgColor = "#74fa8e";
+            //            evt.BgColor = "#242F60";
             //            timerLabel.Text = "Overdue : ";
-            //            timerLabel.TextColor = Color.FromHex("#74fa8e");
+            //            timerLabel.TextColor = Color.FromHex("#242F60");
             //        }
 
 
@@ -927,5 +1018,205 @@ namespace SnapCarHire.Views
             var agreemodel = obj.BindingContext as CustomerAgreementModel;
             Navigation.PushModalAsync(new AgreementScreen(agreemodel.AgreementId, agreemodel.VehicleId));
         }
+
+
+
+        private async void OpenAnimation()
+        {
+            btnMenu.IsVisible = false;
+            btnMenuClose.IsVisible = true;
+            //await swipeContent.ScaleYTo(0.9, 300, Easing.SinOut);
+            pancake.CornerRadius = 20;
+            await swipeContent.RotateTo(-15, 300, Easing.SinOut);
+            await btnMenuClose.RotateTo(15, 300, Easing.SinOut);
+
+        }
+
+        private async void CloseAnimation()
+        {
+            await btnMenuClose.RotateTo(0, 300, Easing.SinOut);
+            btnMenu.IsVisible = true;
+            btnMenuClose.IsVisible = false;
+            await swipeContent.RotateTo(0, 300, Easing.SinOut);
+            pancake.CornerRadius = 0;
+            await swipeContent.ScaleYTo(1, 300, Easing.SinOut);
+
+        }
+
+        private void OpenSwipe(object sender, EventArgs e)
+        {
+            MainSwipeView.Open(OpenSwipeItem.LeftItems);
+            OpenAnimation();
+        }
+
+        private void CloseSwipe(object sender, EventArgs e)
+        {
+            MainSwipeView.Close();
+            CloseAnimation();
+        }
+
+        private void SwipeStarted(object sender, SwipeStartedEventArgs e)
+        {
+            OpenAnimation();
+        }
+
+        private void SwipeEnded(object sender, SwipeEndedEventArgs e)
+        {
+            if (!e.IsOpen)
+                CloseAnimation();
+
+            SwipeDirection d = e.SwipeDirection;
+            if (d == SwipeDirection.Left)
+            {
+                CloseAnimation();
+            }
+            
+        }
+
+        private void MainSwipeView_SwipeChanging(object sender, SwipeChangingEventArgs e)
+        {
+           
+        }
+
+        private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            SwipeDirection d = e.Direction;
+            if (d == SwipeDirection.Left)
+            {
+                CloseAnimation();
+            }
+        }
+
+        private void MainSwipeView_CloseRequested(object sender, CloseRequestedEventArgs e)
+        {
+            CloseAnimation();
+        }
+
+        private void btnMenuClose_Clicked(object sender, EventArgs e)
+        {
+            MainSwipeView.Close();
+            CloseAnimation();
+        }
+
+        private void MenuItemsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = MenuItemsListView.SelectedItem as HomePageMasterMenuItem;
+            if (item == null)
+                return;
+            else if (item.Id == 0)
+            {
+                Navigation.PushModalAsync(new HomePage());
+            }
+            else if (item.Id == 1)
+            {
+                Navigation.PushModalAsync(new BookNow());
+
+            }
+            else if (item.Id == 2)
+            {
+                Navigation.PushModalAsync(new MyRentals());
+            }
+            else if (item.Id == 3)
+            {
+                Navigation.PushModalAsync(new UpcomingReservations());
+            }
+            else if (item.Id == 4)
+            {
+                Navigation.PushModalAsync(new MyProfile());
+            }
+            else if (item.Id == 6)
+            {
+                Navigation.PushModalAsync(new SettingPage());
+            }
+            else if (item.Id == 5)
+            {
+                App.Current.Properties["CustomerId"] = 0;
+                App.Current.Properties["InquiryID"] = 0;
+                Constants.cutomerAuthContext = null;
+                var pageOne = new LoginPage();
+                NavigationPage.SetHasNavigationBar(pageOne, false);
+                NavigationPage mypage = new NavigationPage(pageOne);
+                Application.Current.MainPage = mypage;
+            }
+        }
+
+
+        //private void CloseRequested(object sender, EventArgs e)
+        //{
+        //   
+        //}
+
+        class HomePageMasterViewModel : INotifyPropertyChanged
+        {
+            public ObservableCollection<HomePageMasterMenuItem> MenuItems { get; set; }
+
+            public HomePageMasterViewModel()
+            {
+                MenuItems = new ObservableCollection<HomePageMasterMenuItem>(new[]
+                {
+
+                    new HomePageMasterMenuItem { Id = 0,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteDashboard.png"),  Title = "Dashboard" },
+                    new HomePageMasterMenuItem { Id = 1,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteCar.png"), Title = "Book Now" },
+                    new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteBooking.png"), Title = "My Reservations" },
+                    new HomePageMasterMenuItem { Id = 2,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteRental.png"), Title = "My Rentals " },
+                    new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteUser.png"), Title = "My Profile" },
+                    new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteSetting.png"), Title = "Settings" },
+                    new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteLogout.png"), Title = "Log out" },
+                   // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
+                   // new HomePageMasterMenuItem { Id = 3, Title = "My Rentals" },
+                   //new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteHelp.png"), Title = "Help" },
+
+                });
+            }
+
+            #region INotifyPropertyChanged Implementation
+            public event PropertyChangedEventHandler PropertyChanged;
+            void OnPropertyChanged([CallerMemberName] string propertyName = "")
+            {
+                if (PropertyChanged == null)
+                    return;
+
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+            #endregion
+        }
+
+        private void getCustomerRevieAndUpdateImage()
+        {
+            PortalDetailsMobileResponse = getCustomerDetailsWithProfilePic(portalDetailsMobileRequest, token);
+
+            if (PortalDetailsMobileResponse != null)
+            {
+                if (PortalDetailsMobileResponse.customerReview != null)
+                {
+                    Constants.customerDetails = PortalDetailsMobileResponse.customerReview;
+                    welcomeText.Text = "Hi, " + Constants.customerDetails.FirstName;
+                    if (PortalDetailsMobileResponse.customerReview.CustomerImages.Count > 0)
+                    {
+                        if (PortalDetailsMobileResponse.customerReview.CustomerImages[PortalDetailsMobileResponse.customerReview.CustomerImages.Count - 1].Base64 != null)
+                        {
+                            byte[] Base64Stream = Convert.FromBase64String(PortalDetailsMobileResponse.customerReview.CustomerImages[PortalDetailsMobileResponse.customerReview.CustomerImages.Count - 1].Base64);
+                            profileImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private GetCustomerPortalDetailsMobileResponse getCustomerDetailsWithProfilePic(GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest, string token)
+        {
+            GetCustomerPortalDetailsMobileResponse response = new GetCustomerPortalDetailsMobileResponse();
+            try
+            {
+                response = customoerController.getCustomerDetailsWithProfilePic(portalDetailsMobileRequest, token);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return response;
+        }
+
     }
 }

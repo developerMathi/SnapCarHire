@@ -7,7 +7,7 @@
     xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
     xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:renders="clr-namespace:SnapCarHire.Renders"
+    xmlns:renders="clr-namespace:SnapCarHire.Renders" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
     mc:Ignorable="d">
     <!--<ContentPage.ToolbarItems>
@@ -67,20 +67,22 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+                        
+                        
                         <Grid ColumnSpacing="10">
                             <Grid.Margin>
                                 <OnPlatform x:TypeArguments="Thickness">
                                     <On Platform="iOS">
                                         <OnIdiom
-                                        x:TypeArguments="Thickness"
-                                        Phone="20,20,20,10"
-                                        Tablet="60,10,60,20" />
+                                x:TypeArguments="Thickness"
+                                Phone="20,0,20,10"
+                                Tablet="60,0,60,20" />
                                     </On>
                                     <On Platform="Android,Windows">
                                         <OnIdiom
-                                        x:TypeArguments="Thickness"
-                                        Phone="20,20,20,10"
-                                        Tablet="60,10,60,20" />
+                                x:TypeArguments="Thickness"
+                                Phone="20,0,20,10"
+                                Tablet="60,0,60,10" />
                                     </On>
                                 </OnPlatform>
                             </Grid.Margin>
@@ -94,116 +96,166 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <StackLayout Margin="0" Padding="0">
-                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow1.png}">
+
+
+                            <StackLayout Margin="0" Padding="0" VerticalOptions="CenterAndExpand">
+                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow1.png}"
+                               Aspect="AspectFit">
                                     <Image.WidthRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                         </OnPlatform>
                                     </Image.WidthRequest>
                                 </Image>
                             </StackLayout>
 
-                            <BoxView
-                            Grid.Column="1"
-                            Margin="0,20,0,0"
-                            HeightRequest="1"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" />
+                            <StackLayout  
+                        Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                            </StackLayout>
+
 
                             <StackLayout
-                            Grid.Column="2"
-                            Margin="0"
-                            Padding="0">
-                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow2.png}">
+                    Grid.Column="2"
+                    Margin="0"
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
+                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow2.png}">
                                     <Image.WidthRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                         </OnPlatform>
                                     </Image.WidthRequest>
                                 </Image>
                             </StackLayout>
-                            <BoxView
-                            Grid.Column="3"
-                            Margin="0,20,0,0"
-                            HeightRequest="1"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"  />
+                            <StackLayout  
+                        Grid.Column="3"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                            </StackLayout>
 
                             <StackLayout
-                            Grid.Column="4"
-                            Margin="0"
-                            Padding="0">
+                    Grid.Column="4"
+                    Margin="0"
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
                                 <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow3.png}">
+                                   
                                     <Image.WidthRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="65"
+                                        Tablet="75" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                       Phone="65"
+                                        Tablet="75" />
                                             </On>
                                         </OnPlatform>
                                     </Image.WidthRequest>
+                                    <Image.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                       Phone="65"
+                                        Tablet="75" />
+                                            </On>
+                                            <On Platform="Android,Windows">
+                                                <OnIdiom
+                                        x:TypeArguments="x:Double"
+                                        Phone="65"
+                                        Tablet="75" />
+                                            </On>
+                                        </OnPlatform>
+                                    </Image.HeightRequest>
                                 </Image>
                             </StackLayout>
 
-                            <BoxView
-                            Grid.Column="5"
-                            Margin="0,20,0,0"
-                            HeightRequest="1"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            Color="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"  />
-
+                            <StackLayout  
+                        Grid.Column="5"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                                <BoxView
+                        HeightRequest="8"
+                            WidthRequest="8"
+                            CornerRadius="8" 
+                        Color="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}" />
+                            </StackLayout>
                             <StackLayout
-                            Grid.Column="6"
-                            Margin="0"
-                            Padding="0">
-                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUnSelectBookNow4.png}">
+                    Grid.Column="6"
+                    Margin="0"
+                    Padding="0"
+                        VerticalOptions="CenterAndExpand">
+                                <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconSelectBookNow4.png}">
                                     <Image.WidthRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
                                             <On Platform="iOS">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                             <On Platform="Android,Windows">
                                                 <OnIdiom
-                                                x:TypeArguments="x:Double"
-                                                Phone="50"
-                                                Tablet="60" />
+                                        x:TypeArguments="x:Double"
+                                        Phone="50"
+                                        Tablet="60" />
                                             </On>
                                         </OnPlatform>
                                     </Image.WidthRequest>
@@ -297,6 +349,9 @@
 
                         </Grid>
 
+
+
+
                         <Grid Grid.Row="1" VerticalOptions="FillAndExpand">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -310,8 +365,8 @@
                             FontAttributes="Bold"
                             FontFamily="SourceSansPro-Bold"
                             HorizontalOptions="CenterAndExpand"
-                            Text="Vehicle Rates"
-                            TextColor="{StaticResource PrimaryColor}">
+                             Text="BOOK NOW - VEHICLE RATES"
+                            TextColor="{AppThemeBinding Light={StaticResource PrimaryColor}, Dark={StaticResource AccentColor}}">
                                 <Label.FontSize>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
@@ -331,25 +386,25 @@
                             </Label>
 
 
-                            <Grid
+                            <Grid 
                             Grid.Row="1"
-                            Padding="0,10,0,-5"
-                            BackgroundColor="{AppThemeBinding Dark={StaticResource GrayColor}, Light={StaticResource LightGrayColor}}"
+                            Padding="-10,10,-10,-5"
                             ColumnSpacing="10"
-                            VerticalOptions="CenterAndExpand">
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="{StaticResource PrimaryColor}">
                                 <Grid.HeightRequest>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
                                             <OnIdiom
                                             x:TypeArguments="x:Double"
-                                            Phone="60"
-                                            Tablet="70" />
+                                            Phone="50"
+                                            Tablet="60" />
                                         </On>
                                         <On Platform="Android,Windows">
                                             <OnIdiom
                                             x:TypeArguments="x:Double"
-                                            Phone="60"
-                                            Tablet="70" />
+                                            Phone="50"
+                                            Tablet="60" />
                                         </On>
                                     </OnPlatform>
                                 </Grid.HeightRequest>
@@ -363,68 +418,38 @@
                                 </Grid.RowDefinitions>
 
                                 <StackLayout
-                                Margin="10,0,0,0"
+                                Margin="20,0,0,0"
                                 Padding="0"
                                 Orientation="Horizontal"
-                                Spacing="2"
-                                VerticalOptions="CenterAndExpand">
-                                    <Label
-                                    FontAttributes="Bold"
-                                    FontFamily="Roboto-Black"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                    VerticalOptions="End">
-                                        Start Date :
-                                        <Label.FontSize>
+                                Spacing="10">
+
+                                    <Image
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconEDate.png}"
+                                    VerticalOptions="CenterAndExpand">
+                                        <Image.HeightRequest>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
                                                     <OnIdiom
                                                     x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
+                                                    Phone="17"
+                                                    Tablet="22" />
                                                 </On>
                                                 <On Platform="Android,Windows">
                                                     <OnIdiom
                                                     x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
+                                                    Phone="17"
+                                                    Tablet="22" />
                                                 </On>
                                             </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
+                                        </Image.HeightRequest>
+                                    </Image>
+
                                     <Label
                                     x:Name="startDateLabel"
-                                    FontFamily="SourceSansPro-Regular"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
-                                </StackLayout>
-                                <StackLayout
-                                Grid.Row="1"
-                                Margin="10,0,0,0"
-                                Padding="0"
-                                Orientation="Horizontal"
-                                Spacing="2"
-                                VerticalOptions="CenterAndExpand">
-                                    <Label
-                                    FontAttributes="Bold"
-                                    FontFamily="Roboto-Black"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
-                                        Start Time :
+                                    FontFamily="SourceSansPro-Black"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
@@ -444,61 +469,8 @@
                                     </Label>
                                     <Label
                                     x:Name="startTimeLabel"
-                                    FontFamily="SourceSansPro-Regular"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
-                                </StackLayout>
-
-                                <StackLayout
-                                Grid.Column="1"
-                                Margin="0,0,10,0"
-                                Padding="0"
-                                HorizontalOptions="StartAndExpand"
-                                Orientation="Horizontal"
-                                Spacing="2"
-                                VerticalOptions="CenterAndExpand">
-                                    <Label
-                                    FontAttributes="Bold"
-                                    FontFamily="Roboto-Black"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
-                                        End Date :
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                                <On Platform="Android,Windows">
-                                                    <OnIdiom
-                                                    x:TypeArguments="x:Double"
-                                                    Phone="12"
-                                                    Tablet="16" />
-                                                </On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
-                                    <Label
-                                    x:Name="endDateLabel"
-                                    FontFamily="SourceSansPro-Regular"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
+                                    FontFamily="SourceSansPro-Black"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
@@ -519,18 +491,71 @@
                                 </StackLayout>
                                 <StackLayout
                                 Grid.Row="1"
-                                Grid.Column="1"
-                                Margin="0,0,10,0"
+                                Margin="20,0,0,0"
                                 Padding="0"
-                                HorizontalOptions="StartAndExpand"
                                 Orientation="Horizontal"
-                                Spacing="2"
-                                VerticalOptions="CenterAndExpand">
+                                Spacing="10">
+
+                                    <Image
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconAddress.png}"
+                                    VerticalOptions="CenterAndExpand">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                    </Image>
                                     <Label
+                                    x:Name="startLoc"
+                                    FontFamily="SourceSansPro-Black"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
+                                        Start Time :
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="16" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="16" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout
+                                Grid.Column="1"
+                                Margin="0,0,20,0"
+                                Padding="0"
+                                HorizontalOptions="EndAndExpand"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                    <Label
+                                    x:Name="endDateLabel"
                                     FontAttributes="Bold"
-                                    FontFamily="Roboto-Black"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
-                                        End Time :
+                                    FontFamily="SourceSansPro-Black"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
+                                        End Date :
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
@@ -550,8 +575,9 @@
                                     </Label>
                                     <Label
                                     x:Name="endTimeLabel"
-                                    FontFamily="SourceSansPro-Regular"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
+                                    FontFamily="SourceSansPro-Black"
+                                    FontSize="12"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
@@ -569,34 +595,142 @@
                                             </OnPlatform>
                                         </Label.FontSize>
                                     </Label>
-                                </StackLayout>
-                            </Grid>
 
-                            <Frame
-                                BackgroundColor="Transparent"
+                                    <Image
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconEDate.png}"
+                                    VerticalOptions="CenterAndExpand">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                    </Image>
+                                </StackLayout>
+                                <StackLayout
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0,0,20,0"
+                                Padding="0"
+                                HorizontalOptions="End"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                    <Label
+                                    x:Name="endLoc"
+                                    FontAttributes="Bold"
+                                    FontFamily="SourceSansPro-Black"
+                                    FontSize="12"
+                                    TextColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BackGroundColor}}">
+                                        End Time :
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="16" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="12"
+                                                    Tablet="16" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                    </Label>
+
+
+                                    <Image
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconAddress.png}"
+                                    VerticalOptions="CenterAndExpand">
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                                <On Platform="Android,Windows">
+                                                    <OnIdiom
+                                                    x:TypeArguments="x:Double"
+                                                    Phone="17"
+                                                    Tablet="22" />
+                                                </On>
+                                            </OnPlatform>
+                                        </Image.HeightRequest>
+                                    </Image>
+                                </StackLayout>
+
+
+
+                            </Grid>
+                            <Image
+                            Grid.Row="1"
+
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Center"
+                                    Source="rightArrWhite.png"
+                                    VerticalOptions="CenterAndExpand"
+                            >
+                                <Image.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                        </On>
+                                        <On Platform="Android,Windows">
+                                            <OnIdiom
+                                            x:TypeArguments="x:Double"
+                                            Phone="50"
+                                            Tablet="60" />
+                                        </On>
+                                    </OnPlatform>
+                                </Image.HeightRequest>
+                            </Image>
+
+                            <pancakeview:PancakeView
+                                BackgroundColor="{StaticResource LightGrayColor}"
+                                Border="{pancakeview:BorderMarkup Color=White, Thickness=1}"
                         Grid.Row="2"
-                        Padding="0" HasShadow="False"
-                        BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
+                        Padding="5,0" 
                         CornerRadius="10"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand">
-                                <Frame.Margin>
+                                <pancakeview:PancakeView.Margin>
                                     <OnPlatform x:TypeArguments="Thickness">
                                         <On Platform="iOS">
                                             <OnIdiom
                                         x:TypeArguments="Thickness"
-                                        Phone="15,0,15,0"
-                                        Tablet="25,0,25,0" />
+                                        Phone="5,10,5,10"
+                                        Tablet="25,20,25,20" />
                                         </On>
                                         <On Platform="Android,Windows">
                                             <OnIdiom
                                         x:TypeArguments="Thickness"
-                                        Phone="15,0,15,0"
-                                        Tablet="25,0,25,0" />
+                                        Phone="5,10,5,10"
+                                        Tablet="25,20,25,20" />
                                         </On>
                                     </OnPlatform>
-                                </Frame.Margin>
-                                <Frame.HeightRequest>
+                                </pancakeview:PancakeView.Margin>
+                                <pancakeview:PancakeView.HeightRequest>
                                     <OnPlatform x:TypeArguments="x:Double">
                                         <On Platform="iOS">
                                             <OnIdiom
@@ -611,7 +745,10 @@
                                         Tablet="150" />
                                         </On>
                                     </OnPlatform>
-                                </Frame.HeightRequest>
+                                </pancakeview:PancakeView.HeightRequest>
+                                <pancakeview:PancakeView.Shadow>
+                                    <pancakeview:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="20,20"/>
+                                </pancakeview:PancakeView.Shadow>
                                 <Grid
                             Margin="0"
                             ColumnSpacing="10"
@@ -627,13 +764,27 @@
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
+
+                                    <Image
+                                        x:Name='VehImageFill'
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                        Grid.ColumnSpan="2"
+                                Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.CarSample.jpg}"
+                                        Aspect="AspectFill"
+                                        Margin="150,0,-150,0"
+                                        Opacity="0.05"/>
+
                                     <Image
                                 x:Name="vehilcleTypeImage"
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
                                 Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.CarSample.jpg}"
                                         Aspect="AspectFit"
-                                        Margin="1"/>
+                                        Margin="1"
+                                        />
+
+
 
                                     <Label
                                 x:Name="vehicleSampleLabel"
@@ -641,8 +792,9 @@
                                 Margin="0,10,0,5"
                                 FontAttributes="Bold"
                                 FontFamily="SourceSansPro-Bold"
-                                TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
+                                TextColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BlackColor}}" 
                                         VerticalOptions="Center">
+                                        vehicle Sample Label
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
                                                 <On Platform="iOS">
@@ -666,7 +818,7 @@
                                 Grid.Column="1"
                                 Margin="0,0,0,5"
                                 FontFamily="SourceSansPro-Regular"
-                                TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
+                                TextColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BlackColor}}" 
                                         VerticalOptions="Center">
                                         <Label.FontSize>
                                             <OnPlatform x:TypeArguments="x:Double">
@@ -696,7 +848,7 @@
                                     x:Name="priceLabel"
                                     Margin="0"
                                     FontAttributes="Bold"
-                                    FontFamily="SourceSansPro-Bold"
+                                    FontFamily="SourceSansPro-Regular"
                                     TextColor="{StaticResource PrimaryColor}">
                                             <Label.FontSize>
                                                 <OnPlatform x:TypeArguments="x:Double">
@@ -717,6 +869,7 @@
                                         </Label>
 
                                         <Button
+                                            IsVisible="false"
                                     Padding="10,5,10,5"
                                     BackgroundColor="{StaticResource PrimaryColor}"
                                     CornerRadius="10"
@@ -759,7 +912,10 @@
                                     </StackLayout>
 
                                 </Grid>
-                            </Frame>
+
+
+                            </pancakeview:PancakeView>
+
 
 
                             <Grid ColumnSpacing="10"
@@ -825,7 +981,7 @@
                                              Padding="0"
                                              Spacing="0">
                                         <Label
-                                        FontFamily="SourceSansPro-Bold"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="Day Rate"
                                         TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
                                         VerticalOptions="Center">
@@ -848,7 +1004,7 @@
                                         </Label>
                                         <Label
                         x:Name="dailyRateDetailLabel"
-                        FontFamily="SourceSansPro-Bold"
+                        FontFamily="SourceSansPro-Regular"
                         TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
                         VerticalOptions="Center">
                                             <Label.FontSize>
@@ -1044,14 +1200,13 @@
                                                             <input:CheckBox
                                                             Key="{Binding MiscChargeID}"
                                                             CheckChanged="CheckBox_CheckChanged"
-                                                            FontFamily="SourceSansPro-Bold"
                                                             IsChecked="{Binding IsSelected}"
                                                             IsEnabled="{Binding IsMantatory}"
                                                             Text="{Binding Name}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
                                                             Type="Check"
                                                                 BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light= {StaticResource BlackColor}}"
-                                                            Color="{StaticResource PrimaryColor}">
+                                                            Color="{StaticResource AccentColor}">
                                                                 <input:CheckBox.TextFontSize>
                                                                     <OnPlatform x:TypeArguments="x:Double">
                                                                         <On Platform="iOS">
@@ -1072,7 +1227,7 @@
 
                                                             <Label
                                                             Margin="0"
-                                                            FontFamily="Roboto-Regular"
+                                                            FontFamily="SourceSansPro-Regular"
                                                             Text="{Binding ViewString}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                 <Label.FontSize>
@@ -1126,7 +1281,7 @@
                                                             <Label.FormattedText>
                                                                 <FormattedString>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text="$"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -1147,7 +1302,7 @@
                                                                         </Span.FontSize>
                                                                     </Span>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text="{Binding price}"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -1233,7 +1388,7 @@
                                                                     </OnPlatform>
                                                                 </StackLayout.Margin>
                                                                 <Label
-                                                            FontFamily="SourceSansPro-Bold"
+                                                            FontFamily="SourceSansPro-Regular"
                                                             IsEnabled="{Binding IsMantatory}"
                                                             Text="{Binding Name}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
@@ -1257,7 +1412,7 @@
 
                                                                 <Label
                                                             Margin="0"
-                                                            FontFamily="Roboto-Regular"
+                                                            FontFamily="SourceSansPro-Regular"
                                                             Text="{Binding ViewString}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                     <Label.FontSize>
@@ -1341,7 +1496,7 @@
                                                             <Label.FormattedText>
                                                                 <FormattedString>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text="$"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -1362,7 +1517,7 @@
                                                                         </Span.FontSize>
                                                                     </Span>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text="{Binding price}"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -1454,7 +1609,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Per Day $10)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1483,7 +1638,7 @@
                                         <Label
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$20.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -1545,7 +1700,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Per Rental $10)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1571,7 +1726,7 @@
                                         Grid.Row="1"
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$20.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -1632,7 +1787,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Percentage 10%)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1663,7 +1818,7 @@
                                         Grid.Row="2"
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$20.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -1725,7 +1880,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Percentage 10%)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1751,7 +1906,7 @@
                                         Grid.Row="3"
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$20.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -1812,7 +1967,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Per Day $10)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1843,7 +1998,7 @@
                                         Grid.Row="4"
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$20.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -1906,7 +2061,7 @@
                                             </Label>
                                             <Label
                                             Margin="0"
-                                            FontFamily="Roboto-Regular"
+                                            FontFamily="SourceSansPro-Regular"
                                             Text="(Per Rental $10)"
                                             TextColor="{StaticResource BlackColor}"
                                             VerticalOptions="Center">
@@ -1933,7 +2088,7 @@
                                         Grid.Row="5"
                                         Grid.Column="2"
                                         Margin="0,0,10,0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         Text="$110.00"
                                         TextColor="{StaticResource BlackColor}"
                                         VerticalOptions="Center">
@@ -2082,13 +2237,13 @@
                                                 Grid.Row="0"
                                                 Grid.Column="2"
                                                 Margin="0,0,5,0"
-                                                BackgroundColor="{StaticResource PrimaryColor}"
+                                                BackgroundColor="{StaticResource AccentColor}"
                                                 Clicked="PromoBtn_Clicked"
                                                 CornerRadius="10"
                                                 FontFamily="SourceSansPro-Bold"
                                                 HorizontalOptions="EndAndExpand"
                                                 Text="Enter"
-                                                TextColor="White"
+                                                TextColor="{StaticResource PrimaryColor}"
                                                 VerticalOptions="CenterAndExpand">
                                                     <Button.Padding>
                                                         <OnPlatform x:TypeArguments="Thickness">
@@ -2126,15 +2281,15 @@
                                                         <OnPlatform x:TypeArguments="x:Double">
                                                             <On Platform="iOS">
                                                                 <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="16"
-                                                                Tablet="20" />
+                                            x:TypeArguments="x:Double"
+                                            Phone="14"
+                                            Tablet="18" />
                                                             </On>
                                                             <On Platform="Android,Windows">
                                                                 <OnIdiom
-                                                                x:TypeArguments="x:Double"
-                                                                Phone="18"
-                                                                Tablet="22" />
+                                            x:TypeArguments="x:Double"
+                                            Phone="16"
+                                            Tablet="20" />
                                                             </On>
                                                         </OnPlatform>
                                                     </Button.FontSize>
@@ -2224,7 +2379,6 @@
                                                             Grid.Row="0"
                                                             Grid.ColumnSpan="2"
                                                             CheckChanged="TaxCheckbox_CheckChanged"
-                                                            FontFamily="SourceSansPro-Bold"
                                                             HorizontalOptions="StartAndExpand"
                                                             IsChecked="{Binding IsSelected}"
                                                             IsEnabled="{Binding IsOption}"
@@ -2241,13 +2395,30 @@
                                                             <Label
                                                             Grid.Row="0"
                                                             Grid.ColumnSpan="2"
-                                                            FontFamily="SourceSansPro-Bold"
+                                                            FontFamily="SourceSansPro-Regular"
                                                             HorizontalOptions="StartAndExpand"
                                                             Text="{Binding Name}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                                            FontSize="15"
                                                             VerticalOptions="Center"
-                                                            IsVisible="{Binding isMantatory}"/>
+                                                            IsVisible="{Binding isMantatory}">
+                                                                <Label.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">
+                                                                            <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="15"
+                                                                            Tablet="18" />
+                                                                        </On>
+                                                                        <On Platform="Android,Windows">
+                                                                            <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="15"
+                                                                            Tablet="18" />
+                                                                        </On>
+                                                                    </OnPlatform>
+                                                                </Label.FontSize>
+                                                            </Label>
+
 
 
                                                             <Label
@@ -2257,16 +2428,33 @@
                                                             HorizontalOptions="StartAndExpand"
                                                             Text="{Binding Name}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                                            FontSize="15"
                                                             VerticalOptions="Center"
-                                                            IsVisible="false"/>
+                                                            IsVisible="false">
+                                                                <Label.FontSize>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="iOS">
+                                                                            <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="15"
+                                                                            Tablet="18" />
+                                                                        </On>
+                                                                        <On Platform="Android,Windows">
+                                                                            <OnIdiom
+                                                                            x:TypeArguments="x:Double"
+                                                                            Phone="15"
+                                                                            Tablet="18" />
+                                                                        </On>
+                                                                    </OnPlatform>
+                                                                </Label.FontSize>
+                                                            </Label>
+
 
 
 
 
                                                             <!--<Label
                                         Margin="0"
-                                        FontFamily="Roboto-Regular"
+                                        FontFamily="SourceSansPro-Regular"
                                         FontSize="Small"
                                         Text="(Per Day $10)"
                                         TextColor="{StaticResource BlackColor}"
@@ -2296,7 +2484,7 @@
                                                             <Label.FormattedText>
                                                                 <FormattedString>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text="{Binding DisplayValue}"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -2317,7 +2505,7 @@
                                                                         </Span.FontSize>
                                                                     </Span>
                                                                     <Span
-                                                                    FontFamily="Roboto-Regular"
+                                                                    FontFamily="SourceSansPro-Regular"
                                                                     Text=" %"
                                                                     TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
                                                                         <Span.FontSize>
@@ -2359,13 +2547,13 @@
                             <Button
                             Grid.Row="5"
                             Margin="20,0,20,20"
-                           BackgroundColor="{StaticResource PrimaryColor}"
-                            BorderColor="{StaticResource PrimaryColor}"
+                           BackgroundColor="{StaticResource AccentColor}"
                             BorderWidth="2"
                             Clicked="NxtBtn_Clicked"
                             Text="NEXT"
-                            TextColor="{StaticResource BlackColor}"
+                            TextColor="{StaticResource PrimaryColor}"
                             VerticalOptions="EndAndExpand"
+                                FontFamily="SourceSansPro-Bold"
                                 CornerRadius="5">
                                 <Button.HeightRequest>
                                     <OnPlatform x:TypeArguments="x:Double">

@@ -64,7 +64,7 @@
                         FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="CenterAndExpand"
                         Text="CONFIRM EMAIL ADDRESS"
-                        TextColor="{StaticResource PrimaryColor}"
+                        TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" 
                         VerticalOptions="CenterAndExpand">
                     <Label.FontSize>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -170,15 +170,15 @@
                 <Button
                         x:Name="sentOTPBtn"
                         Margin="10,40,10,20"
-                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BackgroundColor="{StaticResource AccentColor}"
                         BorderWidth="0"
                         Clicked="sentOTPBtn_Clicked"
                         CornerRadius="5"
-                        FontFamily="SourceSansPro-Regular"
+                        FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="FillAndExpand"
                         StyleClass="bouncy"
                         Text="SEND CONFIRMATION"
-                        TextColor="{StaticResource BlackColor}"
+                        TextColor="{StaticResource PrimaryColor}"
                         VerticalOptions="CenterAndExpand">
                     <Button.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double">

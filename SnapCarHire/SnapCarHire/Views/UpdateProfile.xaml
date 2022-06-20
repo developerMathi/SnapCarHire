@@ -58,7 +58,7 @@
                     FontFamily="SourceSansPro-Bold"
                     HorizontalOptions="CenterAndExpand"
                      Text="UPDATE PROFILE"
-                    TextColor="{StaticResource PrimaryColor}"
+                    TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}" 
                     VerticalOptions="CenterAndExpand" >
                     <Label.FontSize>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -331,7 +331,7 @@
                                     Grid.Column="0"
                                     Margin="10,0,0,0"
                                     BackgroundColor="Transparent"
-                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUserLname.png}"
+                                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconUserFname.png}"
                                     VerticalOptions="CenterAndExpand">
                                     <Image.HeightRequest>
                                         <OnPlatform x:TypeArguments="x:Double">
@@ -1714,16 +1714,16 @@
                 x:Name="updateBtn"
                 Grid.Row="2"
                 Margin="20,5,20,20"
-                BackgroundColor="{StaticResource PrimaryColor}"
-                    BorderColor="{StaticResource PrimaryColor}"
+                BackgroundColor="{StaticResource AccentColor}"
+                    BorderColor="{StaticResource AccentColor}"
                     CornerRadius="5"
                                 BorderWidth="2"
                 Clicked="UpdateBtn_Clicked"
-                FontFamily="SourceSansPro-Regular"
+                FontFamily="SourceSansPro-Bold"
                 HorizontalOptions="FillAndExpand"
                 StyleClass="bouncy"
                 Text="SAVE UPDATE"
-                TextColor="{StaticResource BlackColor}"
+                TextColor="{StaticResource PrimaryColor}"
                 VerticalOptions="CenterAndExpand">
                 <Button.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double">

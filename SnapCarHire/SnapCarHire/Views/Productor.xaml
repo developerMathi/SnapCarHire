@@ -8,16 +8,17 @@
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Image
-                Margin="0,200"
+                Margin="0,0"
                 VerticalOptions="Fill"
                     Aspect="AspectFill"
-                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.cars.tesla4.png}"
-                Opacity="0.05">
+                    Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.cars.car1.jpg}"
+                Opacity="0.5">
 
             </Image>
             <Image
                 Margin="0,200"
                 x:Name="bg"
+                IsVisible="false"
                 VerticalOptions="End"
                     Aspect="AspectFit"
                     Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.cars.tesla2.png}"

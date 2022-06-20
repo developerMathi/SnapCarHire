@@ -142,15 +142,20 @@ namespace SnapCarHire.Views
 
 
                     CheckOutLocation.Text = reservationByIDMobileResponse.reservationData.Reservationview.StartLocationName;
-                    CheckOutDate.Text = reservationByIDMobileResponse.reservationData.Reservationview.StartDateStr;
                     CheckInLocation.Text = reservationByIDMobileResponse.reservationData.Reservationview.EndLocationName;
-                    CheckInDate.Text = reservationByIDMobileResponse.reservationData.Reservationview.EndDateStr;
                     VehicleType.Text = reservationByIDMobileResponse.reservationData.Reservationview.VehicleType;
                     NoOfDays.Text = reservationByIDMobileResponse.reservationData.Reservationview.TotalDays.ToString("00");
                     CreateDate.Text = String.Format("{0: MM/dd/yyyy hh:mm tt}", reservationByIDMobileResponse.reservationData.Reservationview.createdDate);
+                    pickUpDates.Text = String.Format("{0: dd MMMM yyyy}", reservationByIDMobileResponse.reservationData.Reservationview.StartDate);
+                    pickUpTime.Text = String.Format("{0: hh:mm tt}", reservationByIDMobileResponse.reservationData.Reservationview.StartDate);
+                    pickUpDay.Text = String.Format("{0: dddd}", reservationByIDMobileResponse.reservationData.Reservationview.StartDate);
+
+                    returnDates.Text = String.Format("{0: dd MMMM yyyy}", reservationByIDMobileResponse.reservationData.Reservationview.EndDate);
+                    returnTime.Text = String.Format("{0: hh:mm tt}", reservationByIDMobileResponse.reservationData.Reservationview.EndDate);
+                    returnDay.Text = String.Format("{0: dddd}", reservationByIDMobileResponse.reservationData.Reservationview.EndDate);
                     //CreateDate.Text = reservationByIDMobileResponse.reservationData.Reservationview.createdDate.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture);
                     //Discount.Text = "[$" + reservationByIDMobileResponse.reservationData.Reservationview.TotalDiscount.ToString("0.00")+"]";
-                    baseRate.Text = "$" + ((decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.BaseCharge).ToString("0.00");
+                    //baseRate.Text = "$" + ((decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.BaseCharge).ToString("0.00");
                     //finalBaseRate.Text = "$" + ((decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.FinalBaseCharge).ToString("0.00");
                     //TotalMiscCharge.Text = "$" + ((decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.TotalMiscCharge + (decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.TotalMischargeWithOutTax).ToString("0.00");
                     //subTotal.Text = "$" + ((decimal)reservationByIDMobileResponse.reservationData.ReservationTotal.SubTotal).ToString("0.00");
@@ -169,6 +174,7 @@ namespace SnapCarHire.Views
                     bagCount.Text = reservationByIDMobileResponse.vehicleTypeModel.Baggages.ToString();
                     transLabel.Text = reservationByIDMobileResponse.vehicleTypeModel.Transmission;
                     carImage.Source = ImageSource.FromUri(new Uri(reservationByIDMobileResponse.vehicleTypeModel.ImageUrl));
+                    carBackImage.Source = ImageSource.FromUri(new Uri(reservationByIDMobileResponse.vehicleTypeModel.ImageUrl));
 
                     if (reservationByIDMobileResponse.reservationData.Reservationview.CustomerDriverList != null)
                     {

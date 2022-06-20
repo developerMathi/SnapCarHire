@@ -10,6 +10,7 @@ using PanCardView.Droid;
 using Plugin.CurrentActivity;
 using Plugin.FacebookClient;
 using Plugin.Permissions;
+using Xamarin.Forms.PancakeView.Droid;
 
 namespace SnapCarHire.Droid
 {
@@ -36,6 +37,7 @@ namespace SnapCarHire.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             ContextMenuViewRenderer.Preserve();
             Plugin.InputKit.Platforms.Droid.Config.Init(this, savedInstanceState);
+            PancakeViewRenderer.Init();
             //FacebookClientManager.Initialize(this);
             string pagename = null;
             string data = null;

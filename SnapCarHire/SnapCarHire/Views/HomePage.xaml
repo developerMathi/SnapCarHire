@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.HomePage"
              xmlns:pages="clr-namespace:SnapCarHire.Views"
-                  NavigationPage.HasNavigationBar="False">
+                  NavigationPage.HasNavigationBar="False"
+                  FlowDirection="LeftToRight">
     <MasterDetailPage.Master>
         <pages:HomeMenuPage x:Name="MasterPage" />
     </MasterDetailPage.Master>

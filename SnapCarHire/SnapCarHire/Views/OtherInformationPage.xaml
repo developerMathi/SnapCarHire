@@ -1016,7 +1016,7 @@
                             BorderColor="{StaticResource AccentColor}"
                             BorderWidth="2"
                             Clicked="DoneBtn_Clicked"
-                            FontFamily="SourceSansPro-Bold  "
+                            FontFamily="SourceSansPro-Bold"
                             HorizontalOptions="FillAndExpand"
                             StyleClass="bouncy"
                             Text="DONE"

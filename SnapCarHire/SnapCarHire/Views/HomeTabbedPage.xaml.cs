@@ -19,10 +19,11 @@ namespace SnapCarHire.Views
         public HomeTabbedPage()
         {
             InitializeComponent();
+
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom)
-             .SetBarItemColor(Xamarin.Forms.Application.Current.RequestedTheme== OSAppTheme.Dark ? Color.Gray : Color.Black)
-             .SetBarSelectedItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.White : Color.DarkGreen)
-             .EnableSwipePaging();
+             .SetBarItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.Gray : Color.Black)
+             .SetBarSelectedItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.FromHex("#fecd0d") : Color.FromHex("#fecd0d"))
+             .SetIsSwipePagingEnabled(false);
 
         }
 
@@ -31,7 +32,9 @@ namespace SnapCarHire.Views
         {
             base.OnAppearing();
             On<Android>().SetBarItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.Gray : Color.Black)
-                 .SetBarSelectedItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.White : Color.DarkGreen);
+                 .SetBarSelectedItemColor(Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark ? Color.FromHex("#fecd0d") : Color.FromHex("#fecd0d"));
+
+            this.SelectedItem = Dashboard;
         }
     }
 }

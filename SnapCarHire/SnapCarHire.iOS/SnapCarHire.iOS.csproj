@@ -67,6 +67,7 @@
     <Compile Include="BorderlessPickerRenderer.cs" />
     <Compile Include="BorderlessTimePickerRenderer.cs" />
     <Compile Include="CustomEntryRenderer.cs" />
+    <Compile Include="CustomFrameShadowRenderer.cs" />
     <Compile Include="ExtendedViewCellRenderer.cs" />
     <Compile Include="ImageCircleRendereriOS.cs" />
     <Compile Include="Main.cs" />
@@ -132,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CardsView">
-      <Version>2.8.0</Version>
+      <Version>2.8.1</Version>
     </PackageReference>
     <PackageReference Include="ContextViewCell">
       <Version>2.0.3</Version>
@@ -162,7 +163,7 @@
       <Version>6.0.0-preview.4.21253.7</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>5.1.0-beta</Version>
+      <Version>5.1.1-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>
@@ -185,10 +186,10 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Forms.InputKit">
-      <Version>3.0.15</Version>
+      <Version>4.0.0-pre.8</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.3.0.763-beta</Version>
@@ -263,5 +264,23 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\illu4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rightArrBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rightArrWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Load_more.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Load_more_b.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OrderNow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OrderNowB.gif" />
   </ItemGroup>
 </Project>

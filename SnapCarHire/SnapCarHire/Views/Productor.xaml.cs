@@ -60,7 +60,7 @@ namespace SnapCarHire.Views
             }
             else
             {
-                Application.Current.UserAppTheme = OSAppTheme.Unspecified;
+                Application.Current.UserAppTheme = OSAppTheme.Light;
             }
 
 

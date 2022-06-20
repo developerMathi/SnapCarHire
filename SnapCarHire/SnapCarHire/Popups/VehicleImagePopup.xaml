@@ -23,10 +23,10 @@
             HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
 
-    <Frame Margin="-1,0,-1,-1"
-        Padding="15,15,15,15"
-        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
-        BorderColor="{StaticResource PrimaryColor}"
+    <Frame Margin="-5,50,-5,-30"
+            Padding="10,20,10,35"
+        BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}"
+        BorderColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}"
         CornerRadius="15"
         HorizontalOptions="Fill"
         VerticalOptions="EndAndExpand">
@@ -35,15 +35,15 @@
                 <Label x:Name="TitleLabel"
                         VerticalOptions="Start" 
                         HorizontalOptions="CenterAndExpand"
-                       TextColor="{StaticResource PrimaryColorDuplicate}"
+                       TextColor="{AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource PrimaryColor}}"
                        Margin="0,10,0,15"
                        FontFamily="SourceSansPro-Bold"
                         FontSize="Medium"/>
 
 
-                <Button BackgroundColor="{StaticResource PrimaryColor}"
-                        Text="Select from gallery"
-                        TextColor="{StaticResource BackGroundColor}"
+                <Button BackgroundColor="{StaticResource AccentColor}"
+                        Text="SELECT FROM GALLERY"
+                        TextColor="{StaticResource PrimaryColor}"
                         BorderWidth="0"
                         CornerRadius="10"
                         x:Name="GaleryBtn"
@@ -54,9 +54,9 @@
                         FontSize="Medium"></Button>
 
 
-                <Button BackgroundColor="{StaticResource PrimaryColor}"
-                        Text="Take a photo"
-                        TextColor="{StaticResource BackGroundColor}"
+                <Button BackgroundColor="{StaticResource AccentColor}"
+                        Text="TAKE A PHOTO"
+                        TextColor="{StaticResource PrimaryColor}"
                         BorderWidth="0"
                         CornerRadius="10"
                         x:Name="cameraBtn"
@@ -85,7 +85,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button BackgroundColor="{StaticResource GrayColor}"
-                                    Text="Cancel"
+                                    Text="CANCEL"
                                     TextColor="{StaticResource BackGroundColor}"
                                     BorderWidth="0"
                                     CornerRadius="10"
@@ -98,7 +98,7 @@
                             FontFamily="SourceSansPro-Bold"></Button>
 
                     <Button BackgroundColor="{StaticResource GreenColor}"
-                                    Text="Save"
+                                    Text="SAVE"
                                     TextColor="{StaticResource BackGroundColor}"
                                     BorderWidth="0"
                                     CornerRadius="10"

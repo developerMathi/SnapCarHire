@@ -39,6 +39,9 @@
     <None Remove="Assets\cars\tesla4.png" />
     <None Remove="Assets\circle.png" />
     <None Remove="Assets\emailIcon.png" />
+    <None Remove="Assets\Illustrations\carPark.png" />
+    <None Remove="Assets\Illustrations\Load_more.gif" />
+    <None Remove="Assets\Illustrations\Load_more.png" />
     <None Remove="Assets\SnapLogo.png" />
     <None Remove="Assets\SnapLogoWhite.png" />
     <None Remove="Assets\EzRenatlLogo.png" />
@@ -238,6 +241,9 @@
     <EmbeddedResource Include="Assets\cars\tesla4.png" />
     <EmbeddedResource Include="Assets\circle.png" />
     <EmbeddedResource Include="Assets\emailIcon.png" />
+    <EmbeddedResource Include="Assets\Illustrations\carPark.png" />
+    <EmbeddedResource Include="Assets\Illustrations\Load_more.gif" />
+    <EmbeddedResource Include="Assets\Illustrations\Load_more.png" />
     <EmbeddedResource Include="Assets\SnapLogo.png" />
     <EmbeddedResource Include="Assets\SnapLogoWhite.png" />
     <EmbeddedResource Include="Assets\EzRenatlLogo.png" />
@@ -409,7 +415,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CardsView" Version="2.8.0" />
+    <PackageReference Include="CardsView" Version="2.8.1" />
     <PackageReference Include="ContextViewCell" Version="2.0.3" />
     <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
     <PackageReference Include="Microsoft.AppCenter.Push" Version="3.4.3" />
@@ -420,12 +426,12 @@
     <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="System.Buffers" Version="4.5.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
-    <PackageReference Include="Xam.Plugin.Media" Version="5.1.0-beta" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.1.1-beta" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
-    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.15" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="4.0.0-pre.8" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.763-beta" />
   </ItemGroup>
 
@@ -435,6 +441,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
+    <EmbeddedResource Update="Views\licenceInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
