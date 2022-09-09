@@ -7,7 +7,9 @@
              xmlns:renders="clr-namespace:SnapCarHire.Renders"
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.HomeMenuPage"
-             Title="Master">
+             Title="Master"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <Frame
         Padding="0"
         BorderColor="Transparent"

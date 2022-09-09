@@ -338,7 +338,7 @@ namespace SnapCarHire.Views
             Navigation.PopModalAsync();
         }
 
-        private void NxtBtn_Clicked(object sender, EventArgs e)
+        private async void NxtBtn_Clicked(object sender, EventArgs e)
         {
             List<MiscChargeSearchReview> miscChargeSearchReviews = new List<MiscChargeSearchReview>();
 
@@ -403,7 +403,8 @@ namespace SnapCarHire.Views
                 }
                 reservationView.TaxList2 = locationTaxModels;
             }
-            Navigation.PushModalAsync(new SummaryOfChargesPage(reservationView, selectedVehicle));
+            await Navigation.PushModalAsync(new SummaryOfChargesPage(reservationView, selectedVehicle));
+
         }
 
         private void CheckBox_CheckChanged(object sender, EventArgs e)

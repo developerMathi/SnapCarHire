@@ -80,8 +80,10 @@ namespace SnapCarHire.Popups
                     Navigation.PopModalAsync();
                 }
                 Navigation.PopModalAsync();
-                
-               
+                PopupNavigation.Instance.PopAsync();
+
+
+
 
             }
             if (v == 7)

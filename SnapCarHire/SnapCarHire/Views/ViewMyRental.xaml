@@ -7,7 +7,9 @@
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.ViewMyRental"
              BackgroundColor="{StaticResource BackGroundColor}"
-              NavigationPage.HasBackButton="False">
+              NavigationPage.HasBackButton="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <StackLayout Margin="20,5,20,0" VerticalOptions="CenterAndExpand">
             <Label Text="Agreement"

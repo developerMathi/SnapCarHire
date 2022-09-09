@@ -194,15 +194,15 @@
                         Grid.Row="2"
                         Margin="20,20,20,20"
                         Padding="0"
-                         BackgroundColor="{StaticResource PrimaryColor}"
-                            BorderColor="{StaticResource PrimaryColor}"
+                         BackgroundColor="{StaticResource AccentColor}"
+                            BorderColor="{StaticResource AccentColor}"
                         BorderWidth="0"
                         Clicked="Okbtn_Clicked"
                         CornerRadius="10"
                         FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="FillAndExpand"
                         Text="OKAY"
-                        TextColor="{StaticResource BlackColor}"
+                        TextColor="{StaticResource PrimaryColor}"
                         VerticalOptions="CenterAndExpand">
                         <Button.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -259,14 +259,14 @@
                         Grid.Column="1"
                         Margin="20,20,20,20"
                         Padding="0"
-                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BackgroundColor="{StaticResource AccentColor}"
                         BorderWidth="0"
                         Clicked="Okbtng_Clicked"
                         CornerRadius="10"
                         FontFamily="SourceSansPro-Bold"
                         HorizontalOptions="FillAndExpand"
                         Text="Yes"
-                        TextColor="{StaticResource BlackColor}"
+                        TextColor="{StaticResource PrimaryColor}"
                         VerticalOptions="CenterAndExpand">
                             <Button.HeightRequest>
                                 <OnPlatform x:TypeArguments="x:Double">

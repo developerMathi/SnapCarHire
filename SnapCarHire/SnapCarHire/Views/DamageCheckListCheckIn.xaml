@@ -11,7 +11,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:SnapCarHire.Renders" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <StackLayout Margin="10,0,10,0" VerticalOptions="CenterAndExpand">
 
@@ -643,6 +645,7 @@
 
 
                                             <renders:CustomEntry
+                                                 BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                                 x:Name="txtOther"
                                                 Grid.Row="1"
                                                 Margin="10,0,0,0"
@@ -731,6 +734,7 @@
 
 
                                             <renders:CustomEntry
+                                                 BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                                 x:Name="txtOther"
                                                 Grid.Row="1"
                                                 Margin="10,0,0,0"

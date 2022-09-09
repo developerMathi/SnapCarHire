@@ -9,7 +9,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:SnapCarHire.Renders" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="loginIcon"
@@ -1163,7 +1165,8 @@
                                     VerticalScrollBarVisibility="Never">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
-                                                <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" >
+                                                <ViewCell >
+
                                                     <Grid>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="72" />
@@ -1204,7 +1207,6 @@
                                                             IsEnabled="{Binding IsMantatory}"
                                                             Text="{Binding Name}"
                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                                            Type="Check"
                                                                 BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light= {StaticResource BlackColor}}"
                                                             Color="{StaticResource AccentColor}">
                                                                 <input:CheckBox.TextFontSize>
@@ -1333,7 +1335,7 @@
                                                         VerticalOptions="EndAndExpand"
                                                         Color="{StaticResource GrayColor}" />
                                                     </Grid>
-                                                </renders:ExtendedViewCell>
+                                               </ViewCell>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
 
@@ -1350,7 +1352,7 @@
                                     VerticalScrollBarVisibility="Never">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
-                                                <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" >
+                                                <ViewCell >
                                                     <Grid>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="65" />
@@ -1548,7 +1550,7 @@
                                                         VerticalOptions="EndAndExpand"
                                                         Color="{StaticResource GrayColor}" />
                                                     </Grid>
-                                                </renders:ExtendedViewCell>
+                                                </ViewCell>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
 
@@ -2206,7 +2208,7 @@
 
 
                                                 <renders:CustomEntry
-                                                BackgroundColor="Transparent"
+                                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                                 x:Name="promoCodeEntry"
                                                 Grid.Column="1"
                                                 Margin="0,0,0,0"
@@ -2335,7 +2337,7 @@
                                     VerticalScrollBarVisibility="Never">
                                         <ListView.ItemTemplate>
                                             <DataTemplate>
-                                                <renders:ExtendedViewCell SelectedBackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" >
+                                                <ViewCell >
                                                     <Grid>
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="65" />
@@ -2374,23 +2376,39 @@
                                                                     </On>
                                                                 </OnPlatform>
                                                             </StackLayout.Margin>
+                                                            <!--<input:CheckBox
+                                                            x:Name="taxCheckbox"
+                                                            Grid.Row="0"
+                                                            Grid.ColumnSpan="2"
+                                                            
+                                                           
+                                                            Text="{Binding Name}"
+                                                           
+                                                            
+                                                            Type="Check"
+                                                            
+                                                            
+                                                            />-->
+                                                            <!--
+                                                            
+                                                            -->
+
                                                             <input:CheckBox
                                                             x:Name="taxCheckbox"
                                                             Grid.Row="0"
                                                             Grid.ColumnSpan="2"
-                                                            CheckChanged="TaxCheckbox_CheckChanged"
-                                                            HorizontalOptions="StartAndExpand"
+                                                                CheckChanged="TaxCheckbox_CheckChanged"
+                                                                 HorizontalOptions="StartAndExpand"
+                                                                VerticalOptions="Center"
                                                             IsChecked="{Binding IsSelected}"
                                                             IsEnabled="{Binding IsOption}"
-                                                            Text="{Binding Name}"
-                                                            TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                                                BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                                            TextFontSize="15"
-                                                            Type="Check"
-                                                            VerticalOptions="Center"
+                                                                Text="{Binding Name}"
+                                                                IsVisible="{Binding IsOption}"
                                                             Color="{StaticResource PrimaryColor}"
-                                                            IsVisible="{Binding IsOption}"/>
-
+                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
+                                                                BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                                                                TextFontSize="15"
+                                                                ></input:CheckBox>
 
                                                             <Label
                                                             Grid.Row="0"
@@ -2421,7 +2439,7 @@
 
 
 
-                                                            <Label
+                                                            <!--<Label
                                                             Grid.Row="0"
                                                             Grid.ColumnSpan="2"
                                                             FontFamily="SourceSansPro-Bold"
@@ -2446,7 +2464,7 @@
                                                                         </On>
                                                                     </OnPlatform>
                                                                 </Label.FontSize>
-                                                            </Label>
+                                                            </Label>-->
 
 
 
@@ -2535,7 +2553,7 @@
                                                         VerticalOptions="EndAndExpand"
                                                         Color="{StaticResource GrayColor}" />
                                                     </Grid>
-                                                </renders:ExtendedViewCell>
+                                                </ViewCell>
                                             </DataTemplate>
                                         </ListView.ItemTemplate>
 

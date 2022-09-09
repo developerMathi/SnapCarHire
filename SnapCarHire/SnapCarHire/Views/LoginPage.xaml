@@ -9,7 +9,9 @@
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
     NavigationPage.HasNavigationBar="False"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <Grid>
 
@@ -23,7 +25,7 @@
 
 
             <Image Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.BackDesigns.city6.png}" Aspect="AspectFill"  HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                                       Margin="0"/>
+                                       Margin="0" Opacity="0.5"/>
 
             <!--<MediaElement Source="ms-appx:///miroshnichenko.mp4" Aspect="AspectFill" AutoPlay="True" Volume="0" IsLooping="True" />-->
             <ScrollView>
@@ -44,6 +46,7 @@
                     Margin="10,0,10,50"
                     Aspect="AspectFit"
                     HeightRequest="120"
+
                    Source="{AppThemeBinding Dark=SnapLogoWhite.png, Light=SnapLogo.png}">
                         <Image.HeightRequest>
                             <OnIdiom
@@ -189,6 +192,7 @@
                                 Keyboard="Email"
                                 Placeholder="Email Address"
                                 PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
+                                    BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}">
                                     <renders:CustomEntry.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
@@ -310,6 +314,7 @@
                                 FontFamily="SourceSansPro-Regular"
                                 IsPassword="True"
                                 Placeholder="Password"
+                                    BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                 PlaceholderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
                                 TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}">
                                     <renders:CustomEntry.FontSize>

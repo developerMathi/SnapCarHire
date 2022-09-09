@@ -8,7 +8,9 @@
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.UpcomingReservations"
              NavigationPage.HasBackButton="False" 
-             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource LightGrayColor}}">
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource LightGrayColor}}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <StackLayout Margin="15,5,15,0" VerticalOptions="FillAndExpand">
 
@@ -25,8 +27,8 @@
                             <On Platform="iOS">
                                 <OnIdiom
                                         x:TypeArguments="x:Double"
-                                        Phone="25"
-                                        Tablet="30" />
+                                        Phone="40"
+                                        Tablet="40" />
                             </On>
                             <On Platform="Android,Windows">
                                 <OnIdiom

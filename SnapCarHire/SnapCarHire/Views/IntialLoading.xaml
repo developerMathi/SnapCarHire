@@ -4,7 +4,9 @@
              xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
              x:Class="SnapCarHire.Views.IntialLoading"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Transparent">
+             BackgroundColor="Transparent"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <StackLayout>
         <Grid>
 
@@ -48,7 +50,7 @@
                                 VerticalOptions="FillAndExpand">
                             <StackLayout.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="{StaticResource AccentColor}" Offset="0.7"/>
+                                    <GradientStop Color="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource BackGroundColor}}" Offset="0.7"/>
                                         <GradientStop Color="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource BackGroundColor}}" Offset="1.0"/>
                                 </LinearGradientBrush>
                             </StackLayout.Background>
@@ -60,12 +62,12 @@
                                 <!-- Back button-->
                                 <!--<Button Grid.Row="0" Grid.Column="0" ImageSource="ArrowLeft" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#fee489" CornerRadius="15"/>-->
                                 <!--Skip label-->
-                                    <Button Grid.Row="0" Grid.Column="0" Text="{Binding Skiplabel}"  TextColor="{ AppThemeBinding Dark={StaticResource AccentColor}, Light={StaticResource AccentColor} }" FontFamily="SourceSansPro-Regular"
+                                    <Button Grid.Row="0" Grid.Column="0" Text="{Binding Skiplabel}"  TextColor="{ AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BackGroundColor} }" FontFamily="SourceSansPro-Regular"
                                             TextTransform="Uppercase"
-                                       HorizontalOptions="End"
+                                       HorizontalOptions="EndAndExpand"
                                        Margin="0,10,-10,0"
                                         CornerRadius="10"
-                                        Padding="1"
+                                        Padding="10,1"
                                         HeightRequest="30"
                                         BackgroundColor="{StaticResource PrimaryColor}"
                                        

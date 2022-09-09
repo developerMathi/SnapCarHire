@@ -8,7 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
              BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -267,6 +269,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="FirstNameEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -368,6 +371,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="LastNameEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -471,6 +475,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="emailEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -572,6 +577,7 @@
                                     </Image.WidthRequest>
                                 </Image>
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="ContactNoEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -811,6 +817,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="AddressEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -911,6 +918,7 @@
                                     </Image.WidthRequest>
                                 </Image>
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="CityEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -1103,6 +1111,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="PostalCodeEntry"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"
@@ -1204,6 +1213,7 @@
                                 </Image>
 
                                 <renders:CustomEntry
+                                     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                     x:Name="licenceNumber"
                                     Grid.Column="1"
                                     Margin="10,0,0,0"

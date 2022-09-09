@@ -211,8 +211,8 @@ namespace SnapCarHire.Views
 
 
 
-                            //if (cutomerAuthContext.IsEmailConfirmed)
-                            if (!cutomerAuthContext.IsEmailConfirmed)
+                            if (cutomerAuthContext.IsEmailConfirmed)
+                            //if (!cutomerAuthContext.IsEmailConfirmed)
                             {
                                 if (App.Current.Properties.ContainsKey("CustomerId"))
                                 {

@@ -21,9 +21,13 @@ namespace SnapCarHire.iOS
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
+            if(Control != null)
+            {
+                Control.Layer.BorderWidth = 0;
+                Control.BorderStyle = UITextBorderStyle.None;
+            }
 
-            Control.Layer.BorderWidth = 0;
-            Control.BorderStyle = UITextBorderStyle.None;
+            
         }
     }
 }

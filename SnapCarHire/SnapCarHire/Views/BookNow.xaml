@@ -9,7 +9,9 @@
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
     BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}"
     NavigationPage.HasBackButton="True"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
 
 
     <ContentPage.Content>

@@ -9,7 +9,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:SnapCarHire.Renders" xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Login"
                      Clicked="LoginIcon_Clicked"
@@ -1446,10 +1448,9 @@ Clicked="btnBack_Clicked"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
                                     Text="I hereby accept the terms and conditions"
-                                    TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
-                                    Type="Material"
-                                    Color="{StaticResource PrimaryColor}" 
-                                            BoxBackgroundColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" >
+                                    Color="{StaticResource PrimaryColor}"
+                                                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}" 
+                                                                BorderColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}">
                                             <input:CheckBox.TextFontSize>
                                                 <OnPlatform x:TypeArguments="x:Double">
                                                     <On Platform="iOS">

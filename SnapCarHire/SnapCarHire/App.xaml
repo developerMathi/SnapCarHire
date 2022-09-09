@@ -49,6 +49,10 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource BackGroundColor}" />
                 <Setter Property="BarTextColor" Value="{StaticResource PrimaryColor}" />
             </Style>
+
+            <!--<Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}" />
+            </Style>-->
             <!--<Style TargetType="Entry">
                 <Setter Property="Keyboard"  Value="Chat"></Setter>
             </Style>-->

@@ -20,26 +20,29 @@ namespace SnapCarHire.iOS
         public static void Init() { }
         protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
         {
-            base.OnElementChanged(e);
-
-            Control.Layer.BorderWidth = 0;
-            Control.BorderStyle = UITextBorderStyle.None;
-
-            var element = e.NewElement as BorderlessTimePicker;
-            if (!string.IsNullOrWhiteSpace(element.Placeholder))
+            base.OnElementChanged(e); if (Control != null)
             {
-                Control.Text = element.Placeholder;
-            }
 
-            Control.ShouldEndEditing += (textField) => {
-                var seletedDate = (UITextField)textField;
-                var text = seletedDate.Text;
-                if (text == element.Placeholder)
+                Control.Layer.BorderWidth = 0;
+                Control.BorderStyle = UITextBorderStyle.None;
+
+                var element = e.NewElement as BorderlessTimePicker;
+                if (!string.IsNullOrWhiteSpace(element.Placeholder))
                 {
-                    Control.Text = DateTime.Now.TimeOfDay.ToString();
+                    Control.Text = element.Placeholder;
                 }
-                return true;
-            };
+
+                Control.ShouldEndEditing += (textField) =>
+                {
+                    var seletedDate = (UITextField)textField;
+                    var text = seletedDate.Text;
+                    if (text == element.Placeholder)
+                    {
+                        Control.Text = DateTime.Now.TimeOfDay.ToString();
+                    }
+                    return true;
+                };
+            }
         }
     }
 }
