@@ -11,6 +11,8 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
     xmlns:viewModels="clr-namespace:SnapCarHire.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
    
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
@@ -23,19 +25,17 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentPage.BindingContext>
-        <viewModels:BaseItemsViewModel />
-    </ContentPage.BindingContext>
+
 
 
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Image Aspect="AspectFill"  Source="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.cars.car2.jpg}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         <BoxView Opacity="0.8" >
             <BoxView.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource LightGrayColor}}" Offset="0.7"/>
                     <GradientStop Color="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource LightGrayColor}}" Offset="1.0"/>
-                    </LinearGradientBrush>
+                </LinearGradientBrush>
             </BoxView.Background>
         </BoxView>
 
@@ -46,10 +46,37 @@
             <SwipeView.LeftItems >
                 <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
                     <SwipeItemView >
-                        <Grid HorizontalOptions="FillAndExpand" >
-                            <StackLayout Spacing="20" Padding="35" x:Name="swStack"
+                        <Grid HorizontalOptions="Fill" >
+                            <!--<StackLayout x:Name="swStack" IsVisible="false"></StackLayout>-->
+                            <StackLayout Spacing="20" Padding="35" 
                                          VerticalOptions="StartAndExpand" 
-                                         HorizontalOptions="StartAndExpand">
+                                         HorizontalOptions="EndAndExpand">
+                                <pancake:PancakeView
+                                    BackgroundColor="{StaticResource AccentColor}"
+                                    HorizontalOptions="EndAndExpand"
+                                    Padding="15,8"
+                                    CornerRadius="10"
+                                    Margin="0,0,100,0">
+                                    <pancake:PancakeView.Shadow>
+                                        <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="5,5"/>
+                                    </pancake:PancakeView.Shadow>
+                                    <pancake:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="btnMenuClose_Clicked"></TapGestureRecognizer>
+                                    </pancake:PancakeView.GestureRecognizers>
+
+
+                                    <Label Text="CLOSE MENU"
+                                           FontFamily="SourceSansPro-Bold"
+                                           TextColor="{StaticResource PrimaryColor}"
+                                           FontAttributes="Bold"></Label>
+
+                                </pancake:PancakeView>
+
+                                <!--<Button BackgroundColor="{StaticResource AccentColor}"
+                                        HeightRequest="40"
+                                        Opacity="0.5"
+                                        ></Button>-->
 
                                 <renders:ImageCircle
                     x:Name="profileImage"
@@ -212,7 +239,7 @@
                                     </ListView.ItemTemplate>
                                 </ListView>
 
-                              
+
 
 
                             </StackLayout>
@@ -340,7 +367,7 @@
                 Grid.Column="0"
                 BackgroundColor="{StaticResource PrimaryColor}"
                 Clicked="btnMyRentals_Clicked"
-                CornerRadius="40"
+                CornerRadius="25"
                 FontFamily="SourceSansPro-Regular"
                 HorizontalOptions="FillAndExpand"
                 Text="BOOKINGS"
@@ -387,7 +414,7 @@
                 Margin="-20,0,-5,0"
                 BackgroundColor="{StaticResource LightGrayColor}"
                 Clicked="btnPastRental_Clicked"
-                CornerRadius="40"
+                CornerRadius="25"
                 FontFamily="SourceSansPro-Regular"
                 HorizontalOptions="FillAndExpand"
                 Text="RENTALS"
@@ -439,6 +466,7 @@
                        HorizontalOptions="FillAndExpand"
                        HeightRequest="1000"
                        x:Name="grdRentals"
+                                       HasShadow="False"
                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource LightGrayColor}}">
                                     <ScrollView VerticalScrollBarVisibility="Never" BackgroundColor="Transparent">
                                         <StackLayout
@@ -469,12 +497,11 @@
                                            CornerRadius="10"
                                            Padding="5"
                                            HorizontalOptions="Fill"
-                                           VerticalOptions="Start"
-                                                                 HeightRequest="800">
+                                           VerticalOptions="Start">
                                                                 <!--<pancake:PancakeView.Shadow>
                                                     <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="20,20"/>
                                                 </pancake:PancakeView.Shadow>-->
-                                                                <Grid HeightRequest="800">
+                                                                <Grid >
 
                                                                     <Grid Margin="5,10" Padding="0" VerticalOptions="StartAndExpand" 
                                               IsVisible="{Binding isReservationVisible}">
@@ -1288,6 +1315,7 @@
                        HeightRequest="1000"
                        x:Name="grdPastRentals"
                        IsVisible="False"
+                                       HasShadow="False"
                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource LightGrayColor}}">
                                     <ScrollView VerticalScrollBarVisibility="Never" BackgroundColor="Transparent">
                                         <StackLayout
@@ -1308,8 +1336,7 @@
                                        BackgroundColor="Transparent"
                                       IsScrollAnimated="True"
                                       VerticalOptions="StartAndExpand"
-                                              IsVisible="false"
-                                              HeightRequest="550"
+                                              HeightRequest="50"
                                                               Loop="True"
                                      >
                                                     <CarouselView.ItemTemplate>
@@ -1318,15 +1345,14 @@
                                            CornerRadius="10"
                                            Padding="5"
                                            HorizontalOptions="Fill"
-                                           VerticalOptions="Start"
-                                                                 HeightRequest="800">
+                                           VerticalOptions="Start">
                                                                 <!--<pancake:PancakeView.Shadow>
                                                     <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="20,20"/>
                                                 </pancake:PancakeView.Shadow>-->
-                                                                <Grid HeightRequest="800">
+                                                                <Grid  BackgroundColor="CadetBlue" >
 
                                                                     <Grid Margin="5,10" Padding="0" VerticalOptions="StartAndExpand" 
-                                              IsVisible="{Binding isReservationVisible}">
+                                              IsVisible="{Binding isReservationVisible}" >
                                                                         <Grid.RowDefinitions>
                                                                             <RowDefinition Height="45" />
                                                                             <RowDefinition Height="auto" />

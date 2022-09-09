@@ -173,10 +173,8 @@ namespace SnapCarHire.Views
 
         private void HomeBtn_Clicked(object sender, EventArgs e)
         {
-            if (Navigation.NavigationStack[Navigation.NavigationStack.Count - 1].GetType() != typeof(HomePage))
-            {
+
                 Navigation.PushAsync(new HomePage());
-            }
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

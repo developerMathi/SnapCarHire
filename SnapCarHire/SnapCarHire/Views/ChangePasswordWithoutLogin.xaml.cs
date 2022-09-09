@@ -87,7 +87,7 @@ namespace SnapCarHire.Views
                         else if (CPId == -1)
                         {
                             OldPassEntry.Text = null;
-                            await PopupNavigation.Instance.PushAsync(new Error_popup("Please check your currnt password."));
+                            await PopupNavigation.Instance.PushAsync(new Error_popup("Please check your current password."));
                         }
                         else
                         {

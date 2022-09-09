@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:renders="clr-namespace:SnapCarHire.Renders"
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.EditAddNewDriver"
-             BackgroundColor="{StaticResource BackGroundColor}">
+             BackgroundColor="{StaticResource BackGroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">

@@ -9,7 +9,9 @@
     xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <NavigationPage.TitleView>
         <StackLayout>
             <Label
@@ -1879,6 +1881,7 @@
                     HeightRequest="50">
                     <Grid>
                         <renders:CustomEntry
+                             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                             x:Name="txtOther"
                             Margin="10,0,0,0"
                             FontFamily="SourceSansPro-Regular"
@@ -1899,6 +1902,7 @@
                     HeightRequest="50">
                     <Grid>
                         <renders:CustomEntry
+                             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                             x:Name="txtComments"
                             Margin="10,0,0,0"
                             FontFamily="SourceSansPro-Regular"

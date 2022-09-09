@@ -108,7 +108,7 @@ namespace SnapCarHire.Views
                         }
                         else
                         {
-                            await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup("No profile found for this email ID"));
+                            await PopupNavigation.Instance.PushAsync(new Error_popup("No profile found for this email ID"));
                         }
                     }
                 }

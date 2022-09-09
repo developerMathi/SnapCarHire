@@ -6,7 +6,9 @@
              xmlns:renders="clr-namespace:SnapCarHire.Renders"
              mc:Ignorable="d"
              x:Class="SnapCarHire.Views.ContactUs"
-             BackgroundColor="{StaticResource BackGroundColor}">
+             BackgroundColor="{StaticResource BackGroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
             <Label Text="Contact Us"
@@ -59,6 +61,7 @@
 
 
                         <renders:CustomEntry Grid.Row="0"
+                                              BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                          Grid.Column="0"
                                          Placeholder="Name"
                                          PlaceholderColor="{StaticResource GrayColor}"

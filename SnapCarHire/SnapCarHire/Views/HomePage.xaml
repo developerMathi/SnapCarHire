@@ -7,7 +7,9 @@
              x:Class="SnapCarHire.Views.HomePage"
              xmlns:pages="clr-namespace:SnapCarHire.Views"
                   NavigationPage.HasNavigationBar="False"
-                  FlowDirection="LeftToRight">
+                  FlowDirection="LeftToRight"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <MasterDetailPage.Master>
         <pages:HomeMenuPage x:Name="MasterPage" />
     </MasterDetailPage.Master>

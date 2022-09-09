@@ -9,7 +9,9 @@
     xmlns:renders="clr-namespace:SnapCarHire.Renders"
     BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
     NavigationPage.HasNavigationBar="False"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <Grid>
 
@@ -374,6 +376,7 @@
                                         </Image>
 
                                         <renders:CustomEntry
+                                             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                         x:Name="emailEntry"
                                         Grid.Column="1"
                                         Margin="10,0,0,0"
@@ -510,6 +513,7 @@
                                         </Image>
 
                                         <renders:CustomEntry
+                                             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                         x:Name="PasswordEntry"
                                         Grid.Column="1"
                                         Margin="10,0,0,0"
@@ -626,6 +630,7 @@
                                         </Image>
 
                                         <renders:CustomEntry
+                                             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                                         x:Name="ConfirmPasswordEntry"
                                         Grid.Column="1"
                                         Margin="10,0,0,0"

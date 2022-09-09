@@ -21,25 +21,29 @@ namespace SnapCarHire.iOS
         protected override void OnElementChanged(ElementChangedEventArgs <DatePicker> e)
         {
             base.OnElementChanged(e);
-
-            Control.Layer.BorderWidth = 0;
-            Control.BorderStyle = UITextBorderStyle.None;
-
-            var element = e.NewElement as BorderlessDatePicker;
-            if (!string.IsNullOrWhiteSpace(element.Placeholder))
+            if(Control != null)
             {
-                Control.Text = element.Placeholder;
+                Control.Layer.BorderWidth = 0;
+                Control.BorderStyle = UITextBorderStyle.None;
+
+                var element = e.NewElement as BorderlessDatePicker;
+                if (!string.IsNullOrWhiteSpace(element.Placeholder))
+                {
+                    Control.Text = element.Placeholder;
+                }
+
+                Control.ShouldEndEditing += (textField) => {
+                    var seletedDate = (UITextField)textField;
+                    var text = seletedDate.Text;
+                    if (text == element.Placeholder)
+                    {
+                        Control.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    }
+                    return true;
+                };
             }
 
-            Control.ShouldEndEditing += (textField) => {
-                var seletedDate = (UITextField)textField;
-                var text = seletedDate.Text;
-                if (text == element.Placeholder)
-                {
-                    Control.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                }
-                return true;
-            };
+           
         }
     }
 }

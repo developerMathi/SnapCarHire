@@ -8,10 +8,11 @@
             mc:Ignorable="d"
             x:Class="SnapCarHire.Views.HomeTabbedPage"
             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-            ios:Page.UseSafeArea="False"
+            ios:Page.UseSafeArea="True"
             BackgroundColor="Transparent"
             BarBackgroundColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource LightGrayColor}}"
             NavigationPage.HasNavigationBar="False"
+            
             >
     <!--Pages can be added as references or inline-->
     
@@ -19,6 +20,7 @@
         x:Name="bookingPage"
         Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedSearch.png}" 
         Title=""
+        
         />
 
     <views:HomePageDetail

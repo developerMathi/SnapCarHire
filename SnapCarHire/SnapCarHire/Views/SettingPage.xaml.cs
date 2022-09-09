@@ -10,31 +10,32 @@ using Xamarin.Forms.Xaml;
 
 namespace SnapCarHire.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingPage : ContentPage
     {
         public SettingPage()
         {
             InitializeComponent();
-
             if ((int)App.Current.Properties["AppTheme"] == 1)
             {
-                themegroup.SelectedItem = "1";
+                lCheck.Value = true;
             }
             else if ((int)App.Current.Properties["AppTheme"] == 2)
             {
-                themegroup.SelectedItem = "2";
+               dCheck.Value=true;
             }
             else
             {
-                themegroup.SelectedItem = "3";
+                sCheck.Value = true;
             }
+
+
         }
 
         private void btnBack_Clicked(object sender, EventArgs e)
         {
             Navigation.PopModalAsync();
         }
+
 
         private void themegroup_SelectedItemChanged(object sender, EventArgs e)
         {
@@ -54,6 +55,24 @@ namespace SnapCarHire.Views
                 App.Current.Properties["AppTheme"] = 3;
                 Application.Current.UserAppTheme = OSAppTheme.Unspecified;
             }
+        }
+
+        void RadioButton_CheckedChanged(System.Object sender, Xamarin.Forms.CheckedChangedEventArgs e)
+        {
+            App.Current.Properties["AppTheme"] = 2;
+            Application.Current.UserAppTheme = OSAppTheme.Dark;
+        }
+
+        void RadioButton_CheckedChanged_1(System.Object sender, Xamarin.Forms.CheckedChangedEventArgs e)
+        {
+            App.Current.Properties["AppTheme"] = 1;
+            Application.Current.UserAppTheme = OSAppTheme.Light;
+        }
+
+        void RadioButton_CheckedChanged_2(System.Object sender, Xamarin.Forms.CheckedChangedEventArgs e)
+        {
+            App.Current.Properties["AppTheme"] = 3;
+            Application.Current.UserAppTheme = OSAppTheme.Unspecified;
         }
     }
 }

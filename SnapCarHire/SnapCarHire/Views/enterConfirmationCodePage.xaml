@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SnapCarHire.MarkupExtensions" xmlns:renders="clr-namespace:SnapCarHire.Renders"
              x:Class="SnapCarHire.Views.enterConfirmationCodePage"
-             BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackGroundColor}, Dark={StaticResource BlackColor}}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="20,10,20,0">
@@ -130,6 +132,7 @@
                             HasShadow="False"
                     x:Name="codeFrame">
                     <renders:CustomEntry
+                         BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
                         Focused="ContactNoEntry_Focused"
                                     x:Name="ContactNoEntry"
                         VerticalOptions="Center"

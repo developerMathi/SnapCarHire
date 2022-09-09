@@ -21,10 +21,13 @@ namespace SnapCarHire.iOS
         {
             var cell = base.GetCell(item, reusableCell, tv);
             var view = item as ExtendedViewCell;
-            cell.SelectedBackgroundView = new UIView
+            if (cell != null)
             {
-                BackgroundColor = view.SelectedBackgroundColor.ToUIColor(),
-            };
+                cell.SelectedBackgroundView = new UIView
+                {
+                    BackgroundColor = view.SelectedBackgroundColor.ToUIColor(),
+                };
+            }
 
             return cell;
         }

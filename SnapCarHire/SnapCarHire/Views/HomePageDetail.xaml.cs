@@ -166,7 +166,7 @@ namespace SnapCarHire.Views
             // Screen density
             var density = mainDisplayInfo.Density;
 
-            swStack.WidthRequest = width/ density;
+            //swStack.WidthRequest = width/ density;
 
             CloseAnimation();
             MainSwipeView.Close();
@@ -305,9 +305,14 @@ namespace SnapCarHire.Views
 
                             if (registrationDBModel.Agreements.Count > 0)
                             {
-                                agree_carousel.ItemsSource = registrationDBModel.Agreements;
-                                agree_carousel.IsVisible = true;
-                                noAgreeStack.IsVisible = false;
+                                await Task.Delay(50);
+                                Device.BeginInvokeOnMainThread(async () =>
+                                {
+                                    agree_carousel.ItemsSource = registrationDBModel.Agreements;
+                                    //agree_carousel.HeightRequest = 550;
+                                    await Task.Delay(50);
+                                    await Task.Delay(50);
+                                });
                             }
                             else
                             {
@@ -755,7 +760,7 @@ namespace SnapCarHire.Views
             //}
         }
 
-        private void btnPastRental_Clicked(object sender, EventArgs e)
+        private async void btnPastRental_Clicked(object sender, EventArgs e)
         {
             unSelectedTab();
             //BooknowBtn.IsVisible = false;
@@ -766,11 +771,19 @@ namespace SnapCarHire.Views
 
         private void btnMenu_Clicked(object sender, EventArgs e)
         {
-            //Common.mMasterPage.Master = new HomePageMaster();
-            //Common.mMasterPage.IsPresented = true;
-            MainSwipeView.Open(OpenSwipeItem.LeftItems);
+            if (DeviceInfo.Platform == DevicePlatform.iOS)
+            {
+                Common.mMasterPage.Master = new HomePageMaster();
+                Common.mMasterPage.IsPresented = true;
+            }
+            else
+            {
+                MainSwipeView.Open(OpenSwipeItem.LeftItems);
 
-            OpenAnimation();
+                OpenAnimation();
+            }
+
+            
 
         }
 

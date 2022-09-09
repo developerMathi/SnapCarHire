@@ -10,7 +10,9 @@
     Title="Upcoming Reservation"
    NavigationPage.HasBackButton="False"
     mc:Ignorable="d"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}">
+    BackgroundColor="{AppThemeBinding Dark={StaticResource frameBoarderDark}, Light={StaticResource BackGroundColor}}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
 
     <ContentPage.Content>
         <Grid Margin="5,10,5,0"

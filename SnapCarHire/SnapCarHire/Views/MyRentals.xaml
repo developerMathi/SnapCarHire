@@ -9,7 +9,9 @@
              x:Class="SnapCarHire.Views.MyRentals"
             BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor}, Light={StaticResource BackGroundColor}}"
               NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True">
     <ContentPage.Content>
         <StackLayout Margin="15,5,15,0" VerticalOptions="FillAndExpand">
             <Grid
@@ -27,8 +29,8 @@
                             <On Platform="iOS">
                                 <OnIdiom
                                         x:TypeArguments="x:Double"
-                                        Phone="25"
-                                        Tablet="30" />
+                                         Phone="40"
+                                        Tablet="50" />
                             </On>
                             <On Platform="Android,Windows">
                                 <OnIdiom
@@ -241,10 +243,11 @@
 
             </Grid>
 
-            <ScrollView Margin="0,0,0,0" VerticalOptions="FillAndExpand">
-                <StackLayout VerticalOptions="Fill">
+            <ScrollView Margin="0,0,0,0" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <StackLayout VerticalOptions="Fill" BackgroundColor="Transparent">
                    
-                    <ListView x:Name="myRentalsList" 
+                    <ListView x:Name="myRentalsList"
+                              BackgroundColor="Transparent"
                                               ItemSelected="MyRentalsList_ItemSelected" 
                               ItemTapped="myRentalsList_ItemTapped"
                                               RowHeight="325" 
