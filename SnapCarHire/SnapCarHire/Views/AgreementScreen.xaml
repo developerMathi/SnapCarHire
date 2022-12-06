@@ -1297,7 +1297,6 @@
                             CheckChanged="TCcheckBox_CheckChanged"
                             Text="I read the above summary"
                             TextColor="{AppThemeBinding Dark={StaticResource BackGroundColor}, Light={StaticResource BlackColor}}"
-                            Type="Material"
                             Color="{StaticResource PrimaryColor}">
                             <input:CheckBox.TextFontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
@@ -1469,7 +1468,8 @@
                             FontFamily="SourceSansPro-Bold"
                             HeightRequest="50"
                             Text="VEHICLE INSPECTIOM"
-                            TextColor="{StaticResource PrimaryColor}" />
+                            TextColor="{StaticResource PrimaryColor}"
+                            IsVisible="False"/>
                         
                         <Button
                             x:Name="ExtendBtn"
@@ -1485,7 +1485,8 @@
                             HeightRequest="45"
                             IsVisible="false"
                             Text="EXTEND RENTAL"
-                            TextColor="{StaticResource PrimaryColor}" />
+                            TextColor="{StaticResource PrimaryColor}"
+                            />
                     </Grid>
 
 

@@ -8,10 +8,16 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SnapCarHireModel\SnapCarHireModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.AppCenter.Analytics" />
+    <None Remove="Microsoft.AppCenter.Crashes" />
+  </ItemGroup>
 </Project>

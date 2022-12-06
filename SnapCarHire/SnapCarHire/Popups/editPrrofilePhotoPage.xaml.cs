@@ -246,7 +246,8 @@ namespace SnapCarHire.Popups
 
 
                                     Constants.customerDetails.CustomerImages.Add(new CustomerImages() { Base64 = _base64Image });
-                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your profile picture updated successfully.",1));
+
+                                    await PopupNavigation.Instance.PushAsync(new SuccessPopUp("Your profile picture updated successfully.",2));
                                 }
                             }
                         }

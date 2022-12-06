@@ -165,6 +165,10 @@ namespace SnapCarHire.Views
                             GetAccessTokenRequest tokenRequest = new GetAccessTokenRequest();
                             tokenRequest.client_id = clientSecretTokenResponse.apiConsumerId;
                             tokenRequest.client_secret = clientSecretTokenResponse.apiConsumerSecret;
+
+                            //tokenRequest.client_id = "4865e430-7c09-4bde-8f7f-0d58121aca78"; //QA cliId-565 
+                            //tokenRequest.client_secret = "FE0D35C4-6F9F-4304-8761-4766E30C4D3A"; //QA cliId-565
+
                             tokenRequest.grant_type = "client_credentials";
                             ApiToken apiToken = apiController.GetAccessToken(tokenRequest);
                             token = apiToken.access_token;

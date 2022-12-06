@@ -213,6 +213,8 @@
     <None Remove="Assets\EzLogo.png" />
     <None Remove="Assets\EzLogoWhite.png" />
     <None Remove="Assets\Illustrations\Load more_b.gif" />
+    <None Remove="Microsoft.AppCenter.Analytics" />
+    <None Remove="Microsoft.AppCenter.Crashes" />
   </ItemGroup>
 
   <ItemGroup>
@@ -439,6 +441,8 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="4.0.0-pre.8" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.763-beta" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

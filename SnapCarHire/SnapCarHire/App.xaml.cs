@@ -8,6 +8,9 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace SnapCarHire
 {
@@ -37,6 +40,11 @@ namespace SnapCarHire
 
         protected override void OnStart()
         {
+            AppCenter.Start("ios={Your App secret here};" +
+                  "uwp={Your UWP App secret here};" +
+                  "android={Your Android App secret here};" +
+                  "macos={\"8fd4f5c3-d6a9-4502-9c8c-556c68140c36\"};",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

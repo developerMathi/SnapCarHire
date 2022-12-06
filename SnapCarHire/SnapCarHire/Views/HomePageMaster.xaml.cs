@@ -130,7 +130,7 @@ namespace SnapCarHire.Views
                     new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteBooking.png"), Title = "My Reservations" },
                     new HomePageMasterMenuItem { Id = 2,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteRental.png"), Title = "My Rentals " },
                     new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteUser.png"), Title = "My Profile" },
-                    new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteSetting.png"), Title = "Settings" },
+                    //new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteSetting.png"), Title = "Settings" },
                     new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteLogout.png"), Title = "Log out" },
                    // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
                    // new HomePageMasterMenuItem { Id = 3, Title = "My Rentals" },

@@ -18,7 +18,7 @@
     
     <views:BookNow
         x:Name="bookingPage"
-        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedSearch.png}" 
+        Icon="search.png" 
         Title=""
         
         />
@@ -26,11 +26,11 @@
     <views:HomePageDetail
         x:Name="Dashboard"
         Title=""
-        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedDashboard.png}" />
+        Icon="home.png" />
 
     <views:MyProfile
         x:Name="MembershipScreen"
-        Icon="{local:EmbeddedImage ResourceId=SnapCarHire.Assets.iconRedUser.png}" 
+        Icon="user.png" 
         Title=""/>
     <!--<views:HelpFunnelPage
         x:Name="AcountPage"

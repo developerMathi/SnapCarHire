@@ -285,6 +285,7 @@ namespace SnapCarHire.Views
 
                     }
 
+
                     if (registrationDBModelResponse != null)
                     {
                         if (registrationDBModelResponse.message.ErrorCode == "200")
@@ -300,19 +301,23 @@ namespace SnapCarHire.Views
                             else
                             {
                                 reservation_carousel.IsVisible = false;
+                                agree_carousel.IsVisible = false;
                                 nobookinStack.IsVisible = true;
                             }
 
                             if (registrationDBModel.Agreements.Count > 0)
-                            {
+                            { 
                                 await Task.Delay(50);
                                 Device.BeginInvokeOnMainThread(async () =>
                                 {
                                     agree_carousel.ItemsSource = registrationDBModel.Agreements;
+                                    agree_carousel.IsVisible = true;
+                                    noAgreeStack.IsVisible = false;
                                     //agree_carousel.HeightRequest = 550;
                                     await Task.Delay(50);
                                     await Task.Delay(50);
                                 });
+                                
                             }
                             else
                             {
@@ -1030,6 +1035,7 @@ namespace SnapCarHire.Views
             var obj = (ImageButton)sender;
             var agreemodel = obj.BindingContext as CustomerAgreementModel;
             Navigation.PushModalAsync(new AgreementScreen(agreemodel.AgreementId, agreemodel.VehicleId));
+           // Navigation.PushModalAsync(new ViewReservation(492293));
         }
 
 
@@ -1173,7 +1179,7 @@ namespace SnapCarHire.Views
                     new HomePageMasterMenuItem { Id = 3,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteBooking.png"), Title = "My Reservations" },
                     new HomePageMasterMenuItem { Id = 2,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteRental.png"), Title = "My Rentals " },
                     new HomePageMasterMenuItem { Id = 4,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteUser.png"), Title = "My Profile" },
-                    new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteSetting.png"), Title = "Settings" },
+                    //new HomePageMasterMenuItem { Id = 6,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteSetting.png"), Title = "Settings" },
                     new HomePageMasterMenuItem { Id = 5,BgColor = Color.Transparent,IconSource=ImageSource.FromResource("SnapCarHire.Assets.iconWhiteLogout.png"), Title = "Log out" },
                    // new HomePageMasterMenuItem { Id = 2, Title = "Upcoming reservation " },
                    // new HomePageMasterMenuItem { Id = 3, Title = "My Rentals" },

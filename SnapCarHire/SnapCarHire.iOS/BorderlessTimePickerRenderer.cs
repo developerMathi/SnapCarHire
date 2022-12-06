@@ -38,7 +38,7 @@ namespace SnapCarHire.iOS
                     var text = seletedDate.Text;
                     if (text == element.Placeholder)
                     {
-                        Control.Text = DateTime.Now.TimeOfDay.ToString();
+                        Control.Text = "00:00";
                     }
                     return true;
                 };

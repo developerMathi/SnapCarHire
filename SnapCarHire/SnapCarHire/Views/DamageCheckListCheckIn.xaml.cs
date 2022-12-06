@@ -53,135 +53,135 @@ namespace SnapCarHire.Views
 
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-            {
-                if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ErrorWithClosePagePopup))
-                {
-                    await PopupNavigation.Instance.PopAllAsync();
-                }
-            }
+        //    if (PopupNavigation.Instance.PopupStack.Count > 0)
+        //    {
+        //        if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ErrorWithClosePagePopup))
+        //        {
+        //            await PopupNavigation.Instance.PopAllAsync();
+        //        }
+        //    }
 
-            bool busy = false;
-            if (!busy)
-            {
-                try
-                {
-                    busy = true;
-                    await PopupNavigation.Instance.PushAsync(new LoadingPopup("Loading damage list..."));
+        //    bool busy = false;
+        //    if (!busy)
+        //    {
+        //        try
+        //        {
+        //            busy = true;
+        //            await PopupNavigation.Instance.PushAsync(new LoadingPopup("Loading damage list..."));
 
-                    await Task.Run(async () =>
-                    {
-                        try
-                        {
-                            checklistMobileResponse = getDamageCheckListMobile(checklistMobileRequest, token);
-                            imageURLMobileResponse = getDamageSignature(imageURLMobileRequest, token);
-                        }
-                        catch (Exception ex)
-                        {
-                            await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
-                        }
+        //            await Task.Run(async () =>
+        //            {
+        //                try
+        //                {
+        //                    checklistMobileResponse = getDamageCheckListMobile(checklistMobileRequest, token);
+        //                    imageURLMobileResponse = getDamageSignature(imageURLMobileRequest, token);
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(ex.Message));
+        //                }
 
-                    });
-                }
-                finally
-                {
-                    busy = false;
-                    if (PopupNavigation.Instance.PopupStack.Count == 1)
-                    {
-                        await PopupNavigation.Instance.PopAllAsync();
-                    }
-                    else if (PopupNavigation.Instance.PopupStack.Count > 1)
-                    {
-                        if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() != typeof(ErrorWithClosePagePopup))
-                        {
-                            await PopupNavigation.Instance.PopAllAsync();
-                        }
-                    }
-                }
-                if (checklistMobileResponse != null)
-                {
-                    if (checklistMobileResponse.message.ErrorCode == "200")
-                    {
-                       optionList = new List<DefaultDamageList>();
-                        List<DefaultDamageList> nonOptionList = new List<DefaultDamageList>();
-                        List<DefaultDamageList> calenderList = new List<DefaultDamageList>();
+        //            });
+        //        }
+        //        finally
+        //        {
+        //            busy = false;
+        //            if (PopupNavigation.Instance.PopupStack.Count == 1)
+        //            {
+        //                await PopupNavigation.Instance.PopAllAsync();
+        //            }
+        //            else if (PopupNavigation.Instance.PopupStack.Count > 1)
+        //            {
+        //                if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() != typeof(ErrorWithClosePagePopup))
+        //                {
+        //                    await PopupNavigation.Instance.PopAllAsync();
+        //                }
+        //            }
+        //        }
+        //        if (checklistMobileResponse != null)
+        //        {
+        //            if (checklistMobileResponse.message.ErrorCode == "200")
+        //            {
+        //               optionList = new List<DefaultDamageList>();
+        //                List<DefaultDamageList> nonOptionList = new List<DefaultDamageList>();
+        //                List<DefaultDamageList> calenderList = new List<DefaultDamageList>();
 
-                        foreach (DefaultDamageList ddm in checklistMobileResponse.DefaultDamageChecklistIn)
-                        {
-                            if (ddm.SelectOption == "Optional")
-                            {
-                                optionList.Add(ddm);
-                            }
-                            else if (ddm.SelectOption == "ShortAnswer")
-                            {
-                                if (!string.IsNullOrEmpty(ddm.Area))
-                                {
-                                    nonOptionList.Add(ddm);
-                                }
+        //                foreach (DefaultDamageList ddm in checklistMobileResponse.DefaultDamageChecklistIn)
+        //                {
+        //                    if (ddm.SelectOption == "Optional")
+        //                    {
+        //                        optionList.Add(ddm);
+        //                    }
+        //                    else if (ddm.SelectOption == "ShortAnswer")
+        //                    {
+        //                        if (!string.IsNullOrEmpty(ddm.Area))
+        //                        {
+        //                            nonOptionList.Add(ddm);
+        //                        }
 
-                            }
-                            else if (ddm.SelectOption == "Calendar")
-                            {
-                                if (!string.IsNullOrEmpty(ddm.calendarstr))
-                                {
-                                    calenderList.Add(ddm);
-                                }
-                            }
-                        }
+        //                    }
+        //                    else if (ddm.SelectOption == "Calendar")
+        //                    {
+        //                        if (!string.IsNullOrEmpty(ddm.calendarstr))
+        //                        {
+        //                            calenderList.Add(ddm);
+        //                        }
+        //                    }
+        //                }
 
-                        damageList.ItemsSource = optionList;
-                        damageList.HeightRequest = 60 * (optionList.Count+1);
+        //                damageList.ItemsSource = optionList;
+        //                damageList.HeightRequest = 60 * (optionList.Count+1);
 
-                        damageListNonOption.ItemsSource = nonOptionList;
-                        damageListNonOption.HeightRequest = 100 * nonOptionList.Count;
+        //                damageListNonOption.ItemsSource = nonOptionList;
+        //                damageListNonOption.HeightRequest = 100 * nonOptionList.Count;
 
-                        damageListCalender.ItemsSource = calenderList;
-                        damageListCalender.HeightRequest = 100 * calenderList.Count;
+        //                damageListCalender.ItemsSource = calenderList;
+        //                damageListCalender.HeightRequest = 100 * calenderList.Count;
 
-                    }
-                    else
-                    {
-                        await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(checklistMobileResponse.message.ErrorMessage));
-                    }
-                }
-                if (imageURLMobileResponse != null)
-                {
-                    if (imageURLMobileResponse.message.ErrorCode == "200")
-                    {
-                        if (!string.IsNullOrEmpty(imageURLMobileResponse.SignatureImageUrl))
-                        {
-                            byte[] Base64Stream = Convert.FromBase64String(imageURLMobileResponse.SignatureImageUrl);
-                            signatureImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
-                            signaturePadFrame.IsVisible = false;
-                            signatureBtnGrid.IsVisible = false;
-                            imageFrame.IsVisible = true;
-                        }
-                        else
-                        {
-                            signatureBtnGrid.IsVisible = true;
-                            signatureView.IsVisible = true;
-                            imageFrame.IsVisible = false;
-                        }
-                    }
-                    else
-                    {
-                        signatureBtnGrid.IsVisible = true;
-                        signatureView.IsVisible = true;
-                        imageFrame.IsVisible = false;
-                    }
-                }
-                else
-                {
-                    signatureBtnGrid.IsVisible = true;
-                    signatureView.IsVisible = true;
-                    imageFrame.IsVisible = false;
-                }
-            }
-        }
+        //            }
+        //            else
+        //            {
+        //                await PopupNavigation.Instance.PushAsync(new ErrorWithClosePagePopup(checklistMobileResponse.message.ErrorMessage));
+        //            }
+        //        }
+        //        if (imageURLMobileResponse != null)
+        //        {
+        //            if (imageURLMobileResponse.message.ErrorCode == "200")
+        //            {
+        //                if (!string.IsNullOrEmpty(imageURLMobileResponse.SignatureImageUrl))
+        //                {
+        //                    byte[] Base64Stream = Convert.FromBase64String(imageURLMobileResponse.SignatureImageUrl);
+        //                    signatureImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+        //                    signaturePadFrame.IsVisible = false;
+        //                    signatureBtnGrid.IsVisible = false;
+        //                    imageFrame.IsVisible = true;
+        //                }
+        //                else
+        //                {
+        //                    signatureBtnGrid.IsVisible = true;
+        //                    signatureView.IsVisible = true;
+        //                    imageFrame.IsVisible = false;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                signatureBtnGrid.IsVisible = true;
+        //                signatureView.IsVisible = true;
+        //                imageFrame.IsVisible = false;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            signatureBtnGrid.IsVisible = true;
+        //            signatureView.IsVisible = true;
+        //            imageFrame.IsVisible = false;
+        //        }
+        //    }
+        //}
 
         private ReloadSignatureImageURLMobileResponse getDamageSignature(ReloadSignatureImageURLMobileRequest imageURLMobileRequest, string token)
         {

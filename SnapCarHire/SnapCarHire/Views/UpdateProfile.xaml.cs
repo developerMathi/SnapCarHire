@@ -94,6 +94,11 @@ namespace SnapCarHire.Views
         {
             base.OnAppearing();
 
+            MessagingCenter.Subscribe<App>((App)Application.Current, "profileImageUpdated", sender =>
+            {
+                refreshImahes();
+            });
+
             if (PopupNavigation.Instance.PopupStack.Count > 0)
             {
                 if (PopupNavigation.Instance.PopupStack[PopupNavigation.Instance.PopupStack.Count - 1].GetType() == typeof(ErrorWithClosePagePopup))
@@ -260,6 +265,31 @@ namespace SnapCarHire.Views
 
 
             }
+        }
+
+        private void refreshImahes()
+        {
+            try
+            {
+                PortalDetailsMobileResponse = getCustomerDetailsWithProfilePic(portalDetailsMobileRequest, _token);
+                if (PortalDetailsMobileResponse.customerReview != null)
+                {
+                    if (PortalDetailsMobileResponse.customerReview.CustomerImages.Count > 0)
+                    {
+                        if (PortalDetailsMobileResponse.customerReview.CustomerImages[PortalDetailsMobileResponse.customerReview.CustomerImages.Count - 1].Base64 != null)
+                        {
+                            Images = PortalDetailsMobileResponse.customerReview.CustomerImages[PortalDetailsMobileResponse.customerReview.CustomerImages.Count - 1];
+                            byte[] Base64Stream = Convert.FromBase64String(PortalDetailsMobileResponse.customerReview.CustomerImages[PortalDetailsMobileResponse.customerReview.CustomerImages.Count - 1].Base64);
+                            profileImage.Source = ImageSource.FromStream(() => new MemoryStream(Base64Stream));
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         private GetCustomerPortalDetailsMobileResponse getCustomerDetailsWithProfilePic(GetCustomerPortalDetailsMobileRequest portalDetailsMobileRequest, string token)

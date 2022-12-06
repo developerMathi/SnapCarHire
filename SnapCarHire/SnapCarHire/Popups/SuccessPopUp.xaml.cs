@@ -16,6 +16,7 @@ namespace SnapCarHire.Popups
     public partial class SuccessPopUp : PopupPage
     {
         private int v;
+        private int r;
         private string email;
 
         public SuccessPopUp(string content)
@@ -31,6 +32,13 @@ namespace SnapCarHire.Popups
             contentText.Text = content;
             this.v = v;
         }
+        public SuccessPopUp(string content, int v,int r)
+        {
+            InitializeComponent();
+            contentText.Text = content;
+            this.r = r;
+            this.v = v;
+        }
 
         public SuccessPopUp(string content, int v, string email)
         {
@@ -42,45 +50,49 @@ namespace SnapCarHire.Popups
             LoginBtn.IsVisible = true;
         }
 
-        private void Okbtn_Clicked(object sender, EventArgs e)
+        private async void Okbtn_Clicked(object sender, EventArgs e)
         {
             if (v == 0)
             {
-                PopupNavigation.Instance.PopAllAsync();
+                await PopupNavigation.Instance.PopAllAsync();
             }
             if (v == 1)
             {
-
+                var pageOne = new HomePage();
+                NavigationPage.SetHasNavigationBar(pageOne, false);
+                NavigationPage mypage = new NavigationPage(pageOne);
+                Application.Current.MainPage = mypage;
                 while (Navigation.ModalStack.Count > 1)
                 {
                     Navigation.PopModalAsync();
                 }
                 Navigation.PopModalAsync();
-                if (PopupNavigation.Instance.PopupStack.Count > 0)
-                {
-                     PopupNavigation.PopAllAsync();
-                }
+                PopupNavigation.Instance.PopAllAsync();
+                
             }
             if (v == 2)
             {
-                Navigation.PushModalAsync(new MyProfile());
+                MessagingCenter.Send<App>((App)Application.Current, "profileImageUpdated");
+
+                await PopupNavigation.PopAllAsync();
             }
             if (v == 3)
             {
-                Navigation.PopModalAsync();
+                await Navigation.PopModalAsync();
+                await PopupNavigation.PopAsync();
             }
             if (v == 5)
             {
-                Navigation.PushModalAsync(new ChangePasswordWithoutLogin(email));
+                await Navigation.PushModalAsync(new ChangePasswordWithoutLogin(email));
             }
             if (v == 6)
             {
                 while (Navigation.ModalStack.Count > 1)
                 {
-                    Navigation.PopModalAsync();
+                    await Navigation.PopModalAsync();
                 }
-                Navigation.PopModalAsync();
-                PopupNavigation.Instance.PopAsync();
+                await Navigation.PopModalAsync();
+                await PopupNavigation.Instance.PopAsync();
 
 
 

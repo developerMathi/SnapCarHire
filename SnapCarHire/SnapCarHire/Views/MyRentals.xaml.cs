@@ -174,7 +174,7 @@ namespace SnapCarHire.Views
         private void HomeBtn_Clicked(object sender, EventArgs e)
         {
 
-                Navigation.PushAsync(new HomePage());
+                Navigation.PopModalAsync();
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

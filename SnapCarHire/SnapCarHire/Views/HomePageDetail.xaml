@@ -487,10 +487,25 @@
                                        BackgroundColor="Transparent"
                                       IsScrollAnimated="True"
                                       VerticalOptions="StartAndExpand"
-                                              IsVisible="false"
-                                              HeightRequest="550"
-                                                              Loop="True"
+                                                              Loop="False"
                                      >
+                                                    <CarouselView.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                                                            <On Platform="iOS">
+                                                                                                <OnIdiom
+                                                                                x:TypeArguments="x:Double"
+                                                                                Phone="550"
+                                                                                Tablet="680" />
+                                                                                            </On>
+                                                                                            <On Platform="Android,Windows">
+                                                                                                <OnIdiom
+                                                                                x:TypeArguments="x:Double"
+                                                                                Phone="550"
+                                                                                Tablet="680" />
+                                                                                            </On>
+                                                                                        </OnPlatform>
+
+                                                    </CarouselView.HeightRequest>
                                                     <CarouselView.ItemTemplate>
                                                         <DataTemplate>
                                                             <pancake:PancakeView BackgroundColor="{AppThemeBinding Dark={StaticResource GrayColor},Light={StaticResource BackGroundColor}}"
@@ -623,7 +638,26 @@
                                                                             <Image
                                                                 Margin="20"
                                                                 Aspect="AspectFit"
-                                                                Source="{Binding VehicleImageUrl}"/>
+                                                                Source="{Binding VehicleImageUrl}">
+                                                                                <Image.HeightRequest>
+                                                                                     <OnPlatform x:TypeArguments="x:Double">
+                                                                                        <On Platform="iOS">
+                                                                                            <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="100"
+                                                            Tablet="250" />
+                                                                                        </On>
+                                                                                        <On Platform="Android,Windows">
+                                                                                            <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                          Phone="100"
+                                                            Tablet="250" />
+                                                                                        </On>
+                                                                                    </OnPlatform>
+                                                                                </Image.HeightRequest>
+
+
+                                                                            </Image>
                                                                             <StackLayout
                                                             
                                                             Orientation="Horizontal"
@@ -1314,7 +1348,6 @@
                        HorizontalOptions="FillAndExpand"
                        HeightRequest="1000"
                        x:Name="grdPastRentals"
-                       IsVisible="False"
                                        HasShadow="False"
                        BackgroundColor="{AppThemeBinding Dark={StaticResource BlackColor},Light={StaticResource LightGrayColor}}">
                                     <ScrollView VerticalScrollBarVisibility="Never" BackgroundColor="Transparent">
@@ -1331,14 +1364,31 @@
                                     </LinearGradientBrush>
                                 </Frame.Background>-->
                                             <Grid>
-                                                <CarouselView x:Name="agree_carousel"
-                                      IndicatorView="agrIndicatorview"
+                                               
+                                                     <CarouselView  x:Name="agree_carousel"
+                                      IndicatorView="resIndicatorview"
                                        BackgroundColor="Transparent"
                                       IsScrollAnimated="True"
                                       VerticalOptions="StartAndExpand"
-                                              HeightRequest="50"
-                                                              Loop="True"
+                                                                    Loop="False"
                                      >
+                                                            <CarouselView.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                                                            <On Platform="iOS">
+                                                                                                <OnIdiom
+                                                                                x:TypeArguments="x:Double"
+                                                                                Phone="550"
+                                                                                Tablet="680" />
+                                                                                            </On>
+                                                                                            <On Platform="Android,Windows">
+                                                                                                <OnIdiom
+                                                                                x:TypeArguments="x:Double"
+                                                                                Phone="550"
+                                                                                Tablet="680" />
+                                                                                            </On>
+                                                                                        </OnPlatform>
+
+                                                    </CarouselView.HeightRequest>
                                                     <CarouselView.ItemTemplate>
                                                         <DataTemplate>
                                                             <pancake:PancakeView BackgroundColor="{AppThemeBinding Dark={StaticResource GrayColor},Light={StaticResource BackGroundColor}}"
@@ -1349,7 +1399,7 @@
                                                                 <!--<pancake:PancakeView.Shadow>
                                                     <pancake:DropShadow Color="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource BackGroundColor}}" Offset="20,20"/>
                                                 </pancake:PancakeView.Shadow>-->
-                                                                <Grid  BackgroundColor="CadetBlue" >
+                                                                <Grid   >
 
                                                                     <Grid Margin="5,10" Padding="0" VerticalOptions="StartAndExpand" 
                                               IsVisible="{Binding isReservationVisible}" >
@@ -1471,7 +1521,25 @@
                                                                             <Image
                                                                 Margin="20"
                                                                 Aspect="AspectFit"
-                                                                Source="{Binding VehicleImageUrl}"/>
+                                                                Source="{Binding VehicleImageUrl}">
+                                                                                 <Image.HeightRequest>
+                                                                                     <OnPlatform x:TypeArguments="x:Double">
+                                                                                        <On Platform="iOS">
+                                                                                            <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                            Phone="100"
+                                                            Tablet="250" />
+                                                                                        </On>
+                                                                                        <On Platform="Android,Windows">
+                                                                                            <OnIdiom
+                                                            x:TypeArguments="x:Double"
+                                                          Phone="100"
+                                                            Tablet="250" />
+                                                                                        </On>
+                                                                                    </OnPlatform>
+                                                                                </Image.HeightRequest>
+
+                                                                            </Image>
                                                                             <StackLayout
                                                             
                                                             Orientation="Horizontal"

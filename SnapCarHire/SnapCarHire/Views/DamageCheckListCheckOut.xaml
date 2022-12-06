@@ -330,7 +330,6 @@
                                                     Grid.Column="0"
                                                     Text="Front"
                                                     TextColor="{StaticResource BlackColor}"
-                                                    Type="Material"
                                                     Color="{StaticResource PrimaryColorDuplicate}">
                                                     <input:CheckBox.TextFontSize>
                                                         <OnPlatform x:TypeArguments="x:Double">
@@ -355,7 +354,6 @@
                                                     Grid.Column="1"
                                                     Text="Back"
                                                     TextColor="{StaticResource BlackColor}"
-                                                    Type="Material"
                                                     Color="{StaticResource PrimaryColorDuplicate}">
                                                     <input:CheckBox.TextFontSize>
                                                         <OnPlatform x:TypeArguments="x:Double">
@@ -381,7 +379,6 @@
                                                     Grid.Column="0"
                                                     Text="Driver Side"
                                                     TextColor="{StaticResource BlackColor}"
-                                                    Type="Material"
                                                     Color="{StaticResource PrimaryColorDuplicate}">
                                                     <input:CheckBox.TextFontSize>
                                                         <OnPlatform x:TypeArguments="x:Double">
@@ -406,7 +403,6 @@
                                                     Grid.Column="1"
                                                     Text="Passenger Side"
                                                     TextColor="{StaticResource BlackColor}"
-                                                    Type="Material"
                                                     Color="{StaticResource PrimaryColorDuplicate}">
                                                     <input:CheckBox.TextFontSize>
                                                         <OnPlatform x:TypeArguments="x:Double">
